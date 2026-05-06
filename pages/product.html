@@ -1,0 +1,78 @@
+<!-- GURU TEJA - PRODUCT DETAILS PAGE -->
+<section id="product-page" class="page" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
+    <button style="background: none; border: none; color: #944600; cursor: pointer; margin-bottom: 2rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="navigateTo('catalog')">
+        <span class="material-symbols-outlined" style="font-size: 20px;">arrow_back</span>
+        Back to Catalog
+    </button>
+
+    <!-- Product Details Grid -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;">
+        <!-- Product Image -->
+        <div style="aspect-ratio: 4/5; border-radius: 0.5rem; overflow: hidden; background-color: #f0ede8;">
+            <img id="productImage" src="" alt="Product" style="width: 100%; height: 100%; object-fit: cover;"/>
+        </div>
+
+        <!-- Product Information -->
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="margin-bottom: 2rem;">
+                <h1 id="productTitle" style="font-family: 'Noto Serif', serif; font-size: 36px; font-weight: 700; color: #3d2817; margin-bottom: 1rem;"></h1>
+                <p id="productDesc" style="font-size: 16px; color: #6b5147; line-height: 1.6; margin-bottom: 2rem;"></p>
+
+                <!-- Specifications -->
+                <div style="background-color: #f9f9f7; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
+                    <h3 style="font-size: 14px; font-weight: 600; text-transform: uppercase; color: #944600; margin-bottom: 1rem;">Specifications</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <p style="font-size: 12px; color: #6b5147; text-transform: uppercase;">Moisture</p>
+                            <p id="specMoisture" style="font-size: 18px; font-weight: 600; color: #3d2817;"></p>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; color: #6b5147; text-transform: uppercase;">Length</p>
+                            <p id="specLength" style="font-size: 18px; font-weight: 600; color: #3d2817;"></p>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; color: #6b5147; text-transform: uppercase;">Purity</p>
+                            <p id="specPurity" style="font-size: 18px; font-weight: 600; color: #3d2817;"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bulk Calculator -->
+                <div style="background-color: #fed7c0; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
+                    <h3 style="font-size: 14px; font-weight: 600; text-transform: uppercase; color: #944600; margin-bottom: 1rem;">Bulk Price Calculator</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <label style="font-size: 12px; color: #3d2817; font-weight: 600; text-transform: uppercase;">Unit Price:</label>
+                        <span id="unitPrice" style="font-size: 20px; font-weight: 700; color: #944600;"></span>
+                        <span style="font-size: 12px; color: #6b5147;">/Metric Tonne</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <label style="font-size: 12px; color: #3d2817; font-weight: 600; text-transform: uppercase;">Quantity (MT):</label>
+                        <input id="quantityInput" type="number" min="1" value="1" style="width: 80px; padding: 0.5rem; border: 1px solid #944600; border-radius: 0.125rem; font-size: 16px;"/>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; padding-top: 1rem; border-top: 2px solid rgba(148,70,0,0.2);">
+                        <label style="font-size: 12px; color: #3d2817; font-weight: 600; text-transform: uppercase;">Total:</label>
+                        <span id="totalPrice" style="font-size: 24px; font-weight: 700; color: #944600;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 1rem;">
+                <button style="flex: 1; background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem;" onclick="document.getElementById('inquiryForm')?.scrollIntoView({behavior: 'smooth'});" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
+                    Request Quote
+                </button>
+                <button style="flex: 1; border: 2px solid #944600; color: #944600; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; background: white; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem;" onclick="navigateTo('inquiry', getCurrentProductId())" onmouseover="this.style.backgroundColor='#944600'; this.style.color='white'" onmouseout="this.style.backgroundColor='white'; this.style.color='#944600'">
+                    Get Sample
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <section style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid #e2e3e1;">
+        <h2 style="font-family: 'Noto Serif', serif; font-size: 28px; font-weight: 600; color: #3d2817; margin-bottom: 2rem;">Other Products</h2>
+        <div id="relatedProducts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+            <!-- Related products populated by JavaScript -->
+        </div>
+    </section>
+</section>

@@ -1,0 +1,286 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f7;
+    color: #1a1c1b;
+}
+
+/* Page Visibility */
+.page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+.page.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* Smooth Transitions */
+button, a {
+    transition: all 0.3s ease;
+}
+
+/* Form Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+    border: none;
+    border-bottom: 2px solid #e2e3e1;
+    background-color: transparent;
+    padding: 0.75rem 0;
+    font-family: inherit;
+    font-size: inherit;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-bottom-color: #181919;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+textarea {
+    border: 2px solid #e2e3e1;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+textarea:focus {
+    border-color: #181919;
+}
+
+/* Checkbox and Radio Styles */
+input[type="checkbox"],
+input[type="radio"] {
+    cursor: pointer;
+}
+
+/* Hover Effects */
+.group img {
+    transform-origin: center;
+}
+
+.group:hover {
+    opacity: 0.95;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #944600;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #733500;
+}
+
+/* Button Hover States */
+button {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Link Hover Effects */
+a[onclick] {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Product Card Animations */
+.group {
+    transition: transform 0.3s ease;
+}
+
+.group:hover {
+    transform: translateY(-2px);
+}
+
+/* Page Transition Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page.active {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Success Message Styles */
+.alert {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-left: 4px solid #2e7d32;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    nav .px-16 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    section {
+        padding: 2rem 1rem;
+    }
+    
+    .page {
+        padding-top: 2rem;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* Utility Classes */
+.smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #944600;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Price Display Styling */
+.price-display {
+    font-weight: 700;
+    color: #775a19;
+    font-size: 1.25rem;
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.badge-primary {
+    background-color: #181919;
+    color: white;
+}
+
+.badge-secondary {
+    background-color: #775a19;
+    color: white;
+}
+
+/* Focus Visible for Accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid #944600;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .page.hidden {
+        display: none !important;
+    }
+}
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Product card hover effect */
+.group {
+    position: relative;
+}
+
+.group img {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Button animations */
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}

@@ -1,0 +1,153 @@
+<!-- GURU TEJA - INQUIRY FORM PAGE -->
+<section id="inquiry-page" class="page" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 300px; gap: 3rem;">
+        <!-- Main Form -->
+        <div>
+            <h1 style="font-family: 'Noto Serif', serif; font-size: 36px; font-weight: 700; color: #3d2817; margin-bottom: 1rem;">Send an Inquiry</h1>
+            <p style="font-size: 16px; color: #6b5147; margin-bottom: 3rem;">Fill out the form below and we'll contact you within 24 hours with pricing and availability.</p>
+
+            <form id="inquiryForm" style="space-y: 2rem;">
+                <!-- Company Information -->
+                <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
+                    <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Company Information</legend>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <input type="text" name="companyName" placeholder="Company Name" required style="padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
+                        <input type="text" name="contactName" placeholder="Contact Person" required style="padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
+                    </div>
+                </fieldset>
+
+                <!-- Contact Information -->
+                <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
+                    <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Contact Information</legend>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <input type="email" name="email" placeholder="Email Address" required style="padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
+                        <input type="tel" name="phone" placeholder="Phone Number" required style="padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
+                    </div>
+                </fieldset>
+
+                <!-- Order Requirements -->
+                <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
+                    <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Order Requirements</legend>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Country</label>
+                        <select name="country" required style="width: 100%; padding: 0.75rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 16px;">
+                            <option value="">Select Country</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Germany">Germany</option>
+                            <option value="France">France</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Rice Variety</label>
+                        <select id="formRiceVariety" name="riceVariety" required style="width: 100%; padding: 0.75rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 16px;">
+                            <option value="">Select Rice Variety</option>
+                            <option value="1121 XXXL Basmati">1121 XXXL Basmati</option>
+                            <option value="Traditional Parboiled">Traditional Parboiled</option>
+                            <option value="IR-64 White">IR-64 White</option>
+                            <option value="Super Jasmine">Super Jasmine</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Quantity (Metric Tonnes)</label>
+                        <input type="number" name="quantity" placeholder="10" min="1" required style="width: 100%; padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
+                    </div>
+                </fieldset>
+
+                <!-- Delivery Requirements -->
+                <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
+                    <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Delivery Requirements</legend>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Packaging</label>
+                        <select name="packaging" style="width: 100%; padding: 0.75rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 16px;">
+                            <option value="jute-50kg">Jute Bags (50kg)</option>
+                            <option value="polypropylene-50kg">Polypropylene Bags (50kg)</option>
+                            <option value="bulk-container">Bulk Container (900kg)</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Delivery Window</label>
+                        <select name="deliveryWindow" style="width: 100%; padding: 0.75rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 16px;">
+                            <option value="asap">As Soon As Possible</option>
+                            <option value="30-days">Within 30 Days</option>
+                            <option value="60-days">Within 60 Days</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Certifications -->
+                <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
+                    <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Certifications Required</legend>
+                    <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
+                        <input type="checkbox" name="organic" style="margin-right: 0.5rem; cursor: pointer;"/>
+                        <span>Organic Certification</span>
+                    </label>
+                    <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
+                        <input type="checkbox" name="haccp" style="margin-right: 0.5rem; cursor: pointer;"/>
+                        <span>HACCP Certification</span>
+                    </label>
+                </fieldset>
+
+                <!-- Message -->
+                <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
+                    <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Additional Information</legend>
+                    <textarea name="message" placeholder="Any specific requirements or questions?" rows="5" style="width: 100%; padding: 1rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-family: 'Inter', sans-serif; font-size: 16px; resize: none;"></textarea>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <button type="submit" style="width: 100%; background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem; margin-bottom: 1rem;" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
+                    Submit Inquiry
+                </button>
+            </form>
+        </div>
+
+        <!-- Sidebar Info -->
+        <aside>
+            <!-- Contact Info Card -->
+            <div style="background-color: #f9f9f7; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
+                <h3 style="font-family: 'Noto Serif', serif; font-size: 16px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Contact Info</h3>
+                <div style="space-y: 1rem;">
+                    <div style="margin-bottom: 1rem;">
+                        <p style="font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Phone</p>
+                        <p style="font-size: 14px; color: #3d2817;">+91 98765 43210</p>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <p style="font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Email</p>
+                        <p style="font-size: 14px; color: #3d2817;">export@guruteja.com</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Response Time</p>
+                        <p style="font-size: 14px; color: #3d2817;">24 Hours</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div style="background-color: #f9f9f7; padding: 1.5rem; border-radius: 0.5rem;">
+                <h3 style="font-family: 'Noto Serif', serif; font-size: 16px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Our Certifications</h3>
+                <div style="space-y: 0.75rem;">
+                    <p style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: #6b5147; margin-bottom: 0.75rem;">
+                        <span class="material-symbols-outlined" style="font-size: 18px; color: #944600;">verified</span>
+                        ISO 9001:2015
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: #6b5147; margin-bottom: 0.75rem;">
+                        <span class="material-symbols-outlined" style="font-size: 18px; color: #944600;">verified</span>
+                        HACCP Certified
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: #6b5147; margin-bottom: 0.75rem;">
+                        <span class="material-symbols-outlined" style="font-size: 18px; color: #944600;">verified</span>
+                        Zero-Waste
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: #6b5147;">
+                        <span class="material-symbols-outlined" style="font-size: 18px; color: #944600;">verified</span>
+                        Global Export
+                    </p>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>

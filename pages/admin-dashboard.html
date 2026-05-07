@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heritage Rice Exports - Export Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Work+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#291806",
+                    "on-primary-container": "#fffbff",
+                    "secondary": "#725a42",
+                    "surface-container": "#f5ece7",
+                    "inverse-primary": "#ffb689",
+                    "tertiary-fixed": "#e4e2de",
+                    "secondary-container": "#fedcbe",
+                    "primary-fixed": "#ffdbc7",
+                    "outline": "#897265",
+                    "secondary-fixed": "#fedcbe",
+                    "surface": "#fff8f5",
+                    "secondary-fixed-dim": "#e1c1a4",
+                    "primary-fixed-dim": "#ffb689",
+                    "tertiary": "#5c5c59",
+                    "tertiary-container": "#757572",
+                    "surface-tint": "#974800",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#59422c",
+                    "on-surface": "#1e1b18",
+                    "surface-container-high": "#efe6e2",
+                    "surface-container-low": "#fbf2ed",
+                    "background": "#fff8f5",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#e1d8d4",
+                    "surface-bright": "#fff8f5",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "on-primary-fixed": "#311300",
+                    "inverse-on-surface": "#f8efea",
+                    "on-tertiary-fixed-variant": "#474744",
+                    "on-secondary-container": "#796048",
+                    "surface-container-highest": "#e9e1dc",
+                    "on-background": "#1e1b18",
+                    "tertiary-fixed-dim": "#c8c6c3",
+                    "primary": "#944600",
+                    "outline-variant": "#ddc1b2",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#fefcf8",
+                    "on-primary-fixed-variant": "#733500",
+                    "primary-container": "#b95a00",
+                    "on-surface-variant": "#564337",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#34302c",
+                    "surface-variant": "#e9e1dc",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "section-padding": "80px",
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Work Sans"],
+                    "label-caps": ["Work Sans"],
+                    "headline-sm": ["Noto Serif"],
+                    "headline-md": ["Noto Serif"],
+                    "body-md": ["Work Sans"],
+                    "data-mono": ["Work Sans"],
+                    "headline-lg": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.grain-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCfiYD5jWk9LC9Ie5qQtNDTWzUHX8v92x-z9TL7GUIbwfxit0OOJSwgXRgZ7eemASslHws4BqfiiF4u4B36CfsKzcv52pE7QpAiH1p4qcuGgRPG3IMMbuUYMtK3jXefCfu8m9I7y2TGHbXzlwnCNaXWWhBJ5o5x41XcXI7jzjYFXlipMuKbC3z3NG9h5bbpolVTDextdjug4voNcZPgZQHUNQAMxBvyJbKmdTfw6Sskp4mZcioF2mGjHq-A3jPCDU5iWXnhNtGdR-Gz)
+    }
+.heritage-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #897265, transparent);
+    position: relative
+    }
+.heritage-divider::after {
+    content: "◆";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #944600;
+    background: #fff8f5;
+    padding: 0 8px;
+    font-size: 10px
+    }</style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Side Navigation Bar -->
+<aside class="flex flex-col h-full py-unit w-64 z-40 h-screen w-64 fixed left-0 top-0 bg-surface-container dark:bg-surface-container-high border-r border-outline-variant dark:border-outline">
+<div class="px-6 py-8 flex flex-col gap-2">
+<h2 class="font-headline-sm text-headline-sm text-primary">Export Portal</h2>
+<p class="font-label-caps text-label-caps uppercase tracking-widest opacity-70">Institutional Access</p>
+</div>
+<nav class="flex-1 flex flex-col mt-4">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-unit bg-primary-container dark:bg-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-none border-l-4 border-primary px-4 py-3 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Dashboard</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant dark:text-on-surface-variant px-4 py-3 hover:bg-surface-variant dark:hover:bg-surface-dim transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Bulk Inquiry</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant dark:text-on-surface-variant px-4 py-3 hover:bg-surface-variant dark:hover:bg-surface-dim transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Export Tracking</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant dark:text-on-surface-variant px-4 py-3 hover:bg-surface-variant dark:hover:bg-surface-dim transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Inventory</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant dark:text-on-surface-variant px-4 py-3 hover:bg-surface-variant dark:hover:bg-surface-dim transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Analytics</span>
+</a>
+</nav>
+<div class="p-4 mt-auto">
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-4 border border-on-secondary-fixed hover:bg-primary-container transition-colors duration-200">
+                New Export Order
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen grain-texture">
+<!-- Top Navigation Bar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-container-max mx-auto border-b border-outline-variant dark:border-outline bg-surface dark:bg-surface-dim sticky top-0 z-30">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed uppercase tracking-tighter">
+                Heritage Rice Exports
+            </div>
+<div class="flex items-center gap-gutter">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary font-bold pb-1 font-headline-sm text-[16px] tracking-tight" href="#">Export Overview</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-headline-sm text-[16px] tracking-tight" href="#">Wholesale/Export</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-headline-sm text-[16px] tracking-tight" href="#">Our Heritage</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full border border-outline overflow-hidden">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A professional portrait of a distinguished business executive in a sharp, tailored suit. The lighting is soft and warm, reminiscent of a high-end corporate office in the late afternoon. The aesthetic is clean and institutional, with a minimalist background that highlights the subject's authoritative yet approachable presence, fitting the heritage export brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaL9JlQhMwh0PUxqTXrKOXreE5oqjGD_tOCDrfATdNs_YP2KoEtF_m7-_wr5LPiailQCDikLpNsGZ_HQ2dOpYheQrHSNY_v1Ih8fiUnHvOz4VPonQrd6exLb2IuqBFZoI6Pjz8Jw71WExLM25Omp5GiFNXPsVeG0MTDNW2BjJWxuB2ENiCctNpyJeAqdT3_Z2oIte2iprisLOLAIEKlnrckkQkcqPudcbdBl_aB7qliNlWvSjsGxzMFf789fGeCcfC3z04qwIQTqeK"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Body -->
+<div class="px-margin-desktop py-10 max-w-container-max mx-auto">
+<!-- Hero Header Section -->
+<div class="mb-12 flex flex-col md:flex-row justify-between items-end gap-gutter">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Institutional Dashboard</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl italic">Managing the gold of the earth with precision. Oversee global shipments, maintain inventory integrity, and track the legacy of our finest harvests.</p>
+</div>
+<div class="flex gap-4">
+<div class="text-right">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">CURRENT HARVEST SEASON</p>
+<p class="font-headline-sm text-headline-sm text-primary">Kharif 2024</p>
+</div>
+</div>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-12">
+<div class="col-span-1 md:col-span-2 bg-surface-container border border-outline-variant p-8 flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-4">Total Export Volume</p>
+<h3 class="font-headline-lg text-headline-lg text-primary">42,850 <span class="text-body-lg italic">MT</span></h3>
+<p class="font-data-mono text-data-mono text-secondary mt-2">+12.4% from previous quarter</p>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-5">
+<span class="material-symbols-outlined text-[160px]" data-icon="grains">grain</span>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-8 flex flex-col justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-4">Pending Quotes</p>
+<h3 class="font-headline-md text-headline-md text-primary">18</h3>
+</div>
+<a class="font-data-mono text-data-mono text-primary flex items-center gap-1 hover:underline" href="#">
+                        Review Requests <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-8 flex flex-col justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-4">Processing Orders</p>
+<h3 class="font-headline-md text-headline-md text-primary">34</h3>
+</div>
+<a class="font-data-mono text-data-mono text-primary flex items-center gap-1 hover:underline" href="#">
+                        View Pipeline <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="heritage-divider mb-12"></div>
+<!-- Orders Management Section -->
+<section>
+<div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+<h2 class="font-headline-md text-headline-md text-primary">Recent Export Orders</h2>
+<!-- Filters -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2">
+<button class="px-4 py-2 bg-primary text-on-primary font-label-caps text-[10px] border border-primary">All Orders</button>
+<button class="px-4 py-2 bg-transparent text-on-surface-variant font-label-caps text-[10px] border border-outline-variant hover:border-primary transition-colors">Pending</button>
+<button class="px-4 py-2 bg-transparent text-on-surface-variant font-label-caps text-[10px] border border-outline-variant hover:border-primary transition-colors">Quoted</button>
+<button class="px-4 py-2 bg-transparent text-on-surface-variant font-label-caps text-[10px] border border-outline-variant hover:border-primary transition-colors">Processing</button>
+<button class="px-4 py-2 bg-transparent text-on-surface-variant font-label-caps text-[10px] border border-outline-variant hover:border-primary transition-colors">Shipped</button>
+</div>
+</div>
+<!-- Technical Data Table -->
+<div class="bg-surface-container-lowest border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-secondary text-surface-container-lowest font-data-mono text-data-mono">
+<th class="px-6 py-4 font-bold uppercase">Order ID</th>
+<th class="px-6 py-4 font-bold uppercase">Consignee</th>
+<th class="px-6 py-4 font-bold uppercase">Variety</th>
+<th class="px-6 py-4 font-bold uppercase">Tonnage</th>
+<th class="px-6 py-4 font-bold uppercase">Port of Discharge</th>
+<th class="px-6 py-4 font-bold uppercase">Status</th>
+<th class="px-6 py-4 font-bold uppercase">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-on-surface divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-data-mono">#HE-2024-0891</td>
+<td class="px-6 py-4">Dubai Culinary Hub LLC</td>
+<td class="px-6 py-4">Long Grain Basmati</td>
+<td class="px-6 py-4">450 MT</td>
+<td class="px-6 py-4">Jebel Ali, UAE</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container text-on-secondary-container">
+                                            Processing
+                                        </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-3">
+<button class="text-primary hover:underline text-xs font-bold uppercase tracking-wider">Update Status</button>
+<button class="text-secondary hover:underline text-xs font-bold uppercase tracking-wider">Upload Invoice</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container/20 hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-data-mono">#HE-2024-0888</td>
+<td class="px-6 py-4">Royal Thai Distribution</td>
+<td class="px-6 py-4">Sona Masuri</td>
+<td class="px-6 py-4">1,200 MT</td>
+<td class="px-6 py-4">Bangkok, Thailand</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            Shipped
+                                        </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-3">
+<button class="text-primary hover:underline text-xs font-bold uppercase tracking-wider">Update Status</button>
+<button class="text-secondary hover:underline text-xs font-bold uppercase tracking-wider">Upload Invoice</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-data-mono">#HE-2024-0895</td>
+<td class="px-6 py-4">Marseille Port Authority</td>
+<td class="px-6 py-4">Premium Parboiled</td>
+<td class="px-6 py-4">800 MT</td>
+<td class="px-6 py-4">Marseille, France</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                            Quoted
+                                        </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-3">
+<button class="text-primary hover:underline text-xs font-bold uppercase tracking-wider">Update Status</button>
+<button class="text-secondary hover:underline text-xs font-bold uppercase tracking-wider">Upload Invoice</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container/20 hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-data-mono">#HE-2024-0899</td>
+<td class="px-6 py-4">Nordic Grain Import</td>
+<td class="px-6 py-4">Golden Sella</td>
+<td class="px-6 py-4">350 MT</td>
+<td class="px-6 py-4">Rotterdam, Netherlands</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                            Pending
+                                        </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-3">
+<button class="text-primary hover:underline text-xs font-bold uppercase tracking-wider">Update Status</button>
+<button class="text-secondary hover:underline text-xs font-bold uppercase tracking-wider">Upload Invoice</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination-style Footer -->
+<div class="px-6 py-4 flex justify-between items-center border-t border-outline-variant bg-surface-container-low">
+<p class="font-data-mono text-data-mono text-on-surface-variant">Showing 4 of 128 shipments</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-outline-variant hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-3 py-1 border border-outline-variant bg-primary text-on-primary">1</button>
+<button class="px-3 py-1 border border-outline-variant hover:bg-surface transition-colors">2</button>
+<button class="px-3 py-1 border border-outline-variant hover:bg-surface transition-colors">3</button>
+<button class="px-3 py-1 border border-outline-variant hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Port Capacity & Logistics Grid -->
+<section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-1 bg-surface-container border border-outline-variant p-6">
+<h4 class="font-label-caps text-label-caps text-primary mb-4">Port of Discharge - Regional Heat</h4>
+<ul class="space-y-4">
+<li class="flex justify-between items-center">
+<span class="font-body-md">Middle East</span>
+<span class="font-data-mono font-bold">42%</span>
+</li>
+<div class="w-full bg-outline-variant h-1 overflow-hidden">
+<div class="bg-primary h-full" style="width: 42%"></div>
+</div>
+<li class="flex justify-between items-center">
+<span class="font-body-md">Europe</span>
+<span class="font-data-mono font-bold">28%</span>
+</li>
+<div class="w-full bg-outline-variant h-1 overflow-hidden">
+<div class="bg-primary h-full" style="width: 28%"></div>
+</div>
+<li class="flex justify-between items-center">
+<span class="font-body-md">Southeast Asia</span>
+<span class="font-data-mono font-bold">18%</span>
+</li>
+<div class="w-full bg-outline-variant h-1 overflow-hidden">
+<div class="bg-primary h-full" style="width: 18%"></div>
+</div>
+</ul>
+</div>
+<div class="md:col-span-2 relative min-h-[300px] border border-outline-variant overflow-hidden group">
+<img alt="Global logistics network" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sprawling cargo terminal at sunset, with golden light reflecting off rows of massive shipping containers. Cranes stand like sentinels against a warm, hazy sky. The scene is majestic and industrial, symbolizing the global reach of the heritage rice export business. The visual style is premium and cinematic, emphasizing stability and the immense scale of international commerce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdVSmQHBKvt3lwxB6XJ7tzsqHmL9D5MPWVRnhhAoF1tqCyxoMUWx1JQtvHWH4WoSUqEtcZa0S7f1xntjGug87H2CXZR-UxDkjhURFt7tAE565wEuuc5rhCfBVkGsi3OSEWM0ow3JG142DiFKxjOdR5yB7O-pWj4ofx3qM2kInT_4L8eabFzClmum33ZgTrDGInK4pzpcKNevlYZTPDIFyFGGzgs7FaHe8Fmr7o7d4BGiHa3ekr2nm89CR-kzOjQLHWx8y4ZBDGcfH3"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="font-label-caps text-label-caps text-white/70 mb-2">OPERATIONAL ADVISORY</p>
+<h4 class="font-headline-sm text-headline-sm text-white max-w-md">Vessel "Heritage Sovereign" has cleared Vishakhapatnam Port with 4,200 MT Basmati.</h4>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="mt-20 border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-dim">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 max-w-container-max mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-sm text-headline-sm text-primary">Heritage Rice Exports</div>
+<p class="font-data-mono text-data-mono text-on-surface-variant max-w-sm text-center md:text-left">
+                        © 2024 Heritage Rice Exports. All Rights Reserved. Institutional Grade Quality. 
+                    </p>
+</div>
+<div class="flex gap-gutter">
+<a class="font-data-mono text-data-mono text-on-surface-variant hover:text-primary underline transition-colors" href="#">Privacy Policy</a>
+<a class="font-data-mono text-data-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Export Terms</a>
+<a class="font-data-mono text-data-mono text-on-surface-variant hover:text-primary transition-colors" href="#">Compliance</a>
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+<p class="font-label-caps text-label-caps text-secondary opacity-60">ADMIN PORTAL v2.4.0</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary opacity-50" data-icon="lock">lock</span>
+<span class="material-symbols-outlined text-secondary opacity-50" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

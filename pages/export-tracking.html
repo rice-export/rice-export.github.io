@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heritage Rice Exports - Export Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&amp;family=Work+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#291806",
+                    "on-primary-container": "#fffbff",
+                    "secondary": "#725a42",
+                    "surface-container": "#f5ece7",
+                    "inverse-primary": "#ffb689",
+                    "tertiary-fixed": "#e4e2de",
+                    "secondary-container": "#fedcbe",
+                    "primary-fixed": "#ffdbc7",
+                    "outline": "#897265",
+                    "secondary-fixed": "#fedcbe",
+                    "surface": "#fff8f5",
+                    "secondary-fixed-dim": "#e1c1a4",
+                    "primary-fixed-dim": "#ffb689",
+                    "tertiary": "#5c5c59",
+                    "tertiary-container": "#757572",
+                    "surface-tint": "#974800",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#59422c",
+                    "on-surface": "#1e1b18",
+                    "surface-container-high": "#efe6e2",
+                    "surface-container-low": "#fbf2ed",
+                    "background": "#fff8f5",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#e1d8d4",
+                    "surface-bright": "#fff8f5",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "on-primary-fixed": "#311300",
+                    "inverse-on-surface": "#f8efea",
+                    "on-tertiary-fixed-variant": "#474744",
+                    "on-secondary-container": "#796048",
+                    "surface-container-highest": "#e9e1dc",
+                    "on-background": "#1e1b18",
+                    "tertiary-fixed-dim": "#c8c6c3",
+                    "primary": "#944600",
+                    "outline-variant": "#ddc1b2",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#fefcf8",
+                    "on-primary-fixed-variant": "#733500",
+                    "primary-container": "#b95a00",
+                    "on-surface-variant": "#564337",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#34302c",
+                    "surface-variant": "#e9e1dc",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "section-padding": "80px",
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Work Sans"],
+                    "label-caps": ["Work Sans"],
+                    "headline-sm": ["Noto Serif"],
+                    "headline-md": ["Noto Serif"],
+                    "body-md": ["Work Sans"],
+                    "data-mono": ["Work Sans"],
+                    "headline-lg": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .heritage-divider {
+            position: relative;
+            height: 1px;
+            background-color: #ddc1b2;
+            margin: 2rem 0;
+        }
+        .heritage-divider::after {
+            content: "◆";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff8f5;
+            padding: 0 1rem;
+            color: #944600;
+            font-size: 12px;
+        }
+        .rice-grain-bullet::before {
+            content: "⬡";
+            color: #944600;
+            margin-right: 8px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
+                Heritage Rice Exports
+            </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Rice Varieties</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Wholesale/Export</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Our Heritage</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="settings">settings</span>
+<div class="w-10 h-10 bg-surface-container-highest border border-outline-variant overflow-hidden">
+<img alt="Administrator Profile" data-alt="A professional close-up portrait of a senior export administrator with a focused expression, wearing traditional high-quality business attire. The background is a blurred high-end office with warm wood tones and soft, premium lighting. The overall aesthetic is authoritative, established, and trustworthy, matching a heritage brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtu4SOozoTkLS9jwsxOKGx6X1AHVLT7qA24OWZrMYqq0GH2eoOIwi4wu3t6py2cJDrb6jTBTyYtGb0U37y5xTv_rOGh0QdhjSOdy-pYAAGJwOm4yeXPr7YcYYRsh0fvhXhG0UqVW3XhapTGyCTMlO-zhCLcC1Etggbi4mG411dDcSmZkdG_4zSBVgyianrlVQ5adIguJS7ta-UTIYhQ7Xlj-ZU33-qkfeUpZ1mJm_oTypk7foe3nvHn89lQTwbNsiJaStDSLEVfybL"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex max-w-container-max mx-auto">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-80px)] py-unit w-64 sticky top-20 bg-surface-container dark:bg-surface-container-high border-r border-outline-variant dark:border-outline z-40">
+<div class="px-6 py-8">
+<h2 class="font-headline-sm text-headline-sm text-primary">Export Portal</h2>
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant mt-1">Institutional Access</p>
+</div>
+<nav class="flex-grow">
+<a class="flex items-center gap-unit text-on-surface-variant dark:text-on-surface-variant px-4 py-3 hover:bg-surface-variant dark:hover:bg-surface-dim transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Dashboard</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant dark:text-on-surface-variant px-4 py-3 hover:bg-surface-variant dark:hover:bg-surface-dim transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Bulk Inquiry</span>
+</a>
+<a class="flex items-center gap-unit bg-primary-container dark:bg-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-none border-l-4 border-primary px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Export Tracking</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant dark:text-on-surface-variant px-4 py-3 hover:bg-surface-variant dark:hover:bg-surface-dim transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Inventory</span>
+</a>
+<a class="flex items-center gap-unit text-on-surface-variant dark:text-on-surface-variant px-4 py-3 hover:bg-surface-variant dark:hover:bg-surface-dim transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Analytics</span>
+</a>
+</nav>
+<div class="p-4">
+<button class="w-full bg-primary text-on-primary py-4 px-6 font-label-caps text-label-caps uppercase tracking-widest border border-outline hover:opacity-90 transition-opacity">
+                    New Export Order
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-12">
+<!-- Header Section -->
+<div class="mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Shipment Tracking</h1>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase">Consignment ID:</span>
+<span class="font-data-mono text-data-mono text-on-surface bg-surface-container-high px-3 py-1 border border-outline-variant">HTG-2024-X892-IND</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Current Vessel Status</p>
+<div class="flex items-center gap-2 justify-end text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="directions_boat">directions_boat</span>
+<span class="font-headline-sm text-headline-sm">EN ROUTE</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Left Column: Timeline -->
+<div class="xl:col-span-7 space-y-8">
+<div class="bg-surface-container-low border border-outline-variant p-8 relative">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-10">Export Journey</h3>
+<div class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-4 top-2 bottom-2 w-px bg-outline-variant"></div>
+<!-- Timeline Items -->
+<div class="space-y-12">
+<!-- Step 1: Completed -->
+<div class="relative pl-12">
+<div class="absolute left-2.5 top-1.5 w-3 h-3 bg-primary border-2 border-primary-fixed-dim rounded-full z-10"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-primary font-body-lg text-body-lg">Order Received</h4>
+<p class="text-on-surface-variant text-body-md font-body-md">Karnal Export Hub, India</p>
+</div>
+<div class="text-right">
+<span class="font-data-mono text-data-mono block">12 OCT 2024</span>
+<span class="font-label-caps text-label-caps uppercase text-primary">COMPLETED</span>
+</div>
+</div>
+</div>
+<!-- Step 2: Completed -->
+<div class="relative pl-12">
+<div class="absolute left-2.5 top-1.5 w-3 h-3 bg-primary border-2 border-primary-fixed-dim rounded-full z-10"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-primary font-body-lg text-body-lg">Quality Check</h4>
+<p class="text-on-surface-variant text-body-md font-body-md">ISO 22000 Heritage Certification Lab</p>
+<p class="text-on-surface-variant text-sm mt-2 flex items-center gap-2 italic">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+                                                Batch HTG-99 passed premium moisture parameters
+                                            </p>
+</div>
+<div class="text-right">
+<span class="font-data-mono text-data-mono block">14 OCT 2024</span>
+<span class="font-label-caps text-label-caps uppercase text-primary">COMPLETED</span>
+</div>
+</div>
+</div>
+<!-- Step 3: Completed -->
+<div class="relative pl-12">
+<div class="absolute left-2.5 top-1.5 w-3 h-3 bg-primary border-2 border-primary-fixed-dim rounded-full z-10"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-primary font-body-lg text-body-lg">Packed &amp; Sealed</h4>
+<p class="text-on-surface-variant text-body-md font-body-md">Climate-Controlled Packing Unit C</p>
+</div>
+<div class="text-right">
+<span class="font-data-mono text-data-mono block">15 OCT 2024</span>
+<span class="font-label-caps text-label-caps uppercase text-primary">COMPLETED</span>
+</div>
+</div>
+</div>
+<!-- Step 4: Current -->
+<div class="relative pl-12">
+<div class="absolute left-2.5 top-1.5 w-3 h-3 bg-surface border-2 border-primary rounded-full z-10 ring-4 ring-primary-fixed"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-primary font-body-lg text-body-lg">On Vessel</h4>
+<p class="text-on-surface-variant text-body-md font-body-md">Port of Mundra - Vessel: Heritage Sovereign</p>
+<div class="mt-4 p-4 bg-primary-container/10 border border-primary-container text-on-primary-container">
+<p class="text-sm font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                                    Current Position: Arabian Sea
+                                                </p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-data-mono text-data-mono block">18 OCT 2024</span>
+<span class="font-label-caps text-label-caps uppercase text-primary">IN TRANSIT</span>
+</div>
+</div>
+</div>
+<!-- Step 5: Future -->
+<div class="relative pl-12 opacity-40">
+<div class="absolute left-2.5 top-1.5 w-3 h-3 bg-outline-variant border-2 border-surface rounded-full z-10"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface font-body-lg text-body-lg">At Destination</h4>
+<p class="text-on-surface-variant text-body-md font-body-md">Port of Rotterdam, Netherlands</p>
+</div>
+<div class="text-right">
+<span class="font-data-mono text-data-mono block">ETA 02 NOV</span>
+<span class="font-label-caps text-label-caps uppercase">PENDING</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Details & Downloads -->
+<div class="xl:col-span-5 space-y-8">
+<!-- Container Details Card -->
+<div class="bg-surface-container border border-outline-variant overflow-hidden">
+<div class="h-32 relative">
+<img alt="Export Logistics" class="w-full h-full object-cover" data-alt="A cinematic, high-contrast photograph of large cargo shipping containers stacked at a harbor during the golden hour. The sunlight reflects off the metallic surfaces, creating deep shadows and warm highlights. The aesthetic is industrial yet prestige, emphasizing the massive scale and reliability of global heritage export logistics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHv1xJMUajrZcPORHFVAspP4KDx9Vxl0x4n5CMGp59TTHrPJmh-LjTbdvI8joYTHpZ5D_wgJ0o6rIxB1yGKxPF2a_cfi4iFJWy2KLMNi5-aWDfg0ow5u0Jl9RIzl-gs1LEALX7IZTj93dnxSTV4n2UsUbmdjKxzqcYp3a3d6plr2AM2gYTarXoRWcHUkOnp29cYn2gDTpi3lOWSpc--G2vj11YfVmaY6S-_1ve-aWo841q5gqDgSOPxD8fRcvzlVLw4sRGEm2c-Cp7"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-4">Container Details</h3>
+<div class="space-y-4">
+<div class="flex justify-between border-b border-outline-variant/30 pb-2">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Container ID</span>
+<span class="font-data-mono text-data-mono font-bold">MSCU-7821095</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-2">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Seal Number</span>
+<span class="font-data-mono text-data-mono font-bold">GTH-77218</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-2">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Load Weight</span>
+<span class="font-data-mono text-data-mono font-bold">24,000 KG</span>
+</div>
+<div class="flex justify-between">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Temp Controls</span>
+<span class="font-data-mono text-data-mono font-bold">18°C (Constant)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Downloads Section -->
+<div class="bg-surface border border-outline p-8">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-6">Trade Documentation</h3>
+<div class="space-y-4">
+<!-- Document Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+<div>
+<p class="font-bold text-on-surface">Bill of Lading</p>
+<p class="text-xs text-on-surface-variant">PDF • 1.2 MB</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="download">download</span>
+</div>
+<!-- Document Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+<div>
+<p class="font-bold text-on-surface">Phytosanitary Certificate</p>
+<p class="text-xs text-on-surface-variant">PDF • 850 KB</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="download">download</span>
+</div>
+<!-- Document Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="assignment">assignment</span>
+<div>
+<p class="font-bold text-on-surface">Certificate of Origin</p>
+<p class="text-xs text-on-surface-variant">PDF • 450 KB</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="download">download</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="heritage-divider"></div>
+<!-- Footer Compliance Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 bg-surface-container-highest p-8 border border-outline-variant">
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="gavel">gavel</span>
+<h5 class="font-label-caps text-label-caps uppercase text-secondary mb-1">Customs Compliance</h5>
+<p class="text-xs text-on-surface-variant">EU Import Regulations 2024/01</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="eco">eco</span>
+<h5 class="font-label-caps text-label-caps uppercase text-secondary mb-1">Sustainable Export</h5>
+<p class="text-xs text-on-surface-variant">Ethically Sourced &amp; Carbon Offset</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="support_agent">support_agent</span>
+<h5 class="font-label-caps text-label-caps uppercase text-secondary mb-1">Export Desk</h5>
+<p class="text-xs text-on-surface-variant">24/7 Global Institutional Support</p>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant mt-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-8 max-w-container-max mx-auto gap-4">
+<div class="font-headline-sm text-headline-sm text-primary">Heritage Rice Exports</div>
+<p class="font-data-mono text-data-mono text-secondary dark:text-secondary-fixed text-center md:text-left">
+                © 2024 Heritage Rice Exports. All Rights Reserved. Institutional Grade Quality.
+            </p>
+<div class="flex gap-6">
+<a class="font-data-mono text-data-mono text-on-surface-variant hover:text-primary transition-colors underline" href="#">Privacy Policy</a>
+<a class="font-data-mono text-data-mono text-on-surface-variant hover:text-primary transition-colors underline" href="#">Export Terms</a>
+<a class="font-data-mono text-data-mono text-on-surface-variant hover:text-primary transition-colors underline" href="#">Compliance</a>
+</div>
+</div>
+</footer>
+</body></html>

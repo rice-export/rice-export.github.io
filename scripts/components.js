@@ -14,12 +14,14 @@ function renderNavbar() {
             <div style="cursor: pointer; font-family: 'Noto Serif', serif; font-size: 24px; font-weight: 700; color: #944600;" onclick="navigateTo('home')">
                 Guru Teja
             </div>
-            <div style="display: flex; gap: 2rem; align-items: center;">
+            <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
                 <a data-page="home" onclick="navigateTo('home')" style="cursor: pointer; font-size: 16px; font-weight: 600; color: #3d2817; text-decoration: none; transition: color 0.3s; border-bottom: 3px solid transparent; padding: 0.5rem 0;">Home</a>
                 <a data-page="catalog" onclick="navigateTo('catalog')" style="cursor: pointer; font-size: 16px; font-weight: 600; color: #3d2817; text-decoration: none; transition: color 0.3s; border-bottom: 3px solid transparent; padding: 0.5rem 0;">Catalog</a>
+                <a data-page="admin-dashboard" onclick="navigateTo('admin-dashboard')" style="cursor: pointer; font-size: 16px; font-weight: 600; color: #3d2817; text-decoration: none; transition: color 0.3s; border-bottom: 3px solid transparent; padding: 0.5rem 0;">Admin</a>
+                <a data-page="export-tracking" onclick="navigateTo('export-tracking')" style="cursor: pointer; font-size: 16px; font-weight: 600; color: #3d2817; text-decoration: none; transition: color 0.3s; border-bottom: 3px solid transparent; padding: 0.5rem 0;">Tracking</a>
                 <a data-page="inquiry" onclick="navigateTo('inquiry')" style="cursor: pointer; font-size: 16px; font-weight: 600; color: #3d2817; text-decoration: none; transition: color 0.3s; border-bottom: 3px solid transparent; padding: 0.5rem 0;">Contact</a>
             </div>
-            <button style="background-color: #944600; color: white; padding: 0.75rem 1.5rem; font-size: 12px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem;" onclick="navigateTo('inquiry')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
+            <button style="background-color: #944600; color: white; padding: 0.75rem 1.5rem; font-size: 12px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem; white-space: nowrap;" onclick="navigateTo('inquiry')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
                 Request Quote
             </button>
         </div>

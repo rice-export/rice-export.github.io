@@ -17,7 +17,7 @@ let appState = {
 
 /**
  * Navigate to a specific page
- * @param {string} page - Page name (home, catalog, product, inquiry)
+ * @param {string} page - Page name (home, catalog, product, inquiry, admin-dashboard, export-tracking)
  * @param {number} productId - Optional product ID for product page
  */
 function navigateTo(page, productId = null) {
@@ -43,6 +43,10 @@ function navigateTo(page, productId = null) {
             initProductPage(productId);
         } else if (page === 'catalog') {
             initCatalogPage();
+        } else if (page === 'admin-dashboard') {
+            initAdminDashboard();
+        } else if (page === 'export-tracking') {
+            initExportTracking();
         }
     }
 

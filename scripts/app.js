@@ -17,8 +17,8 @@ let appState = {
 
 /**
  * Navigate to a specific page
- * @param {string} page - Page name (home, catalog, product, inquiry, admin-dashboard, export-tracking)
- * @param {number} productId - Optional product ID for product page
+ * @param {string} page - Page name (home, catalog, product, inquiry, admin-dashboard, export-tracking, cart, checkout, login, register, user-dashboard, order-success, wholesale, partner-dashboard, wishlist, splash)
+ * @param {number} productId - Optional product ID for product page or order ID for order-success
  */
 function navigateTo(page, productId = null) {
     // Hide all pages
@@ -27,6 +27,12 @@ function navigateTo(page, productId = null) {
         p.classList.remove('active');
         p.classList.add('hidden');
     });
+
+    // Hide splash screen if navigating away from it
+    const splashPage = document.getElementById('splash-page');
+    if (splashPage && page !== 'splash') {
+        splashPage.style.display = 'none';
+    }
 
     // Update app state
     appState.currentPage = page;
@@ -47,6 +53,28 @@ function navigateTo(page, productId = null) {
             initAdminDashboard();
         } else if (page === 'export-tracking') {
             initExportTracking();
+        } else if (page === 'cart') {
+            renderCartPage();
+        } else if (page === 'checkout') {
+            renderCheckoutPage();
+        } else if (page === 'login') {
+            renderLoginPage();
+        } else if (page === 'register') {
+            renderRegisterPage();
+        } else if (page === 'user-dashboard') {
+            renderUserDashboard();
+        } else if (page === 'order-success') {
+            if (productId) {
+                targetPage.innerHTML = renderOrderSuccessPage(productId);
+            }
+        } else if (page === 'wishlist') {
+            renderWishlistPage();
+        } else if (page === 'wholesale-catalog') {
+            // Wholesale page has static content
+        } else if (page === 'partner-dashboard') {
+            // Partner dashboard has static content
+        } else if (page === 'splash') {
+            if (splashPage) splashPage.style.display = 'flex';
         }
     }
 
@@ -95,12 +123,23 @@ function updateNavigation(activePage) {
 function initializeApp() {
     console.log('Initializing Guru Teja Heritage Exports Application');
 
-    // Initialize components
+    // Initialize components (navbar, footer)
+    if (typeof initializeComponents === 'function') {
+        initializeComponents();
+    }
+
+    // Initialize navigation
     setupNavigation();
     initCatalogPage();
 
-    // Set home page as default
-    navigateTo('home');
+    // Show splash screen on first visit
+    const hasVisited = localStorage.getItem('heritage_rice_visited');
+    if (!hasVisited) {
+        navigateTo('splash');
+        localStorage.setItem('heritage_rice_visited', 'true');
+    } else {
+        navigateTo('home');
+    }
 
     // Setup keyboard shortcuts
     setupKeyboardShortcuts();

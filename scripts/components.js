@@ -9,6 +9,9 @@ function renderNavbar() {
     const nav = document.querySelector('nav');
     if (!nav) return;
 
+    const isLoggedIn = isUserLoggedIn && isUserLoggedIn();
+    const currentUser = isLoggedIn && getCurrentUser ? getCurrentUser() : null;
+
     nav.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 80px;">
             <div style="cursor: pointer; font-family: 'Noto Serif', serif; font-size: 24px; font-weight: 700; color: #944600;" onclick="navigateTo('home')">
@@ -21,9 +24,51 @@ function renderNavbar() {
                 <a data-page="export-tracking" onclick="navigateTo('export-tracking')" style="cursor: pointer; font-size: 16px; font-weight: 600; color: #3d2817; text-decoration: none; transition: color 0.3s; border-bottom: 3px solid transparent; padding: 0.5rem 0;">Tracking</a>
                 <a data-page="inquiry" onclick="navigateTo('inquiry')" style="cursor: pointer; font-size: 16px; font-weight: 600; color: #3d2817; text-decoration: none; transition: color 0.3s; border-bottom: 3px solid transparent; padding: 0.5rem 0;">Contact</a>
             </div>
-            <button style="background-color: #944600; color: white; padding: 0.75rem 1.5rem; font-size: 12px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem; white-space: nowrap;" onclick="navigateTo('inquiry')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                Request Quote
-            </button>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <!-- Wishlist Icon -->
+                <button style="background: none; border: none; cursor: pointer; position: relative;" onclick="navigateTo('wishlist-page')" title="Saved Selections">
+                    <span class="material-symbols-outlined" style="font-size: 24px; color: #944600;">favorite</span>
+                    <span data-wishlist-count style="position: absolute; top: -8px; right: -8px; background-color: #944600; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">0</span>
+                </button>
+
+                <!-- Cart Icon -->
+                <button style="background: none; border: none; cursor: pointer; position: relative;" onclick="navigateTo('cart')" title="Shopping Cart">
+                    <span class="material-symbols-outlined" style="font-size: 24px; color: #944600;">shopping_cart</span>
+                    <span data-cart-count style="position: absolute; top: -8px; right: -8px; background-color: #944600; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">0</span>
+                </button>
+
+                <!-- User Menu -->
+                ${isLoggedIn && currentUser ? `
+                    <div style="display: flex; align-items: center; gap: 0.5rem; position: relative; group">
+                        <div style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;" onmouseover="document.getElementById('userMenu').style.display='block'" onmouseout="document.getElementById('userMenu').style.display='none'">
+                            <span class="material-symbols-outlined" style="font-size: 24px; color: #944600;">account_circle</span>
+                            <span style="font-size: 14px; color: #3d2817; font-weight: 600;">${currentUser.name.split(' ')[0]}</span>
+                        </div>
+                        <div id="userMenu" style="position: absolute; top: 80px; right: 0; background: white; border: 1px solid #d9d5d1; border-radius: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: none; min-width: 180px; z-index: 1000;">
+                            <a onclick="navigateTo('user-dashboard'); document.getElementById('userMenu').style.display='none'" style="display: block; padding: 1rem; color: #3d2817; text-decoration: none; cursor: pointer; font-size: 14px; border-bottom: 1px solid #f0ede8;" onmouseover="this.style.backgroundColor='#f9f9f7'" onmouseout="this.style.backgroundColor='transparent'">
+                                <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle; margin-right: 0.5rem;">dashboard</span>
+                                My Dashboard
+                            </a>
+                            <a onclick="navigateTo('export-tracking'); document.getElementById('userMenu').style.display='none'" style="display: block; padding: 1rem; color: #3d2817; text-decoration: none; cursor: pointer; font-size: 14px; border-bottom: 1px solid #f0ede8;" onmouseover="this.style.backgroundColor='#f9f9f7'" onmouseout="this.style.backgroundColor='transparent'">
+                                <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle; margin-right: 0.5rem;">local_shipping</span>
+                                My Orders
+                            </a>
+                            <a onclick="logoutUser(); document.getElementById('userMenu').style.display='none'" style="display: block; padding: 1rem; color: #944600; text-decoration: none; cursor: pointer; font-size: 14px;" onmouseover="this.style.backgroundColor='#f9f9f7'" onmouseout="this.style.backgroundColor='transparent'">
+                                <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle; margin-right: 0.5rem;">logout</span>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+                ` : `
+                    <button style="background-color: white; color: #944600; border: 2px solid #944600; padding: 0.5rem 1rem; font-size: 12px; font-weight: 600; text-transform: uppercase; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="navigateTo('login')" onmouseover="this.style.backgroundColor='#944600'; this.style.color='white'" onmouseout="this.style.backgroundColor='white'; this.style.color='#944600'">
+                        Sign In
+                    </button>
+                `}
+
+                <button style="background-color: #944600; color: white; padding: 0.75rem 1.5rem; font-size: 12px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem; white-space: nowrap;" onclick="navigateTo('inquiry')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
+                    Request Quote
+                </button>
+            </div>
         </div>
     `;
 }
@@ -54,6 +99,7 @@ function renderFooter() {
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 0.5rem;"><a onclick="navigateTo('home')" style="color: rgba(255,255,255,0.8); text-decoration: none; cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='#fed7c0'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Home</a></li>
                         <li style="margin-bottom: 0.5rem;"><a onclick="navigateTo('catalog')" style="color: rgba(255,255,255,0.8); text-decoration: none; cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='#fed7c0'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Catalog</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a onclick="navigateTo('wholesale-catalog')" style="color: rgba(255,255,255,0.8); text-decoration: none; cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='#fed7c0'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Wholesale</a></li>
                         <li style="margin-bottom: 0.5rem;"><a onclick="navigateTo('inquiry')" style="color: rgba(255,255,255,0.8); text-decoration: none; cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='#fed7c0'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Contact</a></li>
                         <li><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='#fed7c0'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">FAQ</a></li>
                     </ul>
@@ -97,6 +143,21 @@ function renderFooter() {
 function initializeComponents() {
     renderNavbar();
     renderFooter();
+
+    // Update badge counts
+    if (typeof getCartItemCount === 'function') {
+        const cartCount = document.querySelector('[data-cart-count]');
+        if (cartCount) {
+            cartCount.textContent = getCartItemCount();
+        }
+    }
+
+    if (typeof getWishlistCount === 'function') {
+        const wishlistCount = document.querySelector('[data-wishlist-count]');
+        if (wishlistCount) {
+            wishlistCount.textContent = getWishlistCount();
+        }
+    }
 }
 
 /**

@@ -1,36 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Guru Teja Heritage Exports - Premium Rice Export</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oriza - Premium Rice B2B Marketplace</title>
     
-    <!-- External Libraries -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/components.css">
-
-    <!-- Configuration -->
-    <script src="frontend/src/config.js"></script>
-
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        :root {
+            --primary: #012d1d;
+            --secondary: #7d562d;
+            --accent: #fed7c0;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
         }
         
         body {
             background-color: #f9f9f7;
-            font-family: 'Inter', sans-serif;
+            color: #333;
+        }
+        
+        .nav-link {
+            color: #666;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0a1f16;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(1, 45, 29, 0.3);
+        }
+        
+        .btn-secondary {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            color: white;
         }
         
         .page {
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        
-        .page.hidden {
             display: none;
         }
         
@@ -38,1242 +88,353 @@
             display: block;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
         }
     </style>
 </head>
 <body>
-    <!-- Navbar Component -->
-    <nav style="background-color: white; position: fixed; top: 0; left: 0; right: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        <!-- Navbar content rendered by components.js -->
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary cursor-pointer" onclick="navigateTo('home')">
+                🌾 Oriza
+            </div>
+            <div class="hidden md:flex gap-8">
+                <span class="nav-link" onclick="navigateTo('home')">Home</span>
+                <span class="nav-link" onclick="navigateTo('catalog')">Catalog</span>
+                <span class="nav-link" onclick="navigateTo('orders')">Orders</span>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="toggleCart()" class="relative p-2 hover:bg-gray-100 rounded-lg">
+                    <span class="material-icons">shopping_cart</span>
+                    <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                </button>
+                <button onclick="toggleAuth()" class="btn-primary">Sign In</button>
+            </div>
+        </div>
     </nav>
 
-    <!-- Main Content Container -->
-    <main style="padding-top: 80px; min-height: calc(100vh - 80px);">
-        <!-- PAGE 0: SPLASH SCREEN -->
-        <section id="splash-page" class="page hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 200; background: linear-gradient(135deg, #3d2817 0%, #944600 50%, #6b3300 100%); padding: 0; display: flex; align-items: center; justify-content: center;">
-            <div style="text-align: center; color: white; space-y: 2rem;">
-                <div style="margin-bottom: 2rem;">
-                    <div style="font-family: 'Noto Serif', serif; font-size: 72px; font-weight: 700; margin-bottom: 0.5rem; text-shadow: 0 4px 12px rgba(0,0,0,0.3);">Guru Teja</div>
-                    <div style="font-size: 24px; letter-spacing: 0.2em; font-weight: 300; opacity: 0.9;">Heritage Rice Exports</div>
-                </div>
-                <p style="font-size: 18px; max-width: 600px; margin: 0 auto 3rem; opacity: 0.85;">Premium rice varieties exported to 45+ countries worldwide. 25 years of excellence.</p>
-                <button style="background-color: #fed7c0; color: #3d2817; padding: 1.25rem 3rem; font-size: 16px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.25rem; letter-spacing: 0.1em;" onclick="document.getElementById('splash-page').style.display='none'; navigateTo('home')" onmouseover="this.style.backgroundColor='white'; this.style.transform='scale(1.05)'" onmouseout="this.style.backgroundColor='#fed7c0'; this.style.transform='scale(1)'">
-                    Enter Store
-                </button>
-                <div style="margin-top: 4rem; opacity: 0.6;">
-                    <p style="font-size: 12px; letter-spacing: 0.15em;">www.guruteja.com</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGE 1: HOME -->
-        <section id="home-page" class="page active" style="padding-top: 0;">
-            <div style="padding: 80px 2rem; max-width: 1280px; margin: 0 auto;">
+    <!-- Main Content -->
+    <main class="pt-20">
+        
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <div class="max-w-7xl mx-auto px-6 py-20">
                 <!-- Hero Section -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem;">
-                    <div style="space-y: 2rem;">
-                        <div style="margin-bottom: 2rem;">
-                            <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: #944600;">Premium Heritage Rice Exporter</span>
-                            <h1 style="font-family: 'Noto Serif', serif; font-size: 48px; line-height: 1.1; font-weight: 700; color: #3d2817; margin-top: 0.5rem;">Authentic Rice for Global Tables</h1>
-                        </div>
-                        <p style="font-size: 18px; line-height: 1.6; color: #6b5147; margin-bottom: 1.5rem;">Guru Teja Heritage Exports brings 25 years of cultivation expertise and ethical farming practices to every grain. From small family kitchens to industrial processors, we deliver consistency and quality.</p>
-                        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                            <button style="background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem;" onclick="navigateTo('catalog')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">View Catalog</button>
-                            <button style="border: 2px solid #944600; color: #944600; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; background: white; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem;" onclick="navigateTo('inquiry')" onmouseover="this.style.backgroundColor='#944600'; this.style.color='white'" onmouseout="this.style.backgroundColor='white'; this.style.color='#944600'">Request Sample</button>
+                <div class="grid grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <p class="text-secondary font-semibold text-lg mb-3">Premium B2B Marketplace</p>
+                        <h1 class="text-6xl font-bold text-primary mb-6 leading-tight">Authentic Rice for Global Tables</h1>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Oriza connects certified rice farmers with global buyers. Premium quality, competitive pricing, and seamless logistics for bulk orders.
+                        </p>
+                        <div class="flex gap-4">
+                            <button onclick="navigateTo('catalog')" class="btn-primary">View Catalog</button>
+                            <button onclick="toggleAuth()" class="btn-secondary">Request Quote</button>
                         </div>
                     </div>
-                    <div style="aspect-ratio: 4/5; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvB_UptGZfCOcfDGFMmilKk8ZuY5pmd0C9rjkDvhVU7if5Au8bpjGEzpSZNW0OjIcdgeuZ7s6Hs70tcHQwSBTBBJ_n_5WWzNxHgeOfhTL4-x4ixekDq3dkpKCJJjjO2AiKGiT6OtSk0qMnvaIT88tUEaUnpz3Lr0LacBLI_UdybmoVzPXV97SAGEmmI6IjTkLMdRJyuSTWoa8CKux3iW3PSlBYOMpJwYMUrUc2ckwHDmDT_6wCDH0QT0S3PrNy_Yh7Pngso3crWCrG" style="width: 100%; height: 100%; object-fit: cover;" alt="Premium Rice"/>
+                    <div class="bg-gradient-to-br from-secondary/10 to-accent/30 rounded-2xl h-96 flex items-center justify-center overflow-hidden">
+                        <span class="text-9xl animate-bounce">🌾</span>
                     </div>
                 </div>
 
-                <!-- Benefits Section -->
-                <section style="margin-bottom: 5rem;">
-                    <h2 style="font-family: 'Noto Serif', serif; font-size: 32px; font-weight: 600; color: #3d2817; text-align: center; margin-bottom: 3rem;">Why Global Buyers Trust Guru Teja</h2>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                        <div style="text-align: center;">
-                            <div style="width: 64px; height: 64px; background-color: #fed7c0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <span class="material-symbols-outlined" style="font-size: 36px; color: #944600;">verified_user</span>
-                            </div>
-                            <h3 style="font-family: 'Noto Serif', serif; font-size: 20px; font-weight: 600; color: #3d2817; margin-bottom: 0.5rem;">25+ Years Legacy</h3>
-                            <p style="color: #6b5147;">Three generations of farming expertise and ethical practices.</p>
+                <!-- Features -->
+                <div class="grid grid-cols-4 gap-6 py-20 border-t border-gray-200">
+                    <div class="feature-card">
+                        <span class="material-icons text-4xl text-secondary mx-auto mb-4 block">verified_user</span>
+                        <h3 class="font-bold text-lg mb-2">Verified Sellers</h3>
+                        <p class="text-sm text-gray-600">100% certified farmers & exporters</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-icons text-4xl text-secondary mx-auto mb-4 block">local_shipping</span>
+                        <h3 class="font-bold text-lg mb-2">Fast Delivery</h3>
+                        <p class="text-sm text-gray-600">Global shipping in 45 days</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-icons text-4xl text-secondary mx-auto mb-4 block">price_check</span>
+                        <h3 class="font-bold text-lg mb-2">Best Prices</h3>
+                        <p class="text-sm text-gray-600">Wholesale rates guaranteed</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-icons text-4xl text-secondary mx-auto mb-4 block">eco</span>
+                        <h3 class="font-bold text-lg mb-2">Sustainable</h3>
+                        <p class="text-sm text-gray-600">Eco-friendly practices</p>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="bg-primary text-white rounded-2xl p-12 text-center">
+                    <div class="grid grid-cols-3 gap-8">
+                        <div>
+                            <p class="text-4xl font-bold mb-2">50,000+</p>
+                            <p class="text-lg opacity-90">MT Exported Annually</p>
                         </div>
-                        <div style="text-align: center;">
-                            <div style="width: 64px; height: 64px; background-color: #fed7c0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <span class="material-symbols-outlined" style="font-size: 36px; color: #944600;">eco</span>
-                            </div>
-                            <h3 style="font-family: 'Noto Serif', serif; font-size: 20px; font-weight: 600; color: #3d2817; margin-bottom: 0.5rem;">Sustainable Farming</h3>
-                            <p style="color: #6b5147;">ISO 9001 certified with zero-waste processing methods.</p>
+                        <div>
+                            <p class="text-4xl font-bold mb-2">45+</p>
+                            <p class="text-lg opacity-90">Countries Served</p>
                         </div>
-                        <div style="text-align: center;">
-                            <div style="width: 64px; height: 64px; background-color: #fed7c0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <span class="material-symbols-outlined" style="font-size: 36px; color: #944600;">public</span>
-                            </div>
-                            <h3 style="font-family: 'Noto Serif', serif; font-size: 20px; font-weight: 600; color: #3d2817; margin-bottom: 0.5rem;">Global Reach</h3>
-                            <p style="color: #6b5147;">Exporting to 45+ countries with reliable logistics partners.</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="width: 64px; height: 64px; background-color: #fed7c0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <span class="material-symbols-outlined" style="font-size: 36px; color: #944600;">local_shipping</span>
-                            </div>
-                            <h3 style="font-family: 'Noto Serif', serif; font-size: 20px; font-weight: 600; color: #3d2817; margin-bottom: 0.5rem;">Fast Shipping</h3>
-                            <p style="color: #6b5147;">Average 45-day delivery to major ports worldwide.</p>
+                        <div>
+                            <p class="text-4xl font-bold mb-2">500+</p>
+                            <p class="text-lg opacity-90">Certified Farmers</p>
                         </div>
                     </div>
-                </section>
-
-                <!-- CTA Section -->
-                <section style="background-color: #3d2817; border-radius: 1rem; padding: 4rem 2rem; text-align: center; color: white;">
-                    <h2 style="font-family: 'Noto Serif', serif; font-size: 32px; font-weight: 600; margin-bottom: 1rem;">Ready to Partner with Us?</h2>
-                    <p style="font-size: 18px; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Explore our premium rice varieties and get competitive wholesale pricing for your business.</p>
-                    <button style="background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem;" onclick="navigateTo('catalog')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">Shop Now</button>
-                </section>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- PAGE 2: CATALOG -->
-        <section id="catalog-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <h1 style="font-family: 'Noto Serif', serif; font-size: 36px; font-weight: 700; color: #3d2817; margin-bottom: 1rem;">Our Rice Collection</h1>
-            <p style="font-size: 16px; color: #6b5147; margin-bottom: 3rem;">Explore our premium rice varieties for wholesale export.</p>
-            
-            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
-                <!-- Filters Sidebar -->
-                <aside style="background-color: #f9f9f7; padding: 2rem; border-radius: 0.5rem; height: fit-content;">
-                    <h3 style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1.5rem;">Filters</h3>
+        <!-- CATALOG PAGE -->
+        <div id="catalog" class="page">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <h1 class="text-5xl font-bold text-primary mb-3">Premium Rice Varieties</h1>
+                <p class="text-gray-600 mb-8">Explore our authenticated collection of premium rice for wholesale export</p>
+                
+                <div class="grid grid-cols-4 gap-6">
+                    <div id="products-grid">
+                        <!-- Products load here -->
+                        <div class="col-span-4 text-center py-12">
+                            <p class="text-gray-500">Products loading...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ORDERS PAGE -->
+        <div id="orders" class="page">
+            <div class="max-w-3xl mx-auto px-6 py-12">
+                <h1 class="text-5xl font-bold text-primary mb-8">Track Your Orders</h1>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-md mb-8">
+                    <p class="text-gray-600 mb-4">Enter your order number to track shipment status</p>
+                    <div class="flex gap-4">
+                        <input type="text" id="order-search" placeholder="Order #ORD-1234567890-ABC" class="flex-1 border-2 border-gray-200 rounded-lg p-3 focus:border-secondary focus:outline-none">
+                        <button onclick="searchOrder()" class="btn-primary">Track</button>
+                    </div>
+                </div>
+                
+                <div id="order-details" class="bg-white p-8 rounded-2xl shadow-md">
+                    <p class="text-gray-500 text-center">Enter an order number to view details</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AUTH PAGE -->
+        <div id="auth" class="page">
+            <div class="max-w-md mx-auto px-6 py-12">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h1 class="text-4xl font-bold text-primary mb-2 text-center">Oriza</h1>
+                    <p class="text-center text-gray-600 mb-8">Premium Rice B2B Marketplace</p>
                     
-                    <!-- Rice Type Filter -->
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: #944600; margin-bottom: 1rem;">Rice Type</h4>
-                        <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
-                            <input type="checkbox" class="filter-checkbox" value="basmati" style="margin-right: 0.5rem; cursor: pointer;"/>
-                            <span>Basmati</span>
-                        </label>
-                        <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
-                            <input type="checkbox" class="filter-checkbox" value="parboiled" style="margin-right: 0.5rem; cursor: pointer;"/>
-                            <span>Parboiled</span>
-                        </label>
-                        <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
-                            <input type="checkbox" class="filter-checkbox" value="jasmine" style="margin-right: 0.5rem; cursor: pointer;"/>
-                            <span>Jasmine</span>
-                        </label>
+                    <div id="login-form">
+                        <h2 class="text-2xl font-bold mb-6">Welcome Back</h2>
+                        <input type="email" id="login-email" placeholder="Email" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-4 focus:border-secondary focus:outline-none">
+                        <input type="password" id="login-password" placeholder="Password" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-6 focus:border-secondary focus:outline-none">
+                        <button onclick="handleLogin()" class="btn-primary w-full mb-4">Sign In</button>
+                        <p class="text-center text-sm text-gray-600">
+                            Don't have an account? <span onclick="toggleAuthMode()" class="text-secondary font-bold cursor-pointer">Register</span>
+                        </p>
                     </div>
                     
-                    <!-- Grain Length Filter -->
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: #944600; margin-bottom: 1rem;">Grain Length</h4>
-                        <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
-                            <input type="radio" class="filter-radio" name="grain" value="all" checked style="margin-right: 0.5rem; cursor: pointer;"/>
-                            <span>All</span>
-                        </label>
-                        <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
-                            <input type="radio" class="filter-radio" name="grain" value="extra-long" style="margin-right: 0.5rem; cursor: pointer;"/>
-                            <span>Extra Long</span>
-                        </label>
-                        <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
-                            <input type="radio" class="filter-radio" name="grain" value="long" style="margin-right: 0.5rem; cursor: pointer;"/>
-                            <span>Long</span>
-                        </label>
-                    </div>
-                </aside>
-
-                <!-- Product Grid -->
-                <div>
-                    <!-- Sort Dropdown -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                        <p style="color: #6b5147;"><span id="productCount">0</span> products</p>
-                        <select name="sortBy" style="padding: 0.5rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 14px; cursor: pointer;">
-                            <option value="default">Sort by Default</option>
-                            <option value="price-low">Price: Low to High</option>
-                            <option value="price-high">Price: High to Low</option>
-                        </select>
-                    </div>
-
-                    <!-- Product Grid -->
-                    <div id="productGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
-                        <!-- Products populated by JavaScript -->
+                    <div id="register-form" class="hidden">
+                        <h2 class="text-2xl font-bold mb-6">Create Account</h2>
+                        <input type="text" id="register-name" placeholder="Full Name" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-4 focus:border-secondary focus:outline-none">
+                        <input type="email" id="register-email" placeholder="Email" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-4 focus:border-secondary focus:outline-none">
+                        <input type="tel" id="register-phone" placeholder="Phone (10 digits)" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-4 focus:border-secondary focus:outline-none">
+                        <input type="password" id="register-password" placeholder="Password (min 6)" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-6 focus:border-secondary focus:outline-none">
+                        <button onclick="handleRegister()" class="btn-primary w-full mb-4">Create Account</button>
+                        <p class="text-center text-sm text-gray-600">
+                            Already have account? <span onclick="toggleAuthMode()" class="text-secondary font-bold cursor-pointer">Login</span>
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- PAGE 3: PRODUCT DETAILS -->
-        <section id="product-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <button style="background: none; border: none; color: #944600; cursor: pointer; margin-bottom: 2rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;" onclick="navigateTo('catalog')">
-                <span class="material-symbols-outlined" style="font-size: 20px;">arrow_back</span>
-                Back to Catalog
-            </button>
-
-            <!-- Product Details Grid -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;">
-                <!-- Product Image -->
-                <div style="aspect-ratio: 4/5; border-radius: 0.5rem; overflow: hidden; background-color: #f0ede8;">
-                    <img id="productImage" src="" alt="Product" style="width: 100%; height: 100%; object-fit: cover;"/>
-                </div>
-
-                <!-- Product Information -->
-                <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <div style="margin-bottom: 2rem;">
-                        <h1 id="productTitle" style="font-family: 'Noto Serif', serif; font-size: 36px; font-weight: 700; color: #3d2817; margin-bottom: 1rem;"></h1>
-                        <p id="productDesc" style="font-size: 16px; color: #6b5147; line-height: 1.6; margin-bottom: 2rem;"></p>
-
-                        <!-- Specifications -->
-                        <div style="background-color: #f9f9f7; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
-                            <h3 style="font-size: 14px; font-weight: 600; text-transform: uppercase; color: #944600; margin-bottom: 1rem;">Specifications</h3>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                                <div>
-                                    <p style="font-size: 12px; color: #6b5147; text-transform: uppercase;">Moisture</p>
-                                    <p id="specMoisture" style="font-size: 18px; font-weight: 600; color: #3d2817;"></p>
-                                </div>
-                                <div>
-                                    <p style="font-size: 12px; color: #6b5147; text-transform: uppercase;">Length</p>
-                                    <p id="specLength" style="font-size: 18px; font-weight: 600; color: #3d2817;"></p>
-                                </div>
-                                <div>
-                                    <p style="font-size: 12px; color: #6b5147; text-transform: uppercase;">Purity</p>
-                                    <p id="specPurity" style="font-size: 18px; font-weight: 600; color: #3d2817;"></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bulk Calculator -->
-                        <div style="background-color: #fed7c0; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
-                            <h3 style="font-size: 14px; font-weight: 600; text-transform: uppercase; color: #944600; margin-bottom: 1rem;">Bulk Price Calculator</h3>
-                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                <label style="font-size: 12px; color: #3d2817; font-weight: 600; text-transform: uppercase;">Unit Price:</label>
-                                <span id="unitPrice" style="font-size: 20px; font-weight: 700; color: #944600;"></span>
-                                <span style="font-size: 12px; color: #6b5147;">/Metric Tonne</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                <label style="font-size: 12px; color: #3d2817; font-weight: 600; text-transform: uppercase;">Quantity (MT):</label>
-                                <input id="quantityInput" type="number" min="1" value="1" style="width: 80px; padding: 0.5rem; border: 1px solid #944600; border-radius: 0.125rem; font-size: 16px;"/>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 1rem; padding-top: 1rem; border-top: 2px solid rgba(148,70,0,0.2);">
-                                <label style="font-size: 12px; color: #3d2817; font-weight: 600; text-transform: uppercase;">Total:</label>
-                                <span id="totalPrice" style="font-size: 24px; font-weight: 700; color: #944600;"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Action Buttons -->
-                    <div style="display: flex; gap: 1rem;">
-                        <button style="flex: 1; background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem;" onclick="document.getElementById('inquiryForm')?.scrollIntoView({behavior: 'smooth'});" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                            Request Quote
-                        </button>
-                        <button style="flex: 1; border: 2px solid #944600; color: #944600; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; background: white; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem;" onclick="navigateTo('inquiry', getCurrentProductId())" onmouseover="this.style.backgroundColor='#944600'; this.style.color='white'" onmouseout="this.style.backgroundColor='white'; this.style.color='#944600'">
-                            Get Sample
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Related Products -->
-            <section style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid #e2e3e1;">
-                <h2 style="font-family: 'Noto Serif', serif; font-size: 28px; font-weight: 600; color: #3d2817; margin-bottom: 2rem;">Other Products</h2>
-                <div id="relatedProducts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
-                    <!-- Related products populated by JavaScript -->
-                </div>
-            </section>
-        </section>
-
-        <!-- PAGE 4: INQUIRY FORM -->
-        <section id="inquiry-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <div style="display: grid; grid-template-columns: 1fr 300px; gap: 3rem;">
-                <!-- Main Form -->
-                <div>
-                    <h1 style="font-family: 'Noto Serif', serif; font-size: 36px; font-weight: 700; color: #3d2817; margin-bottom: 1rem;">Send an Inquiry</h1>
-                    <p style="font-size: 16px; color: #6b5147; margin-bottom: 3rem;">Fill out the form below and we'll contact you within 24 hours with pricing and availability.</p>
-
-                    <form id="inquiryForm" style="space-y: 2rem;">
-                        <!-- Company Information -->
-                        <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
-                            <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Company Information</legend>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                                <input type="text" name="companyName" placeholder="Company Name" required style="padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
-                                <input type="text" name="contactName" placeholder="Contact Person" required style="padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
-                            </div>
-                        </fieldset>
-
-                        <!-- Contact Information -->
-                        <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
-                            <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Contact Information</legend>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                                <input type="email" name="email" placeholder="Email Address" required style="padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
-                                <input type="tel" name="phone" placeholder="Phone Number" required style="padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
-                            </div>
-                        </fieldset>
-
-                        <!-- Order Requirements -->
-                        <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
-                            <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Order Requirements</legend>
-                            <div style="margin-bottom: 1.5rem;">
-                                <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Country</label>
-                                <select name="country" required style="width: 100%; padding: 0.75rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 16px;">
-                                    <option value="">Select Country</option>
-                                    <option value="USA">USA</option>
-                                    <option value="UK">UK</option>
-                                    <option value="Germany">Germany</option>
-                                    <option value="France">France</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 1.5rem;">
-                                <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Rice Variety</label>
-                                <select id="formRiceVariety" name="riceVariety" required style="width: 100%; padding: 0.75rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 16px;">
-                                    <option value="">Select Rice Variety</option>
-                                    <option value="1121 XXXL Basmati">1121 XXXL Basmati</option>
-                                    <option value="Traditional Parboiled">Traditional Parboiled</option>
-                                    <option value="IR-64 White">IR-64 White</option>
-                                    <option value="Super Jasmine">Super Jasmine</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 1.5rem;">
-                                <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Quantity (Metric Tonnes)</label>
-                                <input type="number" name="quantity" placeholder="10" min="1" required style="width: 100%; padding: 0.75rem; border: none; border-bottom: 2px solid #d9d5d1; background: transparent; font-size: 16px; transition: border-color 0.3s;"/>
-                            </div>
-                        </fieldset>
-
-                        <!-- Delivery Requirements -->
-                        <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
-                            <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Delivery Requirements</legend>
-                            <div style="margin-bottom: 1.5rem;">
-                                <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Packaging</label>
-                                <select name="packaging" style="width: 100%; padding: 0.75rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 16px;">
-                                    <option value="jute-50kg">Jute Bags (50kg)</option>
-                                    <option value="polypropylene-50kg">Polypropylene Bags (50kg)</option>
-                                    <option value="bulk-container">Bulk Container (900kg)</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 1.5rem;">
-                                <label style="display: block; font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Delivery Window</label>
-                                <select name="deliveryWindow" style="width: 100%; padding: 0.75rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-size: 16px;">
-                                    <option value="asap">As Soon As Possible</option>
-                                    <option value="30-days">Within 30 Days</option>
-                                    <option value="60-days">Within 60 Days</option>
-                                    <option value="flexible">Flexible</option>
-                                </select>
-                            </div>
-                        </fieldset>
-
-                        <!-- Certifications -->
-                        <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
-                            <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Certifications Required</legend>
-                            <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
-                                <input type="checkbox" name="organic" style="margin-right: 0.5rem; cursor: pointer;"/>
-                                <span>Organic Certification</span>
-                            </label>
-                            <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer;">
-                                <input type="checkbox" name="haccp" style="margin-right: 0.5rem; cursor: pointer;"/>
-                                <span>HACCP Certification</span>
-                            </label>
-                        </fieldset>
-
-                        <!-- Message -->
-                        <fieldset style="margin-bottom: 2rem; padding: 0; border: none;">
-                            <legend style="font-family: 'Noto Serif', serif; font-size: 18px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Additional Information</legend>
-                            <textarea name="message" placeholder="Any specific requirements or questions?" rows="5" style="width: 100%; padding: 1rem; border: 1px solid #d9d5d1; border-radius: 0.125rem; font-family: 'Inter', sans-serif; font-size: 16px; resize: none;"></textarea>
-                        </fieldset>
-
-                        <!-- Submit Button -->
-                        <button type="submit" style="width: 100%; background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 0.125rem; margin-bottom: 1rem;" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                            Submit Inquiry
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Sidebar Info -->
-                <aside>
-                    <!-- Contact Info Card -->
-                    <div style="background-color: #f9f9f7; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
-                        <h3 style="font-family: 'Noto Serif', serif; font-size: 16px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Contact Info</h3>
-                        <div style="space-y: 1rem;">
-                            <div style="margin-bottom: 1rem;">
-                                <p style="font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Phone</p>
-                                <p style="font-size: 14px; color: #3d2817;">+91 98765 43210</p>
-                            </div>
-                            <div style="margin-bottom: 1rem;">
-                                <p style="font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Email</p>
-                                <p style="font-size: 14px; color: #3d2817;">export@guruteja.com</p>
-                            </div>
-                            <div>
-                                <p style="font-size: 12px; color: #944600; font-weight: 600; text-transform: uppercase; margin-bottom: 0.25rem;">Response Time</p>
-                                <p style="font-size: 14px; color: #3d2817;">24 Hours</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Certifications -->
-                    <div style="background-color: #f9f9f7; padding: 1.5rem; border-radius: 0.5rem;">
-                        <h3 style="font-family: 'Noto Serif', serif; font-size: 16px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Our Certifications</h3>
-                        <div style="space-y: 0.75rem;">
-                            <p style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: #6b5147; margin-bottom: 0.75rem;">
-                                <span class="material-symbols-outlined" style="font-size: 18px; color: #944600;">verified</span>
-                                ISO 9001:2015
-                            </p>
-                            <p style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: #6b5147; margin-bottom: 0.75rem;">
-                                <span class="material-symbols-outlined" style="font-size: 18px; color: #944600;">verified</span>
-                                HACCP Certified
-                            </p>
-                            <p style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: #6b5147; margin-bottom: 0.75rem;">
-                                <span class="material-symbols-outlined" style="font-size: 18px; color: #944600;">verified</span>
-                                Zero-Waste
-                            </p>
-                            <p style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: #6b5147;">
-                                <span class="material-symbols-outlined" style="font-size: 18px; color: #944600;">verified</span>
-                                Global Export
-                            </p>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-
-        <!-- PAGE 5: CART -->
-        <section id="cart-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <!-- Content rendered by cart.js -->
-        </section>
-
-        <!-- PAGE 6: CHECKOUT -->
-        <section id="checkout-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <!-- Content rendered by checkout.js -->
-        </section>
-
-        <!-- PAGE 7: LOGIN -->
-        <section id="login-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <!-- Content rendered by auth.js -->
-        </section>
-
-        <!-- PAGE 8: REGISTER -->
-        <section id="register-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <!-- Content rendered by auth.js -->
-        </section>
-
-        <!-- PAGE 9: USER DASHBOARD -->
-        <section id="user-dashboard" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <!-- Content rendered by auth.js -->
-        </section>
-
-        <!-- PAGE 10: ORDER SUCCESS -->
-        <section id="order-success" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <!-- Content rendered by checkout.js -->
-        </section>
-
-        <!-- PAGE 11: WHOLESALE CATALOG -->
-        <section id="wholesale-catalog-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <h1 style="font-family: 'Noto Serif', serif; font-size: 36px; font-weight: 700; color: #3d2817; margin-bottom: 1rem;">Wholesale Pricing</h1>
-            <p style="font-size: 16px; color: #6b5147; margin-bottom: 3rem;">Special bulk pricing for institutional buyers and distributors.</p>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-                <!-- Tier 1 -->
-                <div style="border: 2px solid #d9d5d1; border-radius: 0.5rem; padding: 2rem; text-align: center;">
-                    <h3 style="font-family: 'Noto Serif', serif; font-size: 24px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">50-100 Tonnes</h3>
-                    <div style="background-color: #fed7c0; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-                        <span style="font-size: 32px; font-weight: 700; color: #944600;">5-10%</span>
-                        <p style="font-size: 14px; color: #6b5147; margin-top: 0.5rem;">Discount</p>
-                    </div>
-                    <ul style="text-align: left; font-size: 14px; color: #6b5147; space-y: 0.75rem; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.75rem;">✓ Flexible packaging</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Dedicated account manager</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Monthly reporting</li>
-                        <li>✓ Extended payment terms</li>
-                    </ul>
-                </div>
-
-                <!-- Tier 2 -->
-                <div style="border: 3px solid #944600; border-radius: 0.5rem; padding: 2rem; text-align: center; background-color: #f9f9f7; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background-color: #944600; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; font-size: 12px; font-weight: 600; text-transform: uppercase;">Popular</div>
-                    <h3 style="font-family: 'Noto Serif', serif; font-size: 24px; font-weight: 600; color: #3d2817; margin-bottom: 1rem; margin-top: 1rem;">100-500 Tonnes</h3>
-                    <div style="background-color: #fed7c0; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-                        <span style="font-size: 32px; font-weight: 700; color: #944600;">10-15%</span>
-                        <p style="font-size: 14px; color: #6b5147; margin-top: 0.5rem;">Discount</p>
-                    </div>
-                    <ul style="text-align: left; font-size: 14px; color: #6b5147; space-y: 0.75rem; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.75rem;">✓ Custom packaging options</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Priority shipping</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Weekly reporting</li>
-                        <li style="margin-bottom: 0.75rem;">✓ 60-day payment terms</li>
-                        <li>✓ Quality guarantee</li>
-                    </ul>
-                    <button style="width: 100%; background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; margin-top: 1.5rem; border-radius: 0.125rem; transition: all 0.3s;" onclick="navigateTo('inquiry')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                        Request Quote
-                    </button>
-                </div>
-
-                <!-- Tier 3 -->
-                <div style="border: 2px solid #d9d5d1; border-radius: 0.5rem; padding: 2rem; text-align: center;">
-                    <h3 style="font-family: 'Noto Serif', serif; font-size: 24px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">500+ Tonnes</h3>
-                    <div style="background-color: #fed7c0; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-                        <span style="font-size: 32px; font-weight: 700; color: #944600;">15-20%</span>
-                        <p style="font-size: 14px; color: #6b5147; margin-top: 0.5rem;">Discount</p>
-                    </div>
-                    <ul style="text-align: left; font-size: 14px; color: #6b5147; space-y: 0.75rem; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.75rem;">✓ Dedicated logistics</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Direct mill access</li>
-                        <li style="margin-bottom: 0.75rem;">✓ Custom terms</li>
-                        <li>✓ Exclusive batches</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div style="background-color: #f9f9f7; padding: 2rem; border-radius: 0.5rem; text-align: center;">
-                <h3 style="font-family: 'Noto Serif', serif; font-size: 24px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Enterprise Solutions</h3>
-                <p style="font-size: 16px; color: #6b5147; margin-bottom: 1.5rem;">For large-scale importers and food manufacturing companies</p>
-                <button style="background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="navigateTo('inquiry')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                    Contact Sales Team
-                </button>
-            </div>
-        </section>
-
-        <!-- PAGE 12: PARTNER DASHBOARD -->
-        <section id="partner-dashboard-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <h1 style="font-family: 'Noto Serif', serif; font-size: 36px; font-weight: 700; color: #3d2817; margin-bottom: 1rem;">Partner Dashboard</h1>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                <!-- Stats Card 1 -->
-                <div style="background-color: #f9f9f7; padding: 2rem; border-radius: 0.5rem; border-left: 4px solid #944600;">
-                    <p style="font-size: 12px; color: #6b5147; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">Total Orders</p>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #944600;">24</h3>
-                    <p style="font-size: 12px; color: #6b5147; margin-top: 0.5rem;">+3 this month</p>
-                </div>
-
-                <!-- Stats Card 2 -->
-                <div style="background-color: #f9f9f7; padding: 2rem; border-radius: 0.5rem; border-left: 4px solid #944600;">
-                    <p style="font-size: 12px; color: #6b5147; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">Revenue</p>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #944600;">$145,000</h3>
-                    <p style="font-size: 12px; color: #6b5147; margin-top: 0.5rem;">YTD</p>
-                </div>
-
-                <!-- Stats Card 3 -->
-                <div style="background-color: #f9f9f7; padding: 2rem; border-radius: 0.5rem; border-left: 4px solid #944600;">
-                    <p style="font-size: 12px; color: #6b5147; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">Active Shipments</p>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #944600;">3</h3>
-                    <p style="font-size: 12px; color: #6b5147; margin-top: 0.5rem;">In transit</p>
-                </div>
-
-                <!-- Stats Card 4 -->
-                <div style="background-color: #f9f9f7; padding: 2rem; border-radius: 0.5rem; border-left: 4px solid #944600;">
-                    <p style="font-size: 12px; color: #6b5147; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">Discount Rate</p>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #944600;">12%</h3>
-                    <p style="font-size: 12px; color: #6b5147; margin-top: 0.5rem;">Your tier</p>
-                </div>
-            </div>
-
-            <div style="background-color: #f9f9f7; padding: 2rem; border-radius: 0.5rem; margin-bottom: 2rem;">
-                <h3 style="font-family: 'Noto Serif', serif; font-size: 20px; font-weight: 600; color: #3d2817; margin-bottom: 1rem;">Recent Orders</h3>
-                <div style="overflow-x: auto;">
-                    <table style="width: 100%; font-size: 14px;">
-                        <thead>
-                            <tr style="border-bottom: 2px solid #d9d5d1;">
-                                <th style="text-align: left; padding: 1rem; color: #944600; font-weight: 600; text-transform: uppercase;">Order ID</th>
-                                <th style="text-align: left; padding: 1rem; color: #944600; font-weight: 600; text-transform: uppercase;">Product</th>
-                                <th style="text-align: left; padding: 1rem; color: #944600; font-weight: 600; text-transform: uppercase;">Quantity</th>
-                                <th style="text-align: left; padding: 1rem; color: #944600; font-weight: 600; text-transform: uppercase;">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid #e2e3e1;">
-                                <td style="padding: 1rem; color: #3d2817;">GTJ-2024-001</td>
-                                <td style="padding: 1rem; color: #3d2817;">1121 Basmati</td>
-                                <td style="padding: 1rem; color: #3d2817;">100 MT</td>
-                                <td style="padding: 1rem;"><span style="background-color: #fed7c0; color: #944600; padding: 0.25rem 0.75rem; border-radius: 0.25rem; font-size: 12px; font-weight: 600;">Shipped</span></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #e2e3e1;">
-                                <td style="padding: 1rem; color: #3d2817;">GTJ-2024-002</td>
-                                <td style="padding: 1rem; color: #3d2817;">Parboiled Rice</td>
-                                <td style="padding: 1rem; color: #3d2817;">50 MT</td>
-                                <td style="padding: 1rem;"><span style="background-color: #fed7c0; color: #944600; padding: 0.25rem 0.75rem; border-radius: 0.25rem; font-size: 12px; font-weight: 600;">Processing</span></td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 1rem; color: #3d2817;">GTJ-2024-003</td>
-                                <td style="padding: 1rem; color: #3d2817;">Jasmine Rice</td>
-                                <td style="padding: 1rem; color: #3d2817;">75 MT</td>
-                                <td style="padding: 1rem;"><span style="background-color: #fed7c0; color: #944600; padding: 0.25rem 0.75rem; border-radius: 0.25rem; font-size: 12px; font-weight: 600;">Pending</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="flex gap-4">
-                <button style="flex: 1; background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="navigateTo('catalog')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                    View Catalog
-                </button>
-                <button style="flex: 1; background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="navigateTo('inquiry')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                    Place Order
-                </button>
-            </div>
-        </section>
-
-        <!-- PAGE 13: WISHLIST -->
-        <section id="wishlist-page" class="page hidden" style="padding: 40px 2rem; max-width: 1280px; margin: 0 auto;">
-            <h1 style="font-family: 'Noto Serif', serif; font-size: 36px; font-weight: 700; color: #3d2817; margin-bottom: 1rem;">Saved Selections</h1>
-            <p style="font-size: 16px; color: #6b5147; margin-bottom: 3rem;">Your favorite rice varieties and custom selections.</p>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
-                <!-- Wishlist Item 1 -->
-                <div style="border: 1px solid #d9d5d1; border-radius: 0.5rem; overflow: hidden;">
-                    <div style="aspect-ratio: 1; background-color: #f0ede8; overflow: hidden;">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvB_UptGZfCOcfDGFMmilKk8ZuY5pmd0C9rjkDvhVU7if5Au8bpjGEzpSZNW0OjIcdgeuZ7s6Hs70tcHQwSBTBBJ_n_5WWzNxHgeOfhTL4-x4ixekDq3dkpKCJJjjO2AiKGiT6OtSk0qMnvaIT88tUEaUnpz3Lr0LacBLI_UdybmoVzPXV97SAGEmmI6IjTkLMdRJyuSTWoa8CKux3iW3PSlBYOMpJwYMUrUc2ckwHDmDT_6wCDH0QT0S3PrNy_Yh7Pngso3crWCrG" style="width: 100%; height: 100%; object-fit: cover;"/>
-                    </div>
-                    <div style="padding: 1rem;">
-                        <h3 style="font-family: 'Noto Serif', serif; font-size: 16px; font-weight: 600; color: #3d2817; margin-bottom: 0.5rem;">1121 XXXL Basmati</h3>
-                        <p style="font-size: 13px; color: #6b5147; margin-bottom: 1rem;">Premium aged basmati rice</p>
-                        <div style="display: flex; justify-content: space-between; gap: 0.5rem;">
-                            <button style="flex: 1; background-color: #944600; color: white; padding: 0.75rem; font-size: 12px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="addToCart(1)" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                                Add to Cart
-                            </button>
-                            <button style="flex: 1; border: 2px solid #944600; color: #944600; padding: 0.75rem; font-size: 12px; font-weight: 600; text-transform: uppercase; background: white; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="removeFromWishlist(1)" onmouseover="this.style.backgroundColor='#944600'; this.style.color='white'" onmouseout="this.style.backgroundColor='white'; this.style.color='#944600'">
-                                Remove
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Wishlist Item 2 -->
-                <div style="border: 1px solid #d9d5d1; border-radius: 0.5rem; overflow: hidden;">
-                    <div style="aspect-ratio: 1; background-color: #f0ede8; overflow: hidden;">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDskjpumrLFJmsJ7tdHaLfdHNIELX7VfiMD2CmzqLNhUbDAUIShR3k7sa4tSne8inISBEqNs_f2DKyWtso0XKwCBVZNdO2cqNHmRlZnMz8GGehOG0oGeX45IMTjy0vebz6wk-QdYM0_rV-FfM2iHmLogdzGx2nkKBM1PipDSTa7Yk8LEG6NJhxZy66ScHIME66ezvNqw98M9hpqIU8nFHj2Nc2012nBylYl5xKjXj0GPOLxCsycxpJhCCgfvLIfSf1DHJx04zec7HIE" style="width: 100%; height: 100%; object-fit: cover;"/>
-                    </div>
-                    <div style="padding: 1rem;">
-                        <h3 style="font-family: 'Noto Serif', serif; font-size: 16px; font-weight: 600; color: #3d2817; margin-bottom: 0.5rem;">Golden Parboiled</h3>
-                        <p style="font-size: 13px; color: #6b5147; margin-bottom: 1rem;">Nutritious parboiled variety</p>
-                        <div style="display: flex; justify-content: space-between; gap: 0.5rem;">
-                            <button style="flex: 1; background-color: #944600; color: white; padding: 0.75rem; font-size: 12px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="addToCart(2)" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                                Add to Cart
-                            </button>
-                            <button style="flex: 1; border: 2px solid #944600; color: #944600; padding: 0.75rem; font-size: 12px; font-weight: 600; text-transform: uppercase; background: white; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="removeFromWishlist(2)" onmouseover="this.style.backgroundColor='#944600'; this.style.color='white'" onmouseout="this.style.backgroundColor='white'; this.style.color='#944600'">
-                                Remove
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top: 3rem; text-align: center;">
-                <p style="font-size: 14px; color: #6b5147; margin-bottom: 1rem;">Want to add more items?</p>
-                <button style="background-color: #944600; color: white; padding: 1rem 2rem; font-size: 14px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; border-radius: 0.125rem; transition: all 0.3s;" onclick="navigateTo('catalog')" onmouseover="this.style.backgroundColor='#6b3300'" onmouseout="this.style.backgroundColor='#944600'">
-                    Browse Catalog
-                </button>
-            </div>
-        </section>
-        <section id="admin-dashboard-page" class="page hidden">
-            <!-- Content rendered by admin-dashboard.js -->
-        </section>
-
-        <!-- PAGE 6: EXPORT TRACKING -->
-        <section id="export-tracking-page" class="page hidden">
-            <!-- Content rendered by export-tracking.js -->
-        </section>
+        </div>
     </main>
 
-    <!-- Footer Component -->
-    <footer>
-        <!-- Footer content rendered by components.js -->
+    <!-- Footer -->
+    <footer class="bg-primary text-white mt-20 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">🌾 Oriza</h3>
+                    <p class="text-sm opacity-80">Premium rice marketplace for B2B buyers and sellers worldwide.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Quick Links</h3>
+                    <ul class="text-sm space-y-2">
+                        <li><span onclick="navigateTo('home')" class="cursor-pointer hover:opacity-80">Home</span></li>
+                        <li><span onclick="navigateTo('catalog')" class="cursor-pointer hover:opacity-80">Catalog</span></li>
+                        <li><span onclick="navigateTo('orders')" class="cursor-pointer hover:opacity-80">Orders</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Support</h3>
+                    <ul class="text-sm space-y-2">
+                        <li>support@oriza.com</li>
+                        <li>+91 1234-567-890</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Company</h3>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="#" class="hover:opacity-80">About Us</a></li>
+                        <li><a href="#" class="hover:opacity-80">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:opacity-80">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-8 text-center text-sm opacity-80">
+                <p>&copy; 2024 Oriza Platform. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="scripts/data.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/catalog.js"></script>
-    <script src="scripts/product.js"></script>
-    <script src="scripts/inquiry.js"></script>
-    <script src="scripts/cart.js"></script>
-    <script src="scripts/checkout.js"></script>
-    <script src="scripts/auth.js"></script>
-    <script src="scripts/wishlist.js"></script>
-    <script src="scripts/admin-dashboard.js"></script>
-    <script src="scripts/export-tracking.js"></script>
-    <script src="scripts/components.js"></script>
-
+    <!-- API Client -->
+    <script src="frontend/src/utils/api.js"></script>
+    
+    <!-- Page Navigation -->
     <script>
-        // Initialize app when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Guru Teja Heritage Exports - Multi-Page Website Loaded');
-            if (typeof initializeApp === 'function') {
-                initializeApp();
+        function navigateTo(page) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            
+            // Show selected page
+            const pageElement = document.getElementById(page);
+            if (pageElement) {
+                pageElement.classList.add('active');
+                window.scrollTo(0, 0);
+                
+                // Load page-specific scripts
+                if (page === 'catalog') {
+                    loadCatalog();
+                }
             }
-            if (typeof navigateTo === 'function') {
+        }
+
+        function toggleAuth() {
+            navigateTo('auth');
+        }
+
+        function toggleAuthMode() {
+            document.getElementById('login-form').classList.toggle('hidden');
+            document.getElementById('register-form').classList.toggle('hidden');
+        }
+
+        function toggleCart() {
+            alert('Shopping cart feature coming soon!');
+        }
+
+        // Auth functions
+        async function handleLogin() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            try {
+                const response = await window.apiClient.login(email, password);
+                alert('Login successful! Welcome ' + response.user.name);
                 navigateTo('home');
+            } catch (error) {
+                alert('Login failed: ' + error.message);
             }
+        }
+
+        async function handleRegister() {
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const phone = document.getElementById('register-phone').value;
+            const password = document.getElementById('register-password').value;
+            
+            try {
+                const response = await window.apiClient.register(name, email, phone, password);
+                alert('Registration successful! Please login.');
+                toggleAuthMode();
+            } catch (error) {
+                alert('Registration failed: ' + error.message);
+            }
+        }
+
+        // Load catalog
+        async function loadCatalog() {
+            try {
+                const response = await window.apiClient.getProducts();
+                const products = response.products || [];
+                
+                let html = '';
+                products.forEach(product => {
+                    html += `
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer" onclick="viewProduct('${product._id}')">
+                            <div class="bg-gradient-to-br from-secondary/10 to-accent/20 h-40 flex items-center justify-center">
+                                <span class="text-4xl">🌾</span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">${product.name}</h3>
+                                <p class="text-gray-600 text-sm mb-3">${product.rice_type}</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg font-bold text-secondary">₹${product.price}/MT</span>
+                                    <button class="btn-primary text-sm p-2">View</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                document.getElementById('products-grid').innerHTML = html || '<p class="col-span-4 text-center py-12 text-gray-500">No products available</p>';
+            } catch (error) {
+                document.getElementById('products-grid').innerHTML = '<p class="col-span-4 text-center py-12 text-gray-500">Error loading products</p>';
+            }
+        }
+
+        function viewProduct(productId) {
+            alert('Product detail page coming soon!');
+        }
+
+        async function searchOrder() {
+            const orderNumber = document.getElementById('order-search').value;
+            
+            try {
+                const response = await window.apiClient.trackOrder(orderNumber);
+                const order = response.order || {};
+                
+                let html = `
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">Order #${order.orderNumber}</h2>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <p class="text-gray-600 text-sm">Status</p>
+                                <p class="text-xl font-bold text-primary">${order.status}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 text-sm">Total</p>
+                                <p class="text-xl font-bold text-secondary">₹${order.total}</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                            <p class="text-sm text-gray-600">Order placed on ${new Date(order.createdAt).toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('order-details').innerHTML = html;
+            } catch (error) {
+                document.getElementById('order-details').innerHTML = '<p class="text-center py-12 text-red-500">Order not found</p>';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            navigateTo('home');
         });
     </script>
-</body>
-</html>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "tertiary-container": "#521c0a",
-                        "secondary": "#775a19",
-                        "surface": "#f9f9f7",
-                        "outline-variant": "#c4c7c7",
-                        "surface-dim": "#dadad8",
-                        "on-primary-fixed": "#1b1c1c",
-                        "inverse-surface": "#2f3130",
-                        "on-tertiary": "#ffffff",
-                        "error": "#ba1a1a",
-                        "secondary-container": "#fed488",
-                        "background": "#f9f9f7",
-                        "surface-container-lowest": "#ffffff",
-                        "primary": "#181919",
-                        "surface-variant": "#e2e3e1",
-                        "on-secondary-fixed": "#261900",
-                        "surface-container-low": "#f4f4f2",
-                        "inverse-primary": "#c8c6c6",
-                        "error-container": "#ffdad6",
-                        "surface-bright": "#f9f9f7",
-                        "tertiary-fixed": "#ffdbd0",
-                        "tertiary": "#350900",
-                        "surface-container-high": "#e8e8e6",
-                        "surface-container-highest": "#e2e3e1",
-                        "on-secondary-container": "#785a1a",
-                        "on-secondary-fixed-variant": "#5d4201",
-                        "secondary-fixed-dim": "#e9c176",
-                        "surface-tint": "#5f5e5e",
-                        "surface-container": "#eeeeec",
-                        "inverse-on-surface": "#f1f1ef",
-                        "secondary-fixed": "#ffdea5",
-                        "on-tertiary-fixed-variant": "#733521",
-                        "on-error": "#ffffff",
-                        "on-tertiary-fixed": "#3a0b00",
-                        "on-surface": "#1a1c1b",
-                        "on-error-container": "#93000a",
-                        "on-primary-container": "#959494",
-                        "on-secondary": "#ffffff",
-                        "primary-fixed": "#e4e2e1",
-                        "primary-container": "#2d2d2d",
-                        "on-surface-variant": "#444748",
-                        "on-primary": "#ffffff",
-                        "on-tertiary-container": "#d18067",
-                        "primary-fixed-dim": "#c8c6c6",
-                        "on-primary-fixed-variant": "#474747",
-                        "outline": "#747878",
-                        "tertiary-fixed-dim": "#ffb59e",
-                        "on-background": "#1a1c1b"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "section-gap": "120px",
-                        "container-max": "1280px",
-                        "margin-desktop": "64px",
-                        "margin-mobile": "16px",
-                        "base": "8px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "headline-lg": ["Noto Serif"],
-                        "button": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "label-caps": ["Inter"],
-                        "display-lg": ["Noto Serif"],
-                        "headline-md": ["Noto Serif"]
-                    },
-                    "fontSize": {
-                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                        "button": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body { background-color: #f9f9f7; }
-    </style>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="font-body-md text-on-surface">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-stone-50/95 dark:bg-stone-950/95 backdrop-blur-sm shadow-sm border-b border-neutral-900/10 dark:border-neutral-100/10">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 h-20">
-        <div class="text-2xl font-bold font-serif tracking-tighter text-neutral-800 dark:text-neutral-100 cursor-pointer" onclick="navigateTo('home')">Guru Teja</div>
-        <div class="hidden md:flex space-x-8">
-            <a class="font-serif text-sm tracking-wide uppercase text-neutral-900 dark:text-neutral-50 border-b-2 border-neutral-800 dark:border-neutral-200 pb-1 transition-colors duration-300 cursor-pointer" onclick="navigateTo('home')">Home</a>
-            <a class="font-serif text-sm tracking-wide uppercase text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors duration-300 cursor-pointer" onclick="navigateTo('catalog')">Catalog</a>
-            <a class="font-serif text-sm tracking-wide uppercase text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors duration-300 cursor-pointer" onclick="navigateTo('inquiry')">Contact</a>
-        </div>
-        <div class="flex items-center space-x-6">
-            <div class="hidden lg:flex items-center text-neutral-500 dark:text-neutral-400 font-serif text-sm tracking-wide uppercase cursor-pointer hover:text-neutral-900 transition-colors">
-                <span class="material-symbols-outlined mr-2" style="font-size: 18px;">language</span>
-                EN / हिन्दी
-            </div>
-            <button class="bg-primary text-on-primary px-6 py-3 font-button text-button uppercase tracking-widest hover:bg-neutral-800 transition-all duration-200" onclick="navigateTo('inquiry')">
-                Request Quote
-            </button>
-        </div>
-    </div>
-</nav>
-
-<!-- PAGE 1: HOMEPAGE -->
-<main id="home-page" class="page active pt-32 pb-24">
-    <div class="max-w-7xl mx-auto px-8">
-        <!-- Hero Section -->
-        <section class="mb-32">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="space-y-8">
-                    <div class="space-y-4">
-                        <span class="font-label-caps text-label-caps text-[#944600] block uppercase">Premium Heritage Rice Exporter</span>
-                        <h1 class="font-display-lg text-display-lg text-[#3d2817]">Authentic Rice for Global Tables</h1>
-                    </div>
-                    <p class="font-body-lg text-[#6b5147] max-w-md">Guru Teja Heritage Exports brings 25 years of cultivation expertise and ethical farming practices to every grain. From small family kitchens to industrial processors, we deliver consistency and quality.</p>
-                    <div class="flex gap-4 pt-4">
-                        <button class="bg-[#944600] text-white px-8 py-4 font-button text-button uppercase tracking-widest hover:bg-[#6b3300] transition-all" onclick="navigateTo('catalog')">View Catalog</button>
-                        <button class="border-2 border-[#944600] text-[#944600] px-8 py-4 font-button text-button uppercase tracking-widest hover:bg-[#944600] hover:text-white transition-all" onclick="navigateTo('inquiry')">Request Sample</button>
-                    </div>
-                </div>
-                <div class="aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvB_UptGZfCOcfDGFMmilKk8ZuY5pmd0C9rjkDvhVU7if5Au8bpjGEzpSZNW0OjIcdgeuZ7s6Hs70tcHQwSBTBBJ_n_5WWzNxHgeOfhTL4-x4ixekDq3dkpKCJJjjO2AiKGiT6OtSk0qMnvaIT88tUEaUnpz3Lr0LacBLI_UdybmoVzPXV97SAGEmmI6IjTkLMdRJyuSTWoa8CKux3iW3PSlBYOMpJwYMUrUc2ckwHDmDT_6wCDH0QT0S3PrNy_Yh7Pngso3crWCrG" class="w-full h-full object-cover" alt="Premium Rice"/>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Us Section -->
-        <section class="mb-24">
-            <h2 class="font-headline-lg text-headline-lg text-[#3d2817] text-center mb-16">Why Global Buyers Trust Guru Teja</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center space-y-4">
-                    <div class="w-16 h-16 bg-[#fed7c0] rounded-full flex items-center justify-center mx-auto">
-                        <span class="material-symbols-outlined text-[#944600] text-4xl">verified_user</span>
-                    </div>
-                    <h3 class="font-headline-md text-headline-md text-[#3d2817]">25+ Years Legacy</h3>
-                    <p class="font-body-md text-[#6b5147]">Three generations of farming expertise and ethical practices.</p>
-                </div>
-                <div class="text-center space-y-4">
-                    <div class="w-16 h-16 bg-[#fed7c0] rounded-full flex items-center justify-center mx-auto">
-                        <span class="material-symbols-outlined text-[#944600] text-4xl">eco</span>
-                    </div>
-                    <h3 class="font-headline-md text-headline-md text-[#3d2817]">Sustainable Farming</h3>
-                    <p class="font-body-md text-[#6b5147]">ISO 9001 certified with zero-waste processing methods.</p>
-                </div>
-                <div class="text-center space-y-4">
-                    <div class="w-16 h-16 bg-[#fed7c0] rounded-full flex items-center justify-center mx-auto">
-                        <span class="material-symbols-outlined text-[#944600] text-4xl">public</span>
-                    </div>
-                    <h3 class="font-headline-md text-headline-md text-[#3d2817]">Global Reach</h3>
-                    <p class="font-body-md text-[#6b5147]">Exporting to 45+ countries with reliable logistics partners.</p>
-                </div>
-                <div class="text-center space-y-4">
-                    <div class="w-16 h-16 bg-[#fed7c0] rounded-full flex items-center justify-center mx-auto">
-                        <span class="material-symbols-outlined text-[#944600] text-4xl">local_shipping</span>
-                    </div>
-                    <h3 class="font-headline-md text-headline-md text-[#3d2817]">Fast Shipping</h3>
-                    <p class="font-body-md text-[#6b5147]">Average 45-day delivery to major ports worldwide.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="bg-[#3d2817] rounded-2xl p-16 text-center text-white space-y-6">
-            <h2 class="font-headline-lg text-headline-lg">Ready to Partner with Us?</h2>
-            <p class="font-body-lg max-w-2xl mx-auto">Explore our premium rice varieties and get competitive wholesale pricing for your business.</p>
-            <button class="bg-[#944600] hover:bg-[#6b3300] px-8 py-4 font-button text-button uppercase tracking-widest transition-all inline-block" onclick="navigateTo('catalog')">Shop Now</button>
-        </section>
-    </div>
-</main>
-
-<!-- PAGE 2: CATALOG -->
-<main id="catalog-page" class="page hidden pt-32 pb-24 max-w-7xl mx-auto px-8">
-    <header class="mb-16">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-                <span class="font-label-caps text-label-caps text-secondary mb-4 block uppercase">Global Export Collection</span>
-                <h1 class="font-display-lg text-display-lg text-primary">Premium Rice Catalog</h1>
-            </div>
-            <div class="flex items-center gap-4 border-b border-neutral-900/20 pb-2">
-                <span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Sort By</span>
-                <select class="bg-transparent border-none font-serif text-sm focus:ring-0 cursor-pointer" onchange="filterProducts()">
-                    <option value="default">All Products</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                </select>
-            </div>
-        </div>
-    </header>
-
-    <div class="flex flex-col lg:flex-row gap-12">
-        <!-- Sidebar Filters -->
-        <aside class="w-full lg:w-64 space-y-10">
-            <section>
-                <h3 class="font-label-caps text-label-caps text-primary mb-6 uppercase tracking-widest border-b border-neutral-200 pb-2">Rice Type</h3>
-                <div class="space-y-3" id="riceTypeFilters">
-                    <label class="flex items-center group cursor-pointer">
-                        <input type="checkbox" class="rounded-none border-neutral-300 text-primary focus:ring-primary h-4 w-4 mr-3 filter-checkbox" value="basmati" onchange="filterProducts()"/>
-                        <span class="font-body-md text-on-surface group-hover:text-secondary transition-colors">Basmati Rice</span>
-                    </label>
-                    <label class="flex items-center group cursor-pointer">
-                        <input type="checkbox" class="rounded-none border-neutral-300 text-primary focus:ring-primary h-4 w-4 mr-3 filter-checkbox" value="parboiled" onchange="filterProducts()"/>
-                        <span class="font-body-md text-on-surface group-hover:text-secondary transition-colors">Parboiled</span>
-                    </label>
-                    <label class="flex items-center group cursor-pointer">
-                        <input type="checkbox" class="rounded-none border-neutral-300 text-primary focus:ring-primary h-4 w-4 mr-3 filter-checkbox" value="jasmine" onchange="filterProducts()"/>
-                        <span class="font-body-md text-on-surface group-hover:text-secondary transition-colors">Jasmine</span>
-                    </label>
-                </div>
-            </section>
-            <section>
-                <h3 class="font-label-caps text-label-caps text-primary mb-6 uppercase tracking-widest border-b border-neutral-200 pb-2">Grain Length</h3>
-                <div class="space-y-3">
-                    <label class="flex items-center group cursor-pointer">
-                        <input class="border-neutral-300 text-primary focus:ring-primary h-4 w-4 mr-3 filter-radio" name="grain" type="radio" value="extra-long" onchange="filterProducts()"/>
-                        <span class="font-body-md text-on-surface group-hover:text-secondary transition-colors">Extra Long (8.3mm+)</span>
-                    </label>
-                    <label class="flex items-center group cursor-pointer">
-                        <input class="border-neutral-300 text-primary focus:ring-primary h-4 w-4 mr-3 filter-radio" name="grain" type="radio" value="long" onchange="filterProducts()"/>
-                        <span class="font-body-md text-on-surface group-hover:text-secondary transition-colors">Long Grain</span>
-                    </label>
-                    <label class="flex items-center group cursor-pointer">
-                        <input class="border-neutral-300 text-primary focus:ring-primary h-4 w-4 mr-3 filter-radio" name="grain" type="radio" value="all" onchange="filterProducts()" checked/>
-                        <span class="font-body-md text-on-surface group-hover:text-secondary transition-colors">All Grains</span>
-                    </label>
-                </div>
-            </section>
-            <div class="bg-surface-container p-6 space-y-4">
-                <p class="font-serif text-sm italic text-on-surface-variant">Looking for custom packaging or white-label options?</p>
-                <button class="w-full border-b border-primary text-primary font-button text-button py-2 hover:text-secondary hover:border-secondary transition-all" onclick="navigateTo('inquiry')">Contact Sales</button>
-            </div>
-        </aside>
-
-        <!-- Product Grid -->
-        <div class="flex-1">
-            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-16"></div>
-        </div>
-    </div>
-</main>
-
-<!-- PAGE 3: PRODUCT DETAILS -->
-<main id="product-page" class="page hidden pt-32 pb-24 max-w-7xl mx-auto px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-        <!-- Product Image -->
-        <div class="aspect-[4/5] rounded-lg overflow-hidden shadow-xl bg-white">
-            <img id="productImage" src="" class="w-full h-full object-cover" alt="Product"/>
-        </div>
-
-        <!-- Product Details -->
-        <div class="space-y-8">
-            <div>
-                <h1 id="productTitle" class="font-display-lg text-display-lg text-primary mb-2"></h1>
-                <p id="productDesc" class="font-body-lg text-on-surface-variant"></p>
-            </div>
-
-            <!-- Specifications -->
-            <div class="space-y-4 bg-surface-container p-6 rounded-lg">
-                <h3 class="font-headline-md text-headline-md text-primary">Key Specifications</h3>
-                <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Moisture</span>
-                        <p id="specMoisture" class="font-body-lg text-primary mt-1"></p>
-                    </div>
-                    <div>
-                        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Avg Length</span>
-                        <p id="specLength" class="font-body-lg text-primary mt-1"></p>
-                    </div>
-                    <div>
-                        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Purity</span>
-                        <p id="specPurity" class="font-body-lg text-primary mt-1"></p>
-                    </div>
-                    <div>
-                        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Origin</span>
-                        <p id="specOrigin" class="font-body-lg text-primary mt-1">India</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pricing & Calculator -->
-            <div class="space-y-6 border-t pt-8">
-                <div class="flex items-baseline gap-4">
-                    <span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Price Per Tonne</span>
-                    <span id="unitPrice" class="font-display-lg text-display-lg text-secondary">$1,250</span>
-                </div>
-
-                <!-- Bulk Calculator -->
-                <div class="bg-secondary-container/20 p-6 rounded-lg space-y-4">
-                    <h4 class="font-headline-md text-headline-md text-primary">Bulk Order Calculator</h4>
-                    <div>
-                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-3">Quantity (Tonnes)</label>
-                        <input id="quantityInput" type="number" value="1" min="1" class="w-full border border-neutral-300 px-4 py-3 font-body-md focus:ring-primary" onchange="calculateTotal()" oninput="calculateTotal()"/>
-                    </div>
-                    <div class="flex items-center gap-6 font-body-lg pt-4 border-t border-neutral-200">
-                        <div>
-                            <span class="text-on-surface-variant">Total Cost</span>
-                            <p id="totalPrice" class="font-display-lg text-secondary">$1,250</p>
-                        </div>
-                        <div class="text-right flex-1">
-                            <span class="text-on-surface-variant">Plus Freight & Handling</span>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="w-full bg-primary text-on-primary py-4 font-button text-button uppercase tracking-widest hover:bg-neutral-800 transition-all" onclick="navigateTo('inquiry', getCurrentProductId())">Request Quote</button>
-                <button class="w-full border-2 border-primary text-primary py-4 font-button text-button uppercase tracking-widest hover:bg-primary hover:text-white transition-all" onclick="navigateTo('catalog')">Back to Catalog</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Related Products -->
-    <section class="border-t pt-16">
-        <h2 class="font-headline-lg text-headline-lg text-primary mb-12">Other Rice Varieties</h2>
-        <div id="relatedProducts" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
-    </section>
-</main>
-
-<!-- PAGE 4: INQUIRY FORM -->
-<main id="inquiry-page" class="page hidden pt-32 pb-24 max-w-7xl mx-auto px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-        <!-- Inquiry Form -->
-        <div class="lg:col-span-2 space-y-8">
-            <div>
-                <h1 class="font-display-lg text-display-lg text-primary mb-3">Get Your Quote</h1>
-                <p class="font-body-lg text-on-surface-variant">Fill in your requirements and our sales team will respond within 24 hours.</p>
-            </div>
-
-            <form id="inquiryForm" class="space-y-6" onsubmit="submitInquiry(event)">
-                <!-- Company Details -->
-                <div class="space-y-6 border-b pb-8">
-                    <h3 class="font-headline-md text-headline-md text-primary">Company Information</h3>
-                    <div>
-                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Company Name</label>
-                        <input type="text" name="companyName" required class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none" placeholder="Your Company"/>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Full Name</label>
-                            <input type="text" name="contactName" required class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none" placeholder="Your Name"/>
-                        </div>
-                        <div>
-                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Email</label>
-                            <input type="email" name="email" required class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none" placeholder="your@email.com"/>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Phone</label>
-                            <input type="tel" name="phone" required class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none" placeholder="+1 (555) 000-0000"/>
-                        </div>
-                        <div>
-                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Country</label>
-                            <select name="country" required class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none">
-                                <option>Select Country</option>
-                                <option>USA</option>
-                                <option>UK</option>
-                                <option>Canada</option>
-                                <option>Australia</option>
-                                <option>UAE</option>
-                                <option>Germany</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Order Requirements -->
-                <div class="space-y-6 border-b pb-8">
-                    <h3 class="font-headline-md text-headline-md text-primary">Order Requirements</h3>
-                    <div>
-                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Rice Variety</label>
-                        <select name="riceVariety" id="formRiceVariety" required class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none">
-                            <option>1121 XXXL Extra Long Basmati</option>
-                            <option>Traditional Golden Parboiled</option>
-                            <option>IR-64 Long Grain White</option>
-                            <option>Super Kernal Jasmine</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Quantity (Tonnes)</label>
-                        <input type="number" name="quantity" required min="1" class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none" placeholder="e.g., 50"/>
-                    </div>
-                    <div>
-                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Packaging Preference</label>
-                        <div class="space-y-3">
-                            <label class="flex items-center">
-                                <input type="radio" name="packaging" value="50kg-jute" checked class="mr-3 focus:ring-primary"/>
-                                <span class="font-body-md">50kg Jute Bags</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="packaging" value="bulk-pp" class="mr-3 focus:ring-primary"/>
-                                <span class="font-body-md">Bulk PP Bags (1000kg)</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="packaging" value="custom" class="mr-3 focus:ring-primary"/>
-                                <span class="font-body-md">Custom Packaging</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Delivery -->
-                <div class="space-y-6 border-b pb-8">
-                    <h3 class="font-headline-md text-headline-md text-primary">Delivery Details</h3>
-                    <div>
-                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Preferred Port/Destination</label>
-                        <input type="text" name="destination" class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none" placeholder="e.g., Port of Rotterdam"/>
-                    </div>
-                    <div>
-                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2">Preferred Delivery Window</label>
-                        <select name="deliveryWindow" class="w-full border-b border-neutral-300 px-0 py-3 font-body-md focus:ring-0 focus:border-primary bg-transparent outline-none">
-                            <option>Immediate (30 days)</option>
-                            <option>60-90 days</option>
-                            <option>90-120 days</option>
-                            <option>Flexible</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Certifications & Compliance -->
-                <div class="space-y-4">
-                    <label class="flex items-center">
-                        <input type="checkbox" name="organic" class="mr-3 focus:ring-primary"/>
-                        <span class="font-body-md">Need Organic Certification?</span>
-                    </label>
-                    <label class="flex items-center">
-                        <input type="checkbox" name="haccp" class="mr-3 focus:ring-primary"/>
-                        <span class="font-body-md">Require HACCP Compliance Documentation</span>
-                    </label>
-                </div>
-
-                <textarea name="message" placeholder="Additional requirements or notes..." class="w-full border border-neutral-300 px-4 py-3 font-body-md focus:ring-primary focus:border-primary rounded-lg" rows="5"></textarea>
-
-                <button type="submit" class="w-full bg-primary text-on-primary py-4 font-button text-button uppercase tracking-widest hover:bg-neutral-800 transition-all">Submit Inquiry</button>
-            </form>
-        </div>
-
-        <!-- Contact Info & Certs -->
-        <div class="space-y-12">
-            <!-- Quick Contact -->
-            <div class="bg-surface-container p-8 rounded-lg space-y-6">
-                <h3 class="font-headline-md text-headline-md text-primary">Quick Contact</h3>
-                <div class="space-y-4 font-body-md">
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary mt-1">location_on</span>
-                        <div>
-                            <p class="text-on-surface-variant">Guru Teja Heritage Exports</p>
-                            <p class="text-primary font-semibold">Haryana, India</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary">mail</span>
-                        <p class="text-primary font-semibold">export@guruteja.com</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary">call</span>
-                        <p class="text-primary font-semibold">+91 8899-RICE-99</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary">schedule</span>
-                        <p class="text-primary font-semibold">24/7 Support</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="bg-surface-container p-8 rounded-lg space-y-6">
-                <h3 class="font-headline-md text-headline-md text-primary">Quality Certifications</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 pb-4 border-b">
-                        <span class="material-symbols-outlined text-secondary text-3xl">shield</span>
-                        <div>
-                            <p class="font-button text-button text-primary uppercase">ISO 9001:2015</p>
-                            <p class="font-label-caps text-[10px] text-on-surface-variant">Quality Mgmt</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 pb-4 border-b">
-                        <span class="material-symbols-outlined text-secondary text-3xl">verified</span>
-                        <div>
-                            <p class="font-button text-button text-primary uppercase">HACCP</p>
-                            <p class="font-label-caps text-[10px] text-on-surface-variant">Food Safety</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 pb-4 border-b">
-                        <span class="material-symbols-outlined text-secondary text-3xl">eco</span>
-                        <div>
-                            <p class="font-button text-button text-primary uppercase">Zero-Waste</p>
-                            <p class="font-label-caps text-[10px] text-on-surface-variant">Sustainability</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <span class="material-symbols-outlined text-secondary text-3xl">language</span>
-                        <div>
-                            <p class="font-button text-button text-primary uppercase">Global Export</p>
-                            <p class="font-label-caps text-[10px] text-on-surface-variant">45+ Countries</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Mini -->
-            <div class="bg-secondary-container/20 p-6 rounded-lg space-y-4">
-                <h4 class="font-headline-md text-headline-md text-primary">FAQ</h4>
-                <div class="space-y-3 font-body-md text-sm">
-                    <p><strong>MOQ:</strong> 5 tonnes per order</p>
-                    <p><strong>Lead Time:</strong> 45-60 days</p>
-                    <p><strong>Payment:</strong> LC / 50% Advance</p>
-                    <p><strong>Samples:</strong> Free samples available</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-
-<!-- Footer -->
-<footer class="bg-stone-900 dark:bg-stone-950 w-full pt-24 pb-12 border-t border-stone-800">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
-        <div class="space-y-6">
-            <div class="text-lg font-black text-stone-100 font-serif">Guru Teja</div>
-            <p class="text-stone-400 font-body-md text-sm">Heritage rice exports with 25+ years expertise. Delivering premium quality to global markets.</p>
-            <div class="flex space-x-4">
-                <span class="material-symbols-outlined text-stone-500 hover:text-stone-100 cursor-pointer">public</span>
-                <span class="material-symbols-outlined text-stone-500 hover:text-stone-100 cursor-pointer">linked_camera</span>
-                <span class="material-symbols-outlined text-stone-500 hover:text-stone-100 cursor-pointer">alternate_email</span>
-            </div>
-        </div>
-        <div class="space-y-6">
-            <h4 class="font-serif text-xs tracking-widest uppercase text-stone-500">Quick Links</h4>
-            <nav class="flex flex-col space-y-3">
-                <a class="font-serif text-xs tracking-widest uppercase text-stone-500 hover:text-stone-200 transition-colors opacity-80 hover:opacity-100 cursor-pointer" onclick="navigateTo('home')">Home</a>
-                <a class="font-serif text-xs tracking-widest uppercase text-stone-500 hover:text-stone-200 transition-colors opacity-80 hover:opacity-100 cursor-pointer" onclick="navigateTo('catalog')">Catalog</a>
-                <a class="font-serif text-xs tracking-widest uppercase text-stone-500 hover:text-stone-200 transition-colors opacity-80 hover:opacity-100 cursor-pointer" onclick="navigateTo('inquiry')">Contact</a>
-            </nav>
-        </div>
-        <div class="space-y-6">
-            <h4 class="font-serif text-xs tracking-widest uppercase text-stone-500">Certifications</h4>
-            <nav class="flex flex-col space-y-3">
-                <p class="font-serif text-xs tracking-widest uppercase text-stone-500">ISO 9001:2015</p>
-                <p class="font-serif text-xs tracking-widest uppercase text-stone-500">HACCP Certified</p>
-                <p class="font-serif text-xs tracking-widest uppercase text-stone-500">Zero-Waste Process</p>
-            </nav>
-        </div>
-        <div class="space-y-6">
-            <h4 class="font-serif text-xs tracking-widest uppercase text-stone-500">Newsletter</h4>
-            <p class="text-stone-400 font-body-md text-sm">Get updates on new harvests and market insights.</p>
-            <div class="flex border-b border-stone-700 pb-2">
-                <input class="bg-transparent border-none text-stone-100 focus:ring-0 text-sm flex-1" placeholder="Email" type="email"/>
-                <button class="material-symbols-outlined text-stone-500 hover:text-stone-100">arrow_forward</button>
-            </div>
-        </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-8 mt-24 pt-8 border-t border-stone-800 text-center">
-        <p class="font-serif text-[10px] tracking-widest uppercase text-stone-500">© 2024 Guru Teja Heritage Exports. All Rights Reserved.</p>
-    </div>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-# Guru Teja Heritage Exports - B2B Rice Export Website
+# Oriza Premium Rice Marketplace - Production Ready E-Commerce Platform
 
-A modern, fully-functional 4-page B2B rice export website for Guru Teja Heritage Exports, built with vanilla HTML5, CSS3, and JavaScript.
+A comprehensive, production-ready full-stack e-commerce platform built with modern technologies for premium rice sourcing, distribution, and vendor management.
 
 ## Project Overview
 

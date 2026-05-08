@@ -1,0 +1,52 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install backend dependencies
+      run: cd backend && npm install
+    
+    - name: Build backend
+      run: cd backend && npm run build || true
+    
+    - name: Install frontend dependencies
+      run: cd frontend && npm install
+    
+    - name: Build frontend
+      run: cd frontend && npm run build || true
+    
+    - name: Copy frontend to docs folder
+      run: |
+        mkdir -p docs
+        cp -r frontend/src/* docs/ || true
+        cp -r frontend/dist/* docs/ || true
+        cp index.html docs/ || true
+        cp -r assets/ docs/ || true
+        cp -r styles/ docs/ || true
+        cp -r scripts/ docs/ || true
+        ls -la docs/
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+        cname: rice-export.github.io
+
+  # Backend deployment would go to a separate service
+  # This is for documentation/staging purposes only

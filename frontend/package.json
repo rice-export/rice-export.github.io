@@ -1,0 +1,16 @@
+{
+  "name": "oriza-frontend",
+  "version": "1.0.0",
+  "description": "Oriza Premium Rice Marketplace - Frontend",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000",
+    "dev": "npx live-server",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "http-server": "^14.1.1"
+  }
+}

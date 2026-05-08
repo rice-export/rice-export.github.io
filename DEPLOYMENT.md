@@ -1,10 +1,12 @@
-# Deployment Guide - Guru Teja Heritage Exports Website
+# Oriza Platform - Complete Deployment Guide
 
-Complete step-by-step instructions for deploying the B2B rice export website.
+Production-ready deployment instructions for the Oriza Premium Rice Marketplace platform.
 
 ---
 
-## Option 1: GitHub Pages (Free, Automatic Updates)
+## Deployment Options Overview
+
+### 1. Local Development (Development)
 
 ### Prerequisites
 - GitHub account (free at github.com)

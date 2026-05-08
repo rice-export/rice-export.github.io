@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Oriza | Premium Rice Marketplace - From Earth to Excellence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#7d562d",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "background": "#f9faf6",
+                        "on-primary-fixed": "#002114",
+                        "on-secondary-container": "#7a532a",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary-container": "#a5a989",
+                        "surface-dim": "#dadad7",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface-variant": "#e2e3e0",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1a1c1a",
+                        "primary": "#012d1d",
+                        "inverse-surface": "#2f312f",
+                        "surface-container": "#eeeeeb",
+                        "surface-bright": "#f9faf6",
+                        "secondary-container": "#ffca98",
+                        "tertiary-fixed": "#e1e6c2",
+                        "primary-container": "#1b4332",
+                        "secondary-fixed": "#ffdcbd",
+                        "surface-container-low": "#f3f4f1",
+                        "primary-fixed": "#c1ecd4",
+                        "on-secondary-fixed": "#2c1600",
+                        "surface-container-high": "#e8e8e5",
+                        "tertiary-fixed-dim": "#c5c9a7",
+                        "surface": "#f9faf6",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#242811",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#45492f",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c1c8c2",
+                        "secondary-fixed-dim": "#f0bd8b",
+                        "on-tertiary-fixed": "#1a1d07",
+                        "surface-tint": "#3f6653",
+                        "on-background": "#1a1c1a",
+                        "on-primary-container": "#86af99",
+                        "tertiary-container": "#3a3e25",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary-fixed-variant": "#623f18",
+                        "inverse-primary": "#a5d0b9",
+                        "outline": "#717973"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "container-max": "1280px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "base": "8px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Playfair Display"],
+                        "h3": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    <link rel="stylesheet" href="src/styles/global.css">
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-primary/5 shadow-[0_10px_30px_rgba(27,67,50,0.05)]">
+    <div class="flex items-center justify-between px-gutter py-sm max-w-container-max mx-auto">
+        <div class="flex items-center gap-lg">
+            <a class="font-h2 text-h2 text-primary tracking-tight" href="/">Oriza</a>
+            <nav class="hidden md:flex items-center gap-md">
+                <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="/pages/catalog.html">Basmati</a>
+                <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="/pages/catalog.html">Jasmine</a>
+                <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="/pages/catalog.html">Specialty</a>
+                <a class="text-on-surface-variant font-medium hover:text-secondary transition-all duration-300" href="/pages/catalog.html">Sourcing</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-md">
+            <div class="relative hidden sm:block">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                <input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-body-md focus:ring-2 focus:ring-primary/20 w-64" placeholder="Search varieties..." type="text"/>
+            </div>
+            <div class="flex items-center gap-sm">
+                <a href="/pages/catalog.html" class="active:scale-95 transition-transform p-2 text-primary">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                </a>
+                <a href="/pages/auth.html" class="active:scale-95 transition-transform p-2 text-primary">
+                    <span class="material-symbols-outlined">person</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="relative h-[870px] min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Rice Field Hero" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIfCAGPJQ_Hr2IxWXc98kFmJCLtlZFaCSIFlPCiI1efSWT1pxWyt03ixvQE9CsTUujsoc19Z0hqf_gSzg87hHVvd_YBEbgBHbLZksNkRaWQ7AY-SWN_c35S33YdVFmVusG4mMfAzzkEUB9G3PQCSqG3KLr13mrrqwF4mGsvfhrNoWfjJ9OK8UaKtnnFD_vMqCqhpsfQu29B6knlOBofsBk0UEHE6YZ_wtYNrN1wt_ROUt8cihMtpmLFLamyZXyb8tdcvH60v3_XwwF"/>
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-background"></div>
+        </div>
+        <div class="relative z-10 w-full max-w-3xl px-gutter text-center">
+            <h1 class="font-h1 text-h1 text-white mb-md drop-shadow-lg">From Earth to Excellence</h1>
+            <div class="glass-panel p-lg rounded-xl shadow-xl border border-white/30">
+                <p class="font-body-lg text-primary font-medium mb-lg">Discover the world's most aromatic and ethically sourced rice varieties.</p>
+                <div class="flex flex-col sm:flex-row gap-base">
+                    <input class="flex-grow px-gutter py-md bg-white/80 border-none rounded-lg focus:ring-2 focus:ring-primary font-body-md text-primary" placeholder="What are you cooking today?" type="text"/>
+                    <a href="/pages/catalog.html" class="bg-primary text-white px-xl py-md rounded-lg font-bold hover:bg-primary-container transition-colors shadow-lg flex items-center justify-center gap-base">
+                        Explore Collection <span class="material-symbols-outlined">trending_flat</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Grid -->
+    <section class="py-xl max-w-container-max mx-auto px-gutter">
+        <div class="flex items-end justify-between mb-lg">
+            <div>
+                <h2 class="font-h2 text-h2 text-primary">Curated Collections</h2>
+                <p class="text-on-surface-variant">Sourced directly from ancestral farms.</p>
+            </div>
+            <a class="text-secondary font-bold flex items-center gap-xs hover:underline" href="/pages/catalog.html">View All <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+            <a href="/pages/catalog.html?category=Basmati" class="group relative overflow-hidden rounded-xl h-80 cursor-pointer">
+                <img alt="Basmati" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz5mv9xaYzl4EiONaUMUfUkwvd4l_-8w-Ak4Wom8mTV1bcoelEt9fqjglAYxHIOPHRiNyeS3X1erk6YJejEFZ10ZzY38oxvgkzDMDzYXaW8vtD62w1_sApAi-27nzS_uAsfdptWszqzgLibsNacCfOAG-Uy6GuSjx_vXejBGlAuK8CVMi5r2CCB6lmsNcpdSRE25mVq2yTM0t7SNIqriyPqTFDqAlLdrIIX-oOmEn23mntv4e295r5nAhiKLUUPSQaRORcPPvy3Jh0"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-md">
+                    <span class="text-secondary-fixed font-label-sm uppercase tracking-widest mb-1 block">Aromatic</span>
+                    <h3 class="font-h3 text-h3 text-white">Basmati</h3>
+                </div>
+            </a>
+
+            <a href="/pages/catalog.html?category=Jasmine" class="group relative overflow-hidden rounded-xl h-80 cursor-pointer">
+                <img alt="Jasmine" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQPNSME65lSPZwGF9qRj4lmH3C4LYf9d9kDh3aXiIFArcaedKG3vxR3YnndR6CofD4ez06oI44Ag35rymgtKzOwEwb9P9gYJknevYZZSMi1DAG1q1eOtrC7bosSpccWlnLuC13r9rBRYnF3s3uH8SVsQHHHs_ldxElMtihLoDDMkgpOCgz3rHZ6RCoWvsaJ08u_-VvvBIqHXvsfUELx33SX-TSsL9F9wjJR7ypWN5-LFbkVCvT8QC1SnLNPgToDf751qkQqrhJfk9c"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-md">
+                    <span class="text-secondary-fixed font-label-sm uppercase tracking-widest mb-1 block">Medium Grain</span>
+                    <h3 class="font-h3 text-h3 text-white">Jasmine</h3>
+                </div>
+            </a>
+
+            <a href="/pages/catalog.html?category=Brown Rice" class="group relative overflow-hidden rounded-xl h-80 cursor-pointer">
+                <img alt="Brown Rice" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANCLmTvDUoHWdZUXapGWdFpiFALUAG5g7xrwE0jP5iNqGdMLL0u7pH_8wBWbAKI81tafuwwexI24p7JMQyfbaXZmHxeGmOyb-_10bLyGbnVNMHS_n8pWg44wSIjpLCj8jWpWSrB5cnoBHPOs5Blmx20R-YP8WGGrKsyW7oRxqUamNujJn9z-TN2BM4fg5eGr2L8FgTZ70RHmPSKRTzAfty3E9WIplt3-ZAaP0TFoVPIF6QoCbmiwyqGQqYFnRK63Z2Y20IBn-6kwm2"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-md">
+                    <span class="text-secondary-fixed font-label-sm uppercase tracking-widest mb-1 block">Nutritious</span>
+                    <h3 class="font-h3 text-h3 text-white">Brown Rice</h3>
+                </div>
+            </a>
+
+            <a href="/pages/catalog.html?category=Organic" class="group relative overflow-hidden rounded-xl h-80 cursor-pointer">
+                <img alt="Organic Rice" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcLLolMMByawKWQ_x8tNrx0JfbewQwaGo8rIEu_pXkLiV_3lxVGG0EqJtDHMYu2oR12QRAqN6IyQu0BqgBjDHX0sY1XpE-T9aYXHLaehXu5bN9KBVRYZii1YuZWu_lcS9hvUsaTVTMa2m9eXFLL9E4eyeiVgWoP2dHSm-P8hli7ws1DFiMKjmF9HnArGfLChDliXJFeQ17_zxXHxRXa4m_XtZFts8LQgv9QUfjyc-k5eYiMh3B-jbHcIoPcwq2JWRCHmRqVGpuCbZ3"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-md">
+                    <span class="text-secondary-fixed font-label-sm uppercase tracking-widest mb-1 block">Sustainably Grown</span>
+                    <h3 class="font-h3 text-h3 text-white">Organic Rice</h3>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-xl bg-primary text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div class="max-w-container-max mx-auto px-gutter relative z-10">
+            <h2 class="font-h2 text-h2 text-center mb-xl">The Oriza Experience</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+                <div class="bg-white/5 backdrop-blur-md p-lg rounded-xl border border-white/10">
+                    <div class="flex text-secondary-container mb-md">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="font-body-md italic mb-lg">"The aroma of the vintage Basmati filled my entire home. You can truly tell the difference in quality."</p>
+                    <div class="flex items-center gap-sm">
+                        <div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center font-bold text-secondary-container">MS</div>
+                        <div>
+                            <h4 class="font-bold text-sm">Meera Sharma</h4>
+                            <p class="text-xs text-white/60">Professional Chef</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-lg rounded-xl border border-white/10">
+                    <div class="flex text-secondary-container mb-md">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="font-body-md italic mb-lg">"Finally found organic rice that doesn't cost a fortune. The delivery was remarkably fast."</p>
+                    <div class="flex items-center gap-sm">
+                        <div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center font-bold text-secondary-container">RK</div>
+                        <div>
+                            <h4 class="font-bold text-sm">Rahul Kapoor</h4>
+                            <p class="text-xs text-white/60">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-lg rounded-xl border border-white/10">
+                    <div class="flex text-secondary-container mb-md">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="font-body-md italic mb-lg">"Packaging is elegant and sustainable. The Jasmine rice is incredibly fluffy and pearl-white."</p>
+                    <div class="flex items-center gap-sm">
+                        <div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center font-bold text-secondary-container">AL</div>
+                        <div>
+                            <h4 class="font-bold text-sm">Ananya L.</h4>
+                            <p class="text-xs text-white/60">Home Cook</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary w-full border-t border-primary-container">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter py-xl max-w-container-max mx-auto">
+        <div class="md:col-span-1">
+            <span class="font-h3 text-h3 text-on-primary mb-4 block">Oriza</span>
+            <p class="text-on-primary/70 font-body-md leading-relaxed">
+                Bringing the world's finest rice varieties from traditional fields to your gourmet kitchen. Experience the heritage in every grain.
+            </p>
+        </div>
+        <div>
+            <h4 class="font-label-sm uppercase tracking-widest mb-md text-secondary-fixed">Company</h4>
+            <ul class="space-y-xs">
+                <li><a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Our Heritage</a></li>
+                <li><a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Sourcing Standards</a></li>
+                <li><a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Wholesale</a></li>
+                <li><a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Sustainability</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-label-sm uppercase tracking-widest mb-md text-secondary-fixed">Support</h4>
+            <ul class="space-y-xs">
+                <li><a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">State Availability</a></li>
+                <li><a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Shipping Policy</a></li>
+                <li><a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a></li>
+                <li><a class="text-on-primary/80 hover:text-secondary-fixed transition-colors" href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-label-sm uppercase tracking-widest mb-md text-secondary-fixed">Newsletter</h4>
+            <p class="text-on-primary/70 mb-md text-sm">Join our community for exclusive harvest updates and recipes.</p>
+            <div class="flex gap-xs">
+                <input class="bg-primary-container border-none rounded-lg text-white placeholder-on-primary/40 focus:ring-secondary text-sm flex-1 px-md py-xs" placeholder="Email address" type="email"/>
+                <button class="bg-secondary-fixed text-on-secondary-fixed px-sm py-xs rounded-lg font-bold hover:bg-secondary-fixed-dim transition-colors">Join</button>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-primary-container/30 px-gutter py-md max-w-container-max mx-auto text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-md">
+        <span class="text-on-primary/50 text-sm">© 2024 Oriza Premium Rice. Sourced with integrity.</span>
+        <div class="flex gap-md">
+            <a class="text-on-primary/50 hover:text-white transition-colors material-symbols-outlined" href="#">facebook</a>
+            <a class="text-on-primary/50 hover:text-white transition-colors material-symbols-outlined" href="#">photo_camera</a>
+            <a class="text-on-primary/50 hover:text-white transition-colors material-symbols-outlined" href="#">alternate_email</a>
+        </div>
+    </div>
+</footer>
+
+<script src="src/utils/api.js"></script>
+<script src="src/scripts/main.js"></script>
+</body>
+</html>

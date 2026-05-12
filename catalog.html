@@ -394,6 +394,22 @@
 </nav>
 <script src="nav-drawer.js"></script>
 <script>
+  // Save product data to sessionStorage when clicking image or title links
+  document.querySelectorAll('.rounded-2xl').forEach(function(card) {
+    card.querySelectorAll('a[href="product-details.html"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var name = card.querySelector('h3').textContent.trim();
+        var desc = card.querySelector('p.text-on-surface-variant').textContent.trim();
+        var price = card.querySelector('p.font-headline-sm.text-primary').textContent.trim();
+        var img = card.querySelector('img').src;
+        sessionStorage.setItem('selectedProduct', JSON.stringify({ name: name, desc: desc, price: price, img: img }));
+        window.location.href = 'product-details.html';
+      });
+    });
+  });
+
+  // Add to Cart buttons
   document.querySelectorAll('.add-to-cart-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var card = this.closest('.rounded-2xl');

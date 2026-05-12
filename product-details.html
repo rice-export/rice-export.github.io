@@ -132,7 +132,7 @@
 <!-- Left Column - Images -->
 <div class="space-y-4">
 <div class="rounded-2xl overflow-hidden bg-surface-container-low h-96">
-<img class="w-full h-full object-cover" alt="Premium Aged Basmati Rice bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-8HCWLNR9CfQRaL-SH4B4duJHrVH2y14HeAALkcadE4lpEkm5fWVGKJ91ookSMXFCE4jHojZq-GxeDpWqdzlu-YqWskgmsH3Fz7KRt0dZkkDXw3C5OXHQ5s_u8rhbcaY4S7DBpaij0FLd_Aq8WS93ww2moDoIwtYgfUQtXLEw0jtahGIMXZ2OBbDt253yHTtG0jtHemwAm7GaPdg5divXpoFBzFwfB_6_YdKqHrxBI_zrdgI-lHckx3tA8wCsv_nbYK1obKDwe4T"/>
+<img id="pd-main-img" class="w-full h-full object-cover" alt="Premium Aged Basmati Rice bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-8HCWLNR9CfQRaL-SH4B4duJHrVH2y14HeAALkcadE4lpEkm5fWVGKJ91ookSMXFCE4jHojZq-GxeDpWqdzlu-YqWskgmsH3Fz7KRt0dZkkDXw3C5OXHQ5s_u8rhbcaY4S7DBpaij0FLd_Aq8WS93ww2moDoIwtYgfUQtXLEw0jtahGIMXZ2OBbDt253yHTtG0jtHemwAm7GaPdg5divXpoFBzFwfB_6_YdKqHrxBI_zrdgI-lHckx3tA8wCsv_nbYK1obKDwe4T"/>
 </div>
 <div class="grid grid-cols-4 gap-3">
 <img class="rounded-lg h-20 object-cover cursor-pointer border-2 border-transparent hover:border-secondary transition-colors" alt="Thumbnail 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-8HCWLNR9CfQRaL-SH4B4duJHrVH2y14HeAALkcadE4lpEkm5fWVGKJ91ookSMXFCE4jHojZq-GxeDpWqdzlu-YqWskgmsH3Fz7KRt0dZkkDXw3C5OXHQ5s_u8rhbcaY4S7DBpaij0FLd_Aq8WS93ww2moDoIwtYgfUQtXLEw0jtahGIMXZ2OBbDt253yHTtG0jtHemwAm7GaPdg5divXpoFBzFwfB_6_YdKqHrxBI_zrdgI-lHckx3tA8wCsv_nbYK1obKDwe4T"/>
@@ -144,8 +144,8 @@
 <!-- Right Column - Details -->
 <div class="space-y-6">
 <div>
-<h1 class="font-display-lg text-headline-md text-primary mb-2">Premium Aged Basmati Rice</h1>
-<p class="text-on-surface-variant font-body-lg">Aged for 2 years with superior aroma and long grains</p>
+<h1 id="pd-name" class="font-display-lg text-headline-md text-primary mb-2">Premium Aged Basmati Rice</h1>
+<p id="pd-subtitle" class="text-on-surface-variant font-body-lg">Aged for 2 years with superior aroma and long grains</p>
 </div>
 <!-- Rating -->
 <div class="flex items-center gap-4">
@@ -161,14 +161,14 @@
 <!-- Price -->
 <div class="space-y-2">
 <div class="flex items-baseline gap-4">
-<p class="font-display-lg text-headline-md text-primary">₹1,450</p>
+<p id="pd-price" class="font-display-lg text-headline-md text-primary">₹1,450</p>
 <p class="line-through text-on-surface-variant">₹1,800</p>
 <span class="px-3 py-1 bg-error/10 text-error rounded-full font-label-sm text-label-sm">Save 20%</span>
 </div>
 <p class="text-on-surface-variant font-body-md">Inclusive of all taxes</p>
 </div>
 <!-- Description -->
-<p class="text-on-surface-variant font-body-lg">Our premium basmati rice undergoes a strict 12-step quality control process. Each grain is hand-inspected for length, aroma, and purity. Perfect for biryanis, pulao, and special occasions.</p>
+<p id="pd-description" class="text-on-surface-variant font-body-lg">Our premium basmati rice undergoes a strict 12-step quality control process. Each grain is hand-inspected for length, aroma, and purity. Perfect for biryanis, pulao, and special occasions.</p>
 <!-- Weight Selection -->
 <div class="space-y-3">
 <p class="font-headline-sm text-primary">Select Weight</p>
@@ -401,6 +401,18 @@
 </nav>
 <script src="nav-drawer.js"></script>
 <script>
+  // Load product from sessionStorage if available
+  var savedProduct = sessionStorage.getItem('selectedProduct');
+  if (savedProduct) {
+    var p = JSON.parse(savedProduct);
+    document.getElementById('pd-name').textContent = p.name;
+    document.getElementById('pd-subtitle').textContent = p.desc;
+    document.getElementById('pd-price').textContent = p.price;
+    document.getElementById('pd-description').textContent = p.desc;
+    document.getElementById('pd-main-img').src = p.img;
+    document.getElementById('pd-main-img').alt = p.name;
+  }
+
   // Weight selection
   document.querySelectorAll('.weight-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
@@ -427,9 +439,9 @@
     return sel ? sel.getAttribute('data-weight') : '10kg';
   }
   function saveToCart() {
-    var name = document.querySelector('h1').textContent.trim();
-    var price = document.querySelector('.font-display-lg.text-headline-md.text-primary').textContent.trim();
-    var img = document.querySelector('.rounded-2xl img').src;
+    var name = document.getElementById('pd-name').textContent.trim();
+    var price = document.getElementById('pd-price').textContent.trim();
+    var img = document.getElementById('pd-main-img').src;
     var weight = getSelectedWeight();
     var qty = parseInt(qtyInput.value);
     var cart = JSON.parse(localStorage.getItem('cart') || '[]');

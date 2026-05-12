@@ -417,7 +417,7 @@
     btn.addEventListener('click', function() {
       var card = this.closest('.rounded-2xl');
       var name = card.querySelector('h3').textContent.trim();
-      var price = card.querySelector('.font-headline-sm.text-primary').textContent.trim();
+      var price = card.querySelector('p.font-headline-sm.text-primary').textContent.trim();
       var img = card.querySelector('img').src;
       var weight = card.querySelector('select').value;
       var cart = JSON.parse(localStorage.getItem('cart') || '[]');

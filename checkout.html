@@ -305,12 +305,13 @@
     document.getElementById('summary-gst').textContent = '₹' + gst.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     document.getElementById('summary-total').textContent = '₹' + total.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     // Update cart count badge
-    var totalQty = cart.reduce(function(sum, i) { return sum + i.qty; }, 0);
+    var totalQty = cart.reduce(function(sum, i) { return sum + (parseInt(i.qty) || 0); }, 0);
     var badge = document.getElementById('cart-count');
     if (badge) {
-      if (totalQty > 0) { badge.textContent = totalQty; badge.classList.remove('hidden'); }
-      else { badge.classList.add('hidden'); }
-    }  }
+      if (totalQty > 0) { badge.textContent = totalQty; badge.style.display = 'flex'; }
+      else { badge.style.display = 'none'; }
+    }
+  }
   renderCart();
 </script>
 </body>

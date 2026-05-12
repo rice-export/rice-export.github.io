@@ -551,9 +551,9 @@ function setDrawerLanguage(lang) {
 <script>
   (function() {
     var cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    var total = cart.reduce(function(sum, i) { return sum + i.qty; }, 0);
+    var total = cart.reduce(function(sum, i) { return sum + (parseInt(i.qty) || 0); }, 0);
     var badge = document.getElementById('cart-count');
-    if (badge && total > 0) { badge.textContent = total; badge.classList.remove('hidden'); }
+    if (badge && total > 0) { badge.textContent = total; badge.style.display = 'flex'; }
   })();
 </script>
 </body></html>

@@ -434,10 +434,12 @@
 
   function updateCartCount() {
     var cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    var total = cart.reduce(function(sum, i) { return sum + i.qty; }, 0);
+    var total = cart.reduce(function(sum, i) { return sum + (parseInt(i.qty) || 0); }, 0);
     var badge = document.getElementById('cart-count');
-    if (total > 0) { badge.textContent = total; badge.classList.remove('hidden'); }
-    else { badge.classList.add('hidden'); }
+    if (badge) {
+      if (total > 0) { badge.textContent = total; badge.style.display = 'flex'; }
+      else { badge.style.display = 'none'; }
+    }
   }
   updateCartCount();
 </script>

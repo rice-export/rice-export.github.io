@@ -446,7 +446,7 @@
     var qty = parseInt(qtyInput.value);
     var cart = JSON.parse(localStorage.getItem('cart') || '[]');
     var existing = cart.find(function(i) { return i.name === name && i.weight === weight; });
-    if (existing) { existing.qty += qty; } else { cart.push({ name: name, price: price, img: img, weight: weight, qty: qty }); }
+    if (existing) { existing.qty = qty; existing.price = price; existing.img = img; } else { cart.push({ name: name, price: price, img: img, weight: weight, qty: qty }); }
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 

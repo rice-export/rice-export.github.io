@@ -141,7 +141,7 @@
 <h2 class="font-headline-md text-primary">Shopping Cart</h2>
 <div class="space-y-4">
 <!-- Cart Item 1 -->
-<div class="p-4 border border-outline-variant/20 rounded-xl flex gap-4 items-start">
+<div class="cart-item p-4 border border-outline-variant/20 rounded-xl flex gap-4 items-start">
 <img class="w-20 h-20 rounded-lg object-cover" alt="Premium Aged Basmati Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-8HCWLNR9CfQRaL-SH4B4duJHrVH2y14HeAALkcadE4lpEkm5fWVGKJ91ookSMXFCE4jHojZq-GxeDpWqdzlu-YqWskgmsH3Fz7KRt0dZkkDXw3C5OXHQ5s_u8rhbcaY4S7DBpaij0FLd_Aq8WS93ww2moDoIwtYgfUQtXLEw0jtahGIMXZ2OBbDt253yHTtG0jtHemwAm7GaPdg5divXpoFBzFwfB_6_YdKqHrxBI_zrdgI-lHckx3tA8wCsv_nbYK1obKDwe4T"/>
 <div class="flex-1">
 <h3 class="font-headline-sm text-primary">Premium Aged Basmati Rice</h3>
@@ -153,7 +153,7 @@
 </button>
 </div>
 <!-- Cart Item 2 -->
-<div class="p-4 border border-outline-variant/20 rounded-xl flex gap-4 items-start">
+<div class="cart-item p-4 border border-outline-variant/20 rounded-xl flex gap-4 items-start">
 <img class="w-20 h-20 rounded-lg object-cover" alt="Cold Pressed Groundnut Oil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5OGFV0ld0H6SslFwxiW-N5mqsotQqDl1nKo4haXu-9uffqqsCnAirh82sNuMy4f5fm5JGhrvoYCODp_pv12KY00wbHarf3oLHFruGLtcWeYMF8isFewnxV6TznrRK3lsbdTSPe5V7lRMjAW6kf9K7OIIZiPRnsXWePkLR0KlPR21nGE609sifC4DG9JUSmqhqdYqdFkyf3Wmj7Z4-TG53La8HwN4Vetv-O7yr0HaFmvF-FXjO8naMkeakNutz89GjY8qScsY6tHAv"/>
 <div class="flex-1">
 <h3 class="font-headline-sm text-primary">Cold Pressed Groundnut Oil</h3>
@@ -282,5 +282,15 @@
 </div>
 </footer>
 <script src="nav-drawer.js"></script>
+<script>
+  document.querySelectorAll('.cart-item button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.cart-item');
+      item.style.transition = 'opacity 0.3s';
+      item.style.opacity = '0';
+      setTimeout(function() { item.remove(); }, 300);
+    });
+  });
+</script>
 </body>
 </html>

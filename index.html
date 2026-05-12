@@ -115,7 +115,9 @@
 <!-- TopAppBar -->
 <header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 fixed top-0 z-50 bg-surface/70 backdrop-blur-xl border-b border-secondary/30 shadow-[0px_10px_30px_rgba(27,67,50,0.1)]">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<button id="menu-btn" aria-label="Open navigation menu" class="flex items-center justify-center w-10 h-10 rounded-xl hover:bg-secondary-container/30 active:scale-95 transition-all duration-200">
+  <span id="menu-icon" class="material-symbols-outlined text-primary">menu</span>
+</button>
 <h1 class="font-display-lg text-headline-sm font-bold text-primary">Mana Raithu</h1>
 </div>
 <nav class="hidden md:flex items-center gap-8">
@@ -366,6 +368,160 @@
 <p class="text-on-primary-container font-body-md">© 2024 NBKKC Agro Foods. All Rights Reserved.</p>
 </div>
 </footer>
+<!-- Navigation Drawer Overlay -->
+<div id="drawer-overlay" class="fixed inset-0 bg-primary/30 backdrop-blur-[3px] z-[55] hidden opacity-0 transition-opacity duration-300"></div>
+
+<!-- Navigation Drawer (Responsive: mobile + tablet/desktop) -->
+<aside id="nav-drawer" class="fixed inset-y-0 left-0 z-[60] flex flex-col h-full w-[85%] max-w-[340px] rounded-r-2xl shadow-2xl -translate-x-full transition-transform duration-500 ease-in-out overflow-hidden"
+  style="background: rgba(249,249,249,0.95); backdrop-filter: blur(16px); border-right: 1px solid #735c00;">
+
+  <!-- Profile Header -->
+  <div class="bg-primary-container px-6 pt-6 pb-5 flex flex-col gap-4 border-b border-secondary/20">
+    <div class="flex justify-between items-start">
+      <div class="w-16 h-16 rounded-full border-2 border-secondary-fixed overflow-hidden shadow-lg">
+        <img alt="NBKKC User Profile" class="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBht9ubYUw3KW7a6hsKfe3UW0czV4O3Eq5EwgJbgRKemddLK9ZvyzzxmvccJsEm_d6IR2KmQq3EQyV3UlCLw2ZxKswK4llxUwN0XkDUvYojqp2TiRnV6Q82fYbGpRq6Z5KxFeAYXvQLeX3a8WusslnZmygGtUjgWZVrM0o0shFsGJcWvWi2fwfxuDCrRma5yP2fyzU9oCEhJGE-cwkmQBROp4OAhyZIhbqZLjHO--h2LoMjKAKMrO-bVjWzaxHBJ-tcXVVbeoa43gNV" />
+      </div>
+      <span class="material-symbols-outlined text-secondary-fixed text-2xl" style="font-variation-settings:'FILL' 1;">verified</span>
+    </div>
+    <div>
+      <h2 class="font-display-lg text-headline-sm font-bold text-secondary-fixed leading-tight">NBKKC Agro Foods</h2>
+      <p class="font-body-md text-on-primary-container/80 text-sm mt-0.5">Mana Raithu Premium</p>
+    </div>
+    <span class="text-[10px] text-on-primary-container/60 uppercase tracking-widest font-label-sm">v1.0.2</span>
+  </div>
+
+  <!-- Nav Items -->
+  <nav class="flex-1 overflow-y-auto divide-y divide-outline-variant/40">
+    <div class="py-2">
+      <a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:bg-surface-container-low hover:pl-8 transition-all duration-300" href="dealer-distributor.html">
+        <span class="material-symbols-outlined text-secondary">handshake</span>
+        <span class="font-body-md">Dealer Registration</span>
+      </a>
+      <a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:bg-surface-container-low hover:pl-8 transition-all duration-300" href="certifications.html">
+        <span class="material-symbols-outlined text-secondary">verified</span>
+        <span class="font-body-md">Certifications</span>
+      </a>
+    </div>
+    <div class="py-2">
+      <a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:bg-surface-container-low hover:pl-8 transition-all duration-300" href="#">
+        <span class="material-symbols-outlined text-secondary">local_shipping</span>
+        <span class="font-body-md">Track Order</span>
+      </a>
+      <a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:bg-surface-container-low hover:pl-8 transition-all duration-300" href="contact-us.html">
+        <span class="material-symbols-outlined text-secondary">support_agent</span>
+        <span class="font-body-md">Support</span>
+      </a>
+      <a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:bg-surface-container-low hover:pl-8 transition-all duration-300" href="about-us.html">
+        <span class="material-symbols-outlined text-secondary">info</span>
+        <span class="font-body-md">About Us</span>
+      </a>
+    </div>
+    <!-- Language Selection -->
+    <div class="px-6 pt-5 pb-4">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-outline" style="font-size:18px;">language</span>
+        <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Language Selection</span>
+      </div>
+      <div class="flex flex-col gap-2">
+        <button id="lang-en" onclick="setDrawerLanguage('en')"
+          class="flex items-center justify-between w-full px-4 py-3 rounded-xl bg-primary-container text-on-primary-container font-semibold transition-all duration-300">
+          <span class="font-body-md">English</span>
+          <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+        </button>
+        <button id="lang-te" onclick="setDrawerLanguage('te')"
+          class="flex items-center justify-between w-full px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all duration-300">
+          <span class="font-body-md">తెలుగు (Telugu)</span>
+        </button>
+        <button id="lang-hi" onclick="setDrawerLanguage('hi')"
+          class="flex items-center justify-between w-full px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all duration-300">
+          <span class="font-body-md">हिन्दी (Hindi)</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Footer -->
+  <div class="bg-primary px-6 py-5 border-t border-secondary/30 flex flex-col items-center gap-3">
+    <p class="font-display-lg text-headline-sm font-bold text-secondary-fixed">Mana Raithu</p>
+    <div class="flex justify-center gap-6">
+      <span class="material-symbols-outlined text-on-primary-container/70 cursor-pointer hover:text-secondary-fixed transition-colors">book</span>
+      <span class="material-symbols-outlined text-on-primary-container/70 cursor-pointer hover:text-secondary-fixed transition-colors">potted_plant</span>
+      <span class="material-symbols-outlined text-on-primary-container/70 cursor-pointer hover:text-secondary-fixed transition-colors">public</span>
+    </div>
+    <div class="flex gap-4">
+      <a class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors font-label-sm uppercase tracking-widest text-[10px]" href="#">Privacy Policy</a>
+      <a class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors font-label-sm uppercase tracking-widest text-[10px]" href="contact-us.html">Contact Us</a>
+    </div>
+    <p class="text-[10px] text-on-primary-container/50 uppercase tracking-widest font-label-sm text-center">Version 1.0.2 • © 2024 NBKKC</p>
+  </div>
+</aside>
+
+<!-- Drawer Toggle Script -->
+<script>
+(function () {
+  const drawer = document.getElementById('nav-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  const menuBtn = document.getElementById('menu-btn');
+  const menuIcon = document.getElementById('menu-icon');
+
+  function openDrawer() {
+    drawer.classList.remove('-translate-x-full');
+    drawer.classList.add('translate-x-0');
+    overlay.classList.remove('hidden', 'opacity-0');
+    requestAnimationFrame(() => overlay.classList.add('opacity-100'));
+    document.body.style.overflow = 'hidden';
+    menuIcon.textContent = 'close';
+  }
+
+  function closeDrawer() {
+    drawer.classList.add('-translate-x-full');
+    drawer.classList.remove('translate-x-0');
+    overlay.classList.remove('opacity-100');
+    overlay.classList.add('opacity-0');
+    setTimeout(() => overlay.classList.add('hidden'), 300);
+    document.body.style.overflow = '';
+    menuIcon.textContent = 'menu';
+  }
+
+  menuBtn.addEventListener('click', function () {
+    if (drawer.classList.contains('-translate-x-full')) {
+      openDrawer();
+    } else {
+      closeDrawer();
+    }
+  });
+
+  overlay.addEventListener('click', closeDrawer);
+
+  // Close on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeDrawer();
+  });
+})();
+
+function setDrawerLanguage(lang) {
+  const langs = ['en', 'te', 'hi'];
+  langs.forEach(function (l) {
+    const btn = document.getElementById('lang-' + l);
+    if (l === lang) {
+      btn.className = 'flex items-center justify-between w-full px-4 py-3 rounded-xl bg-primary-container text-on-primary-container font-semibold transition-all duration-300';
+      if (!btn.querySelector('.check-icon')) {
+        const icon = document.createElement('span');
+        icon.className = 'material-symbols-outlined check-icon text-sm';
+        icon.setAttribute('style', "font-variation-settings:'FILL' 1;");
+        icon.textContent = 'check_circle';
+        btn.appendChild(icon);
+      }
+    } else {
+      btn.className = 'flex items-center justify-between w-full px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all duration-300';
+      const icon = btn.querySelector('.check-icon');
+      if (icon) icon.remove();
+    }
+  });
+}
+</script>
+
 <!-- BottomNavBar (Mobile) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-t border-secondary/30 flex justify-around items-center px-2 py-3 shadow-[0px_-10px_30px_rgba(27,67,50,0.05)] rounded-t-xl">
 <div class="flex flex-col items-center justify-center text-primary dark:text-secondary-fixed-dim bg-secondary-container/20 rounded-xl px-3 py-1">

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Premium Rice Selection - Mana Raithu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Playfair+Display:wght@600;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-dim": "#dadada",
+          "on-tertiary-container": "#c29e96",
+          "on-secondary": "#ffffff",
+          "inverse-primary": "#a5d0b9",
+          "tertiary-fixed": "#ffdad2",
+          "surface-container-highest": "#e2e2e2",
+          "secondary-fixed-dim": "#e9c349",
+          "primary-fixed-dim": "#a5d0b9",
+          "on-error-container": "#93000a",
+          "primary-container": "#1b4332",
+          "primary": "#012d1d",
+          "primary-fixed": "#c1ecd4",
+          "on-secondary-container": "#745c00",
+          "on-secondary-fixed": "#241a00",
+          "on-surface": "#1a1c1c",
+          "on-primary-container": "#86af99",
+          "outline": "#717973",
+          "on-primary-fixed": "#002114",
+          "secondary-fixed": "#ffe088",
+          "secondary": "#735c00",
+          "surface-bright": "#f9f9f9",
+          "surface-container": "#eeeeee",
+          "surface-tint": "#3f6653",
+          "on-background": "#1a1c1c",
+          "surface-container-lowest": "#ffffff",
+          "surface": "#f9f9f9",
+          "on-secondary-fixed-variant": "#574500",
+          "error-container": "#ffdad6",
+          "surface-variant": "#e2e2e2",
+          "surface-container-high": "#e8e8e8",
+          "error": "#ba1a1a",
+          "outline-variant": "#c1c8c2",
+          "on-primary-fixed-variant": "#274e3d",
+          "tertiary-fixed-dim": "#e5beb5",
+          "surface-container-low": "#f3f3f4",
+          "inverse-on-surface": "#f0f1f1",
+          "tertiary-container": "#4f352f",
+          "inverse-surface": "#2f3131",
+          "on-primary": "#ffffff",
+          "on-tertiary-fixed": "#2b1611",
+          "on-surface-variant": "#414844",
+          "on-tertiary": "#ffffff",
+          "background": "#f9f9f9",
+          "secondary-container": "#fed65b",
+          "on-error": "#ffffff",
+          "tertiary": "#37201b",
+          "on-tertiary-fixed-variant": "#5c403a"
+        },
+        borderRadius: {
+          DEFAULT: "0.25rem",
+          lg: "0.5rem",
+          xl: "0.75rem",
+          full: "9999px"
+        },
+        spacing: {
+          unit: "8px",
+          "margin-mobile": "16px",
+          gutter: "24px",
+          "container-max": "1200px",
+          "margin-desktop": "40px",
+          "section-gap": "80px"
+        },
+        fontFamily: {
+          "headline-sm": ["Montserrat"],
+          "display-lg-mobile": ["Playfair Display"],
+          "display-lg": ["Playfair Display"],
+          "body-md": ["Work Sans"],
+          "body-lg": ["Work Sans"],
+          "label-sm": ["Montserrat"],
+          "headline-md": ["Playfair Display"]
+        },
+        fontSize: {
+          "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "0.1em", "fontWeight": "600"}],
+          "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+          "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+          "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .glass-card {
+    backdrop-filter: blur(12px);
+    background: rgba(249, 249, 249, 0.7);
+    border: 1px solid #735c00;
+  }
+  body { min-height: max(884px, 100dvh); }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile h-16 fixed top-0 z-50 bg-surface/70 backdrop-blur-xl dark:bg-on-background/70 border-b border-secondary/30 shadow-[0px_10px_30px_rgba(27,67,50,0.1)]">
+  <div class="flex items-center gap-4">
+    <button class="text-primary hover:opacity-80 transition-opacity duration-300">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <h1 class="font-display-lg text-headline-sm font-bold text-primary">Mana Raithu</h1>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="checkout.html" class="relative">
+      <span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span>
+      <span id="cart-count" class="absolute -top-2 -right-2 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center" style="display:none;">0</span>
+    </a>
+  </div>
+</header>
+
+<main class="pt-16 pb-24">
+
+  <!-- Hero Section -->
+  <section class="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img class="w-full h-full object-cover" alt="Golden rice stalks in a sun-drenched field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp4wvkFQCAERzzepZ47Hc4D4_O18ShfGP1HUPszq1CLcMEeXV76tAmgtqb6Bo5K3S_j0MeYVn_I2ni9pF-dmvRv7k-ATKDpDRtdMEOM6-5JfgC6zQx0dnW5IdbH70JgYOwYnzqlIar1T7mrLHY0ijx8AodtG5JcOzXLkmvbLTjMKJJp_pTGhuNfnm2__R7DP0Kq2OPxeq6F9_kL9U2P2zuvGJvguxQxgd-DQtSr0jduQNnL5qGrANbyd87fuQiOPu95AKKL0qgexil"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-primary/40 to-primary/90"></div>
+    </div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile text-center text-on-primary">
+      <span class="uppercase tracking-widest font-label-sm text-secondary-fixed mb-4 block">The Golden Harvest</span>
+      <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6">Premium Rice<br>Selection</h2>
+      <p class="font-body-lg text-body-lg max-w-2xl mx-auto opacity-90 leading-relaxed">
+        Sourced from the fertile deltas where the earth meets the sun, our rice varieties are aged to perfection and processed with artisanal precision to ensure every grain delivers the authentic flavor of heritage agriculture.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter & Search Section -->
+  <section class="py-4 bg-surface-container-low/50 sticky top-16 z-40 backdrop-blur-md border-b border-outline-variant/20">
+    <div class="max-w-container-max mx-auto px-margin-mobile flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center gap-2 overflow-x-auto py-2" style="scrollbar-width:none;">
+        <button class="filter-btn px-6 py-2 rounded-full bg-primary text-on-primary font-label-sm whitespace-nowrap shadow-lg active-filter" data-filter="all">All Varieties</button>
+        <button class="filter-btn px-6 py-2 rounded-full border border-secondary text-secondary font-label-sm whitespace-nowrap hover:bg-secondary/10 transition-colors" data-filter="long">Long Grain</button>
+        <button class="filter-btn px-6 py-2 rounded-full border border-secondary text-secondary font-label-sm whitespace-nowrap hover:bg-secondary/10 transition-colors" data-filter="medium">Medium Grain</button>
+        <button class="filter-btn px-6 py-2 rounded-full border border-secondary text-secondary font-label-sm whitespace-nowrap hover:bg-secondary/10 transition-colors" data-filter="aged">Aged 2+ Years</button>
+        <button class="filter-btn px-6 py-2 rounded-full border border-secondary text-secondary font-label-sm whitespace-nowrap hover:bg-secondary/10 transition-colors" data-filter="organic">Organic Certified</button>
+      </div>
+      <div class="relative w-full md:w-64">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+        <input id="search-input" class="w-full pl-10 pr-4 py-2 bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors placeholder:text-outline-variant font-body-md" placeholder="Search varieties..." type="text"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="max-w-container-max mx-auto px-margin-mobile py-10">
+    <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Product Card 1: Royal Basmati Rice -->
+      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="long">
+        <div class="relative h-64 overflow-hidden">
+          <a href="product-details.html" class="product-img-link block w-full h-full">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Royal Basmati Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQbeG-qObV1Dr36VHJeMnIUUs2qnmQBKmHcPB8QrDwsoMr8iYmasFuv7vzThJm1q-foqHcpoObK9_a-UNdYu7kMceaWw1PXr3A3atJwO73R9n-w5UE4tMwOF6UAjKYR_aVoapHFgkUmN0kHvPQ0zoHjpaLxwgT3lZtnhztvpNWI5mV6SyPSpS_n1shd_HU4M3aJ-9CWkzgghmn925hOrkCJ9zZTH7TZPJw0gU-fGTGnLLIGG2dqwrnsiKeAwC10SOg8QH-vMuogA8"/>
+          </a>
+          <div class="absolute top-4 left-4">
+            <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase">Bestseller</span>
+          </div>
+        </div>
+        <div class="p-6 flex-grow flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <a href="product-details.html" class="product-name-link">
+              <h3 class="font-headline-sm text-headline-sm text-primary hover:underline">Royal Basmati Rice</h3>
+            </a>
+            <span class="product-price text-secondary font-bold whitespace-nowrap ml-2">₹240/kg</span>
+          </div>
+          <p class="product-desc font-body-md text-on-surface-variant mb-6 flex-grow">Fragrant, extra-long grains perfect for festive biryanis and aromatic pulavs. Sourced from the Himalayan foothills.</p>
+          <div class="mb-6">
+            <label class="block font-label-sm text-label-sm uppercase text-outline mb-2">Select Weight</label>
+            <div class="flex gap-2">
+              <button class="weight-btn flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:bg-secondary-container/20 transition-colors" data-weight="1kg">1kg</button>
+              <button class="weight-btn flex-1 py-2 border-2 border-primary rounded-lg text-label-sm bg-primary/5 font-bold selected" data-weight="5kg">5kg</button>
+              <button class="weight-btn flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:bg-secondary-container/20 transition-colors" data-weight="25kg">25kg</button>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button class="add-to-cart-btn flex-1 bg-primary text-on-primary py-3 rounded-lg font-label-sm hover:opacity-90 active:scale-95 transition-all">Add to Cart</button>
+            <button class="product-info-btn w-12 h-12 flex items-center justify-center border border-secondary text-secondary rounded-lg hover:bg-secondary/10 transition-colors">
+              <span class="material-symbols-outlined">info</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2: Aged Sona Masuri -->
+      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="medium aged">
+        <div class="relative h-64 overflow-hidden">
+          <a href="product-details.html" class="product-img-link block w-full h-full">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Aged Sona Masuri" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2AkwBB-tD_6W76SZBIVvg_AhEbwMbClFXiPJJtQc8zj1Pr3EeG59lFtijgFnct7pLcpmx6pyOSmJ9tXt-hdHH8ji-4ZrwXg_siVPse14XpLfOibSh5ZVWLKDlHTdIt2jZY0Or1aJYALWhONqn_uq44anz44P5XlQ1FNuFCVxfhpMkFPQ4IoumndcEIIXSX9UpzSHJZczkdECbsd4D2lvsYOIvv40I0Vm7syJ5f92XTXixbeP2Susqyxd4EQzDpl_ZP95C0WOjjPil"/>
+          </a>
+          <div class="absolute top-4 left-4">
+            <span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase">Aged 2 Years</span>
+          </div>
+        </div>
+        <div class="p-6 flex-grow flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <a href="product-details.html" class="product-name-link">
+              <h3 class="font-headline-sm text-headline-sm text-primary hover:underline">Aged Sona Masuri</h3>
+            </a>
+            <span class="product-price text-secondary font-bold whitespace-nowrap ml-2">₹85/kg</span>
+          </div>
+          <p class="product-desc font-body-md text-on-surface-variant mb-6 flex-grow">Lightweight and aromatic medium grain rice. Aged for 24 months to ensure non-sticky, fluffy texture after cooking.</p>
+          <div class="mb-6">
+            <label class="block font-label-sm text-label-sm uppercase text-outline mb-2">Select Weight</label>
+            <div class="flex gap-2">
+              <button class="weight-btn flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:bg-secondary-container/20 transition-colors" data-weight="5kg">5kg</button>
+              <button class="weight-btn flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:bg-secondary-container/20 transition-colors" data-weight="10kg">10kg</button>
+              <button class="weight-btn flex-1 py-2 border-2 border-primary rounded-lg text-label-sm bg-primary/5 font-bold selected" data-weight="25kg">25kg</button>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button class="add-to-cart-btn flex-1 bg-primary text-on-primary py-3 rounded-lg font-label-sm hover:opacity-90 active:scale-95 transition-all">Add to Cart</button>
+            <button class="product-info-btn w-12 h-12 flex items-center justify-center border border-secondary text-secondary rounded-lg hover:bg-secondary/10 transition-colors">
+              <span class="material-symbols-outlined">info</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3: Premium Broken Rice -->
+      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="medium">
+        <div class="relative h-64 overflow-hidden">
+          <a href="product-details.html" class="product-img-link block w-full h-full">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Premium Broken Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLcAmdefYuU6gbj6O94uO1yrfgTf4MgVnEz4LTJ0EGMT4rRnbVwHrobofOWOe7GQa_ERNekkH5O1KUOa-lNV-lQAMnSiZhZFwYvHMgUgxzSR2JCPzxko9IYVnP1QallAdrtrgzEtJjlpCE5lXu1iiHWSPncq36DgL561kZ1EO1tI2H4Df1Et-IJqcv6YpTsimsdyJh8X8c0KA7jXFGWe9KGl-NwdNQSreGYFpRLyY5TG7QV4khXaGtiD11UaMm8VYnMs5A-nD21D62"/>
+          </a>
+        </div>
+        <div class="p-6 flex-grow flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <a href="product-details.html" class="product-name-link">
+              <h3 class="font-headline-sm text-headline-sm text-primary hover:underline">Premium Broken Rice</h3>
+            </a>
+            <span class="product-price text-secondary font-bold whitespace-nowrap ml-2">₹45/kg</span>
+          </div>
+          <p class="product-desc font-body-md text-on-surface-variant mb-6 flex-grow">Ideally suited for Idli batters, porridges, and traditional desserts. Cleaned and sorted for high purity.</p>
+          <div class="mb-6">
+            <label class="block font-label-sm text-label-sm uppercase text-outline mb-2">Select Weight</label>
+            <div class="flex gap-2">
+              <button class="weight-btn flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:bg-secondary-container/20 transition-colors" data-weight="1kg">1kg</button>
+              <button class="weight-btn flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:bg-secondary-container/20 transition-colors" data-weight="5kg">5kg</button>
+              <button class="weight-btn flex-1 py-2 border-2 border-primary rounded-lg text-label-sm bg-primary/5 font-bold selected" data-weight="10kg">10kg</button>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button class="add-to-cart-btn flex-1 bg-primary text-on-primary py-3 rounded-lg font-label-sm hover:opacity-90 active:scale-95 transition-all">Add to Cart</button>
+            <button class="product-info-btn w-12 h-12 flex items-center justify-center border border-secondary text-secondary rounded-lg hover:bg-secondary/10 transition-colors">
+              <span class="material-symbols-outlined">info</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="max-w-container-max mx-auto px-margin-mobile mb-section-gap">
+    <div class="bg-primary p-8 md:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-gutter">
+      <div class="text-on-primary text-center md:text-left">
+        <h2 class="font-headline-md text-headline-md mb-4">Bulk &amp; Export Inquiries</h2>
+        <p class="opacity-80 max-w-lg">Are you a dealer or looking for international shipping? Get in touch for customized pricing and logistics.</p>
+      </div>
+      <a href="contact-us.html" class="px-10 py-4 bg-secondary text-on-secondary font-bold rounded-xl hover:scale-105 active:scale-95 transition-all shadow-xl block text-center">Enquire Now</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface/80 backdrop-blur-xl border-t border-secondary/30 shadow-[0px_-10px_30px_rgba(27,67,50,0.05)] md:hidden">
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="index.html">
+    <span class="material-symbols-outlined">home</span>
+    <span class="font-label-sm text-label-sm">Home</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-primary bg-secondary-container/20 rounded-xl px-3 py-1" href="catalog.html">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">grass</span>
+    <span class="font-label-sm text-label-sm">Products</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="checkout.html">
+    <span class="material-symbols-outlined">shopping_basket</span>
+    <span class="font-label-sm text-label-sm">Cart</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="dashboard.html">
+    <span class="material-symbols-outlined">dashboard</span>
+    <span class="font-label-sm text-label-sm">Dashboard</span>
+  </a>
+  <div class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">more_horiz</span>
+    <span class="font-label-sm text-label-sm">More</span>
+  </div>
+</nav>
+
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center gap-unit pb-24 bg-primary border-t border-secondary pt-12">
+  <div class="max-w-container-max mx-auto px-margin-mobile w-full flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+    <div class="font-display-lg text-on-primary text-headline-sm font-bold">Mana Raithu</div>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a class="text-on-primary-container hover:text-secondary-fixed transition-colors font-body-md underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+      <a class="text-on-primary-container hover:text-secondary-fixed transition-colors font-body-md underline-offset-4 hover:underline" href="#">Terms of Service</a>
+      <a class="text-on-primary-container hover:text-secondary-fixed transition-colors font-body-md underline-offset-4 hover:underline" href="#">Export Inquiries</a>
+      <a class="text-on-primary-container hover:text-secondary-fixed transition-colors font-body-md underline-offset-4 hover:underline" href="contact-us.html">Contact Us</a>
+    </div>
+  </div>
+  <div class="text-on-primary-container font-body-md text-sm">© 2024 NBKKC Agro Foods. All Rights Reserved.</div>
+</footer>
+
+<script src="nav-drawer.js"></script>
+<script>
+  // Weight selection per card (independent per card)
+  document.querySelectorAll('.glass-card').forEach(function(card) {
+    card.querySelectorAll('.weight-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        card.querySelectorAll('.weight-btn').forEach(function(b) {
+          b.className = 'weight-btn flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:bg-secondary-container/20 transition-colors';
+        });
+        this.className = 'weight-btn flex-1 py-2 border-2 border-primary rounded-lg text-label-sm bg-primary/5 font-bold selected';
+      });
+    });
+  });
+
+  // Product navigation — save to sessionStorage then go to product-details
+  document.querySelectorAll('.glass-card').forEach(function(card) {
+    function saveAndNavigate(e) {
+      if (e) e.preventDefault();
+      var name = card.querySelector('h3').textContent.trim();
+      var desc = card.querySelector('.product-desc').textContent.trim();
+      var price = card.querySelector('.product-price').textContent.trim().replace('/kg', '').trim();
+      var img = card.querySelector('img').src;
+      sessionStorage.setItem('selectedProduct', JSON.stringify({ name: name, desc: desc, price: price, img: img }));
+      window.location.href = 'product-details.html';
+    }
+    card.querySelector('.product-img-link').addEventListener('click', saveAndNavigate);
+    card.querySelector('.product-name-link').addEventListener('click', saveAndNavigate);
+    card.querySelector('.product-info-btn').addEventListener('click', saveAndNavigate);
+  });
+
+  // Add to Cart
+  document.querySelectorAll('.add-to-cart-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var card = this.closest('.glass-card');
+      var name = card.querySelector('h3').textContent.trim();
+      var price = card.querySelector('.product-price').textContent.trim().replace('/kg', '').trim();
+      var img = card.querySelector('img').src;
+      var selectedBtn = card.querySelector('.weight-btn.selected');
+      var weight = selectedBtn ? selectedBtn.getAttribute('data-weight') : '1kg';
+      var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      var existing = cart.find(function(i) { return i.name === name && i.weight === weight; });
+      if (existing) { existing.qty += 1; } else { cart.push({ name: name, price: price, img: img, weight: weight, qty: 1 }); }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      btn.textContent = 'Added \u2713';
+      btn.disabled = true;
+      setTimeout(function() { btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1500);
+    });
+  });
+
+  // Filter buttons
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(function(b) {
+        b.className = 'filter-btn px-6 py-2 rounded-full border border-secondary text-secondary font-label-sm whitespace-nowrap hover:bg-secondary/10 transition-colors';
+      });
+      this.className = 'filter-btn px-6 py-2 rounded-full bg-primary text-on-primary font-label-sm whitespace-nowrap shadow-lg active-filter';
+      var filter = this.getAttribute('data-filter');
+      document.querySelectorAll('.glass-card').forEach(function(card) {
+        if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Search
+  document.getElementById('search-input').addEventListener('input', function() {
+    var q = this.value.toLowerCase();
+    document.querySelectorAll('.glass-card').forEach(function(card) {
+      var name = card.querySelector('h3').textContent.toLowerCase();
+      var desc = card.querySelector('.product-desc').textContent.toLowerCase();
+      card.style.display = (name.includes(q) || desc.includes(q)) ? '' : 'none';
+    });
+  });
+
+  // Cart count badge
+  function updateCartCount() {
+    var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    var total = cart.reduce(function(sum, i) { return sum + (parseInt(i.qty) || 0); }, 0);
+    var badge = document.getElementById('cart-count');
+    if (badge) {
+      if (total > 0) { badge.textContent = total; badge.style.display = 'flex'; }
+      else { badge.style.display = 'none'; }
+    }
+  }
+  updateCartCount();
+</script>
+</body>
+</html>

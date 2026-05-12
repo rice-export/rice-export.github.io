@@ -1,440 +1,392 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oriza - Premium Rice B2B Marketplace</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #012d1d;
-            --secondary: #7d562d;
-            --accent: #fed7c0;
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mana Raithu - Pure Quality Rice from Indian Farmers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Montserrat:wght@600;700&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1a1c1c",
+                        "outline": "#717973",
+                        "surface-container-high": "#e8e8e8",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "primary-container": "#1b4332",
+                        "on-tertiary-fixed-variant": "#5c403a",
+                        "on-secondary-container": "#745c00",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-primary-fixed": "#002114",
+                        "secondary": "#735c00",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-low": "#f3f3f4",
+                        "tertiary": "#37201b",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary-container": "#4f352f",
+                        "secondary-container": "#fed65b",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-fixed": "#2b1611",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "secondary-fixed": "#ffe088",
+                        "primary": "#012d1d",
+                        "surface-dim": "#dadada",
+                        "surface": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#c29e96",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-tint": "#3f6653",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#e5beb5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
         }
-        
-        * {
-            font-family: 'Poppins', sans-serif;
+    </script>
+<style>
+        .glass-card {
+            background: rgba(249, 249, 249, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #735c00;
         }
-        
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        
-        body {
-            background-color: #f9f9f7;
-            color: #333;
-        }
-        
-        .nav-link {
-            color: #666;
-            font-weight: 500;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--secondary);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
-        }
-        
-        .btn-primary:hover {
-            background-color: #0a1f16;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(1, 45, 29, 0.3);
-        }
-        
-        .btn-secondary {
-            border: 2px solid var(--secondary);
-            color: var(--secondary);
-            background: white;
-            padding: 12px 28px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .page {
-            display: none;
-        }
-        
-        .page.active {
-            display: block;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        .active-pill {
+            background: rgba(254, 214, 91, 0.2);
         }
     </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-primary cursor-pointer" onclick="navigateTo('home')">
-                🌾 Oriza
-            </div>
-            <div class="hidden md:flex gap-8">
-                <span class="nav-link" onclick="navigateTo('home')">Home</span>
-                <span class="nav-link" onclick="navigateTo('catalog')">Catalog</span>
-                <span class="nav-link" onclick="navigateTo('orders')">Orders</span>
-            </div>
-            <div class="flex gap-4">
-                <button onclick="toggleCart()" class="relative p-2 hover:bg-gray-100 rounded-lg">
-                    <span class="material-icons">shopping_cart</span>
-                    <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
-                </button>
-                <button onclick="toggleAuth()" class="btn-primary">Sign In</button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="pt-20">
-        
-        <!-- HOME PAGE -->
-        <div id="home" class="page active">
-            <div class="max-w-7xl mx-auto px-6 py-20">
-                <!-- Hero Section -->
-                <div class="grid grid-cols-2 gap-12 items-center mb-20">
-                    <div>
-                        <p class="text-secondary font-semibold text-lg mb-3">Premium B2B Marketplace</p>
-                        <h1 class="text-6xl font-bold text-primary mb-6 leading-tight">Authentic Rice for Global Tables</h1>
-                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                            Oriza connects certified rice farmers with global buyers. Premium quality, competitive pricing, and seamless logistics for bulk orders.
-                        </p>
-                        <div class="flex gap-4">
-                            <button onclick="navigateTo('catalog')" class="btn-primary">View Catalog</button>
-                            <button onclick="toggleAuth()" class="btn-secondary">Request Quote</button>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-br from-secondary/10 to-accent/30 rounded-2xl h-96 flex items-center justify-center overflow-hidden">
-                        <span class="text-9xl animate-bounce">🌾</span>
-                    </div>
-                </div>
-
-                <!-- Features -->
-                <div class="grid grid-cols-4 gap-6 py-20 border-t border-gray-200">
-                    <div class="feature-card">
-                        <span class="material-icons text-4xl text-secondary mx-auto mb-4 block">verified_user</span>
-                        <h3 class="font-bold text-lg mb-2">Verified Sellers</h3>
-                        <p class="text-sm text-gray-600">100% certified farmers & exporters</p>
-                    </div>
-                    <div class="feature-card">
-                        <span class="material-icons text-4xl text-secondary mx-auto mb-4 block">local_shipping</span>
-                        <h3 class="font-bold text-lg mb-2">Fast Delivery</h3>
-                        <p class="text-sm text-gray-600">Global shipping in 45 days</p>
-                    </div>
-                    <div class="feature-card">
-                        <span class="material-icons text-4xl text-secondary mx-auto mb-4 block">price_check</span>
-                        <h3 class="font-bold text-lg mb-2">Best Prices</h3>
-                        <p class="text-sm text-gray-600">Wholesale rates guaranteed</p>
-                    </div>
-                    <div class="feature-card">
-                        <span class="material-icons text-4xl text-secondary mx-auto mb-4 block">eco</span>
-                        <h3 class="font-bold text-lg mb-2">Sustainable</h3>
-                        <p class="text-sm text-gray-600">Eco-friendly practices</p>
-                    </div>
-                </div>
-
-                <!-- Stats -->
-                <div class="bg-primary text-white rounded-2xl p-12 text-center">
-                    <div class="grid grid-cols-3 gap-8">
-                        <div>
-                            <p class="text-4xl font-bold mb-2">50,000+</p>
-                            <p class="text-lg opacity-90">MT Exported Annually</p>
-                        </div>
-                        <div>
-                            <p class="text-4xl font-bold mb-2">45+</p>
-                            <p class="text-lg opacity-90">Countries Served</p>
-                        </div>
-                        <div>
-                            <p class="text-4xl font-bold mb-2">500+</p>
-                            <p class="text-lg opacity-90">Certified Farmers</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CATALOG PAGE -->
-        <div id="catalog" class="page">
-            <div class="max-w-7xl mx-auto px-6 py-12">
-                <h1 class="text-5xl font-bold text-primary mb-3">Premium Rice Varieties</h1>
-                <p class="text-gray-600 mb-8">Explore our authenticated collection of premium rice for wholesale export</p>
-                
-                <div class="grid grid-cols-4 gap-6">
-                    <div id="products-grid">
-                        <!-- Products load here -->
-                        <div class="col-span-4 text-center py-12">
-                            <p class="text-gray-500">Products loading...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ORDERS PAGE -->
-        <div id="orders" class="page">
-            <div class="max-w-3xl mx-auto px-6 py-12">
-                <h1 class="text-5xl font-bold text-primary mb-8">Track Your Orders</h1>
-                
-                <div class="bg-white p-8 rounded-2xl shadow-md mb-8">
-                    <p class="text-gray-600 mb-4">Enter your order number to track shipment status</p>
-                    <div class="flex gap-4">
-                        <input type="text" id="order-search" placeholder="Order #ORD-1234567890-ABC" class="flex-1 border-2 border-gray-200 rounded-lg p-3 focus:border-secondary focus:outline-none">
-                        <button onclick="searchOrder()" class="btn-primary">Track</button>
-                    </div>
-                </div>
-                
-                <div id="order-details" class="bg-white p-8 rounded-2xl shadow-md">
-                    <p class="text-gray-500 text-center">Enter an order number to view details</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- AUTH PAGE -->
-        <div id="auth" class="page">
-            <div class="max-w-md mx-auto px-6 py-12">
-                <div class="bg-white p-8 rounded-2xl shadow-lg">
-                    <h1 class="text-4xl font-bold text-primary mb-2 text-center">Oriza</h1>
-                    <p class="text-center text-gray-600 mb-8">Premium Rice B2B Marketplace</p>
-                    
-                    <div id="login-form">
-                        <h2 class="text-2xl font-bold mb-6">Welcome Back</h2>
-                        <input type="email" id="login-email" placeholder="Email" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-4 focus:border-secondary focus:outline-none">
-                        <input type="password" id="login-password" placeholder="Password" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-6 focus:border-secondary focus:outline-none">
-                        <button onclick="handleLogin()" class="btn-primary w-full mb-4">Sign In</button>
-                        <p class="text-center text-sm text-gray-600">
-                            Don't have an account? <span onclick="toggleAuthMode()" class="text-secondary font-bold cursor-pointer">Register</span>
-                        </p>
-                    </div>
-                    
-                    <div id="register-form" class="hidden">
-                        <h2 class="text-2xl font-bold mb-6">Create Account</h2>
-                        <input type="text" id="register-name" placeholder="Full Name" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-4 focus:border-secondary focus:outline-none">
-                        <input type="email" id="register-email" placeholder="Email" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-4 focus:border-secondary focus:outline-none">
-                        <input type="tel" id="register-phone" placeholder="Phone (10 digits)" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-4 focus:border-secondary focus:outline-none">
-                        <input type="password" id="register-password" placeholder="Password (min 6)" class="w-full border-2 border-gray-200 rounded-lg p-3 mb-6 focus:border-secondary focus:outline-none">
-                        <button onclick="handleRegister()" class="btn-primary w-full mb-4">Create Account</button>
-                        <p class="text-center text-sm text-gray-600">
-                            Already have account? <span onclick="toggleAuthMode()" class="text-secondary font-bold cursor-pointer">Login</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-primary text-white mt-20 py-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="font-bold text-lg mb-4">🌾 Oriza</h3>
-                    <p class="text-sm opacity-80">Premium rice marketplace for B2B buyers and sellers worldwide.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold mb-4">Quick Links</h3>
-                    <ul class="text-sm space-y-2">
-                        <li><span onclick="navigateTo('home')" class="cursor-pointer hover:opacity-80">Home</span></li>
-                        <li><span onclick="navigateTo('catalog')" class="cursor-pointer hover:opacity-80">Catalog</span></li>
-                        <li><span onclick="navigateTo('orders')" class="cursor-pointer hover:opacity-80">Orders</span></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold mb-4">Support</h3>
-                    <ul class="text-sm space-y-2">
-                        <li>support@oriza.com</li>
-                        <li>+91 1234-567-890</li>
-                        <li>24/7 Support</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold mb-4">Company</h3>
-                    <ul class="text-sm space-y-2">
-                        <li><a href="#" class="hover:opacity-80">About Us</a></li>
-                        <li><a href="#" class="hover:opacity-80">Terms & Conditions</a></li>
-                        <li><a href="#" class="hover:opacity-80">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-white/20 pt-8 text-center text-sm opacity-80">
-                <p>&copy; 2024 Oriza Platform. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- API Client -->
-    <script src="frontend/src/utils/api.js"></script>
-    
-    <!-- Page Navigation -->
-    <script>
-        function navigateTo(page) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            
-            // Show selected page
-            const pageElement = document.getElementById(page);
-            if (pageElement) {
-                pageElement.classList.add('active');
-                window.scrollTo(0, 0);
-                
-                // Load page-specific scripts
-                if (page === 'catalog') {
-                    loadCatalog();
-                }
-            }
-        }
-
-        function toggleAuth() {
-            navigateTo('auth');
-        }
-
-        function toggleAuthMode() {
-            document.getElementById('login-form').classList.toggle('hidden');
-            document.getElementById('register-form').classList.toggle('hidden');
-        }
-
-        function toggleCart() {
-            alert('Shopping cart feature coming soon!');
-        }
-
-        // Auth functions
-        async function handleLogin() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            
-            try {
-                const response = await window.apiClient.login(email, password);
-                alert('Login successful! Welcome ' + response.user.name);
-                navigateTo('home');
-            } catch (error) {
-                alert('Login failed: ' + error.message);
-            }
-        }
-
-        async function handleRegister() {
-            const name = document.getElementById('register-name').value;
-            const email = document.getElementById('register-email').value;
-            const phone = document.getElementById('register-phone').value;
-            const password = document.getElementById('register-password').value;
-            
-            try {
-                const response = await window.apiClient.register(name, email, phone, password);
-                alert('Registration successful! Please login.');
-                toggleAuthMode();
-            } catch (error) {
-                alert('Registration failed: ' + error.message);
-            }
-        }
-
-        // Load catalog
-        async function loadCatalog() {
-            try {
-                const response = await window.apiClient.getProducts();
-                const products = response.products || [];
-                
-                let html = '';
-                products.forEach(product => {
-                    html += `
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer" onclick="viewProduct('${product._id}')">
-                            <div class="bg-gradient-to-br from-secondary/10 to-accent/20 h-40 flex items-center justify-center">
-                                <span class="text-4xl">🌾</span>
-                            </div>
-                            <div class="p-4">
-                                <h3 class="font-bold text-lg mb-2">${product.name}</h3>
-                                <p class="text-gray-600 text-sm mb-3">${product.rice_type}</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-bold text-secondary">₹${product.price}/MT</span>
-                                    <button class="btn-primary text-sm p-2">View</button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                document.getElementById('products-grid').innerHTML = html || '<p class="col-span-4 text-center py-12 text-gray-500">No products available</p>';
-            } catch (error) {
-                document.getElementById('products-grid').innerHTML = '<p class="col-span-4 text-center py-12 text-gray-500">Error loading products</p>';
-            }
-        }
-
-        function viewProduct(productId) {
-            alert('Product detail page coming soon!');
-        }
-
-        async function searchOrder() {
-            const orderNumber = document.getElementById('order-search').value;
-            
-            try {
-                const response = await window.apiClient.trackOrder(orderNumber);
-                const order = response.order || {};
-                
-                let html = `
-                    <div>
-                        <h2 class="text-2xl font-bold mb-4">Order #${order.orderNumber}</h2>
-                        <div class="grid grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <p class="text-gray-600 text-sm">Status</p>
-                                <p class="text-xl font-bold text-primary">${order.status}</p>
-                            </div>
-                            <div>
-                                <p class="text-gray-600 text-sm">Total</p>
-                                <p class="text-xl font-bold text-secondary">₹${order.total}</p>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-                            <p class="text-sm text-gray-600">Order placed on ${new Date(order.createdAt).toLocaleDateString()}</p>
-                        </div>
-                    </div>
-                `;
-                document.getElementById('order-details').innerHTML = html;
-            } catch (error) {
-                document.getElementById('order-details').innerHTML = '<p class="text-center py-12 text-red-500">Order not found</p>';
-            }
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            navigateTo('home');
-        });
-    </script>
-</body>
-</html>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 fixed top-0 z-50 bg-surface/70 backdrop-blur-xl border-b border-secondary/30 shadow-[0px_10px_30px_rgba(27,67,50,0.1)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-display-lg text-headline-sm font-bold text-primary">Mana Raithu</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="catalog.html">Products</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="#">More</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[751px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A sweeping cinematic view of a lush, vibrant green rice field at sunrise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv8AiifCIxc7B_HIVQpix8StO64VmIrFDfxLKgsYkKbfflt_Ii-kciQbKxGCX_3GTarmheqRMSYScpxCsIz58d3EzS8mT5HfLZ9nrm53wK6HU6JIixzxC771mhavjKs3GSTnqJ_fKkUC6ZTXO8_YuHqiM0vJ18Fhe27ewEwaGP5klEmowd7bP3E60YbPv1L90Ex26Z2Q5p3RpQlu6KlZ2D7trtr0GNNI42QMwb_MBO9yeXAzopRyI0VsPG2opfEesSfTNFL-klIkJo"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent"></div>
+</div>
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid md:grid-cols-2 gap-12 items-center">
+<div class="text-white space-y-6">
+<span class="inline-block px-4 py-1 bg-secondary text-on-secondary font-label-sm text-label-sm rounded-full tracking-widest uppercase">Harvest Gold Quality</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight">Pure Quality Rice from Indian Farmers</h2>
+<p class="font-body-lg text-body-lg text-white/90 max-w-lg">Experience the artisanal excellence of NBKKC Agro Foods. We bring you the finest grains nurtured by traditional wisdom and modern precision.</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-3 bg-primary-container text-white font-headline-sm rounded-lg hover:opacity-90 transition-all shadow-lg active:scale-95"><a href="catalog.html">Shop Now</a></button>
+<button class="px-8 py-3 border-2 border-secondary text-secondary-fixed font-headline-sm rounded-lg hover:bg-secondary/10 transition-all backdrop-blur-sm"><a href="dealer-distributor.html">Partner with Us</a></button>
+</div>
+</div>
+<div class="hidden md:flex justify-center">
+<div class="glass-card p-4 rounded-xl rotate-3 shadow-2xl relative">
+<img class="w-80 h-[450px] object-cover rounded-lg" data-alt="A premium burlap sack of white basmati rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhZWI2-PTgV3LLzR5QixzAO5cJgPaQvcaXabG9vwtl-WJYS4QRbIpjtc1Bhii5LgU1OAD4MDKxw4BsGpNKZ_TQnjB1FPNLl02yo6x_Kih848cUkX-KM9eCHRuf_NzsqavJtR_d_Ga-1wiwDptOooQt9qWHqMGLSNqh0EuQfwyY9hsYTNKKmauAFE_JqSoArh3R56J1AJStOZYHWXaYAWLWmAE3K8bKqL7vSOKKPI6jKBIDB8cfQ1iLUxtdF9DkbX-HdDgjovkqgCls"/>
+<div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-xl shadow-xl">
+<p class="font-headline-sm text-primary">100% Organic</p>
+<p class="font-body-md text-on-surface-variant">Lab Tested Quality</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us - Icon Grid -->
+<section class="py-section-gap bg-surface">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop text-center space-y-12">
+<div class="max-w-2xl mx-auto space-y-4">
+<h3 class="font-display-lg text-headline-md text-primary">The Mana Raithu Promise</h3>
+<p class="text-outline">Bridging the gap between rural excellence and urban luxury with every grain.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-secondary transition-colors group">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">verified</span>
+</div>
+<h4 class="font-headline-sm text-primary mb-3">Premium Quality</h4>
+<p class="text-on-surface-variant font-body-md">Strict 12-step quality control ensuring every grain meets international export standards.</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-secondary transition-colors group">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">agriculture</span>
+</div>
+<h4 class="font-headline-sm text-primary mb-3">Farmer Direct</h4>
+<p class="text-on-surface-variant font-body-md">Sourced directly from our network of dedicated farmers, ensuring fair trade and fresh harvest.</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-secondary transition-colors group">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">sanitizer</span>
+</div>
+<h4 class="font-headline-sm text-primary mb-3">Hygienic Process</h4>
+<p class="text-on-surface-variant font-body-md">Fully automated processing and touch-free packaging in our state-of-the-art facilities.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products - Bento Layout -->
+<section class="py-section-gap">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-12">
+<div class="space-y-2">
+<h3 class="font-display-lg text-headline-md text-primary">Our Signature Collection</h3>
+<p class="text-outline">Explore our range of premium aged rice varieties.</p>
+</div>
+<a class="text-secondary font-headline-sm flex items-center gap-2 hover:underline" href="catalog.html">View All Products <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-8 relative group overflow-hidden rounded-3xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up detail of high-quality long-grain basmati rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-8HCWLNR9CfQRaL-SH4B4duJHrVH2y14HeAALkcadE4lpEkm5fWVGKJ91ookSMXFCE4jHojZq-GxeDpWqdzlu-YqWskgmsH3Fz7KRt0dZkkDXw3C5OXHQ5s_u8rhbcaY4S7DBpaij0FLd_Aq8WS93ww2moDoIwtYgfUQtXLEw0jtahGIMXZ2OBbDt253yHTtG0jtHemwAm7GaPdg5divXpoFBzFwfB_6_YdKqHrxBI_zrdgI-lHckx3tA8wCsv_nbYK1obKDwe4T"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+<span class="text-secondary-fixed font-label-sm text-label-sm uppercase mb-2">Best Seller</span>
+<h4 class="text-white font-display-lg text-headline-md">Super Long Grain Basmati</h4>
+<p class="text-white/80 max-w-md mt-2">Aged for 2 years for that perfect aroma and fluffiness.</p>
+<button class="mt-4 w-fit px-6 py-2 bg-white text-primary rounded-full font-label-sm"><a href="product-details.html">Order Now</a></button>
+</div>
+</div>
+<div class="md:col-span-4 grid grid-rows-2 gap-6">
+<div class="relative group overflow-hidden rounded-3xl bg-primary">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="A small white ceramic bowl filled with cooked rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5OGFV0ld0H6SslFwxiW-N5mqsotQqDl1nKo4haXu-9uffqqsCnAirh82sNuMy4f5fm5JGhrvoYCODp_pv12KY00wbHarf3oLHFruGLtcWeYMF8isFewnxV6TznrRK3lsbdTSPe5V7lRMjAW6kf9K7OIIZiPRnsXWePkLR0KlPR21nGE609sifC4DG9JUSmqhqdYqdFkyf3Wmj7Z4-TG53La8HwN4Vetv-O7yr0HaFmvF-FXjO8naMkeakNutz89GjY8qScsY6tHAv"/>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<h4 class="text-white font-headline-sm">Sona Masuri</h4>
+<button class="text-secondary-fixed text-sm mt-1 hover:underline flex items-center gap-1"><a href="product-details.html">Quick Add <span class="material-symbols-outlined text-sm">add_circle</span></a></button>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-3xl bg-secondary">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="Artisanal brown rice grains in a hand-crafted earthen pot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAoLVWreADw-QJ0GA5NYRR-nQmLvXBW4KQmCV6k7u3iRdjMGks-u387Iaic0uCsG2M38QKIC9NsB8LKzXvfxCjbjwj8Le0uSt-8yEtBLRGkGyubhBuGNq3JkCz-zNB0bgmPp1bxf8dt6uTdgYKV1266D8vykv2rg9ckjc59qxvErnRYpPbErSAuGHs060bA0LTgNMSF6FA2JhBQERSiBuo01PJywXgZXCDEKTZkhF_VL_869ZGNgwXbvhLbygYgMutreFosPz40ttF"/>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<h4 class="text-white font-headline-sm">Organic Brown Rice</h4>
+<button class="text-secondary-fixed text-sm mt-1 hover:underline flex items-center gap-1"><a href="product-details.html">Quick Add <span class="material-symbols-outlined text-sm">add_circle</span></a></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dealer Partnership Banner -->
+<section class="py-section-gap px-margin-mobile">
+<div class="container mx-auto max-w-container-max glass-card rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 border-2">
+<div class="flex-1 space-y-6">
+<h3 class="font-display-lg text-headline-md text-primary">Grow Your Business With Us</h3>
+<p class="text-body-lg text-on-surface-variant">Become a certified partner and bring the authentic taste of Mana Raithu to your local community. We provide full marketing support and logistics.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-primary font-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> Exclusive Regional Distribution</li>
+<li class="flex items-center gap-3 text-primary font-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> High Profit Margins</li>
+<li class="flex items-center gap-3 text-primary font-body-md">
+<span class="material-symbols-outlined text-secondary">check_circle</span> Digital Marketing Support</li>
+</ul>
+<div class="pt-4">
+<button class="bg-primary text-white px-10 py-4 rounded-full font-headline-sm shadow-xl hover:-translate-y-1 transition-transform"><a href="dealer-distributor.html">Dealer Registration</a></button>
+</div>
+</div>
+<div class="flex-1">
+<div class="relative">
+<img class="rounded-2xl shadow-2xl" data-alt="A professional businessman and a traditional Indian farmer shaking hands" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMVPlVXV6bk4U5LWS-tOrbWWOAqL3WsjBe77Y90nF6jXN2ZrZvPX-KStfq-26EK_kd1Q7pIm1TuBymo-HtZesBd-_RYNx5sfEA_qshPT54kQBHRE43vFoWigbBNhmElx9UglpsFRLxNjBrHgsLbYuJpHscxLtxHKQ7OKF_kHtOYyJq3raQq-iXZnB-Rse8QawVHUxrgT7BeksM5bYQ_KGSQIB1gTU5HRBPYcLH3QoZnb7XrFxQDD3cUlqTinU_kceO4AKb3Sx9fClt"/>
+<div class="absolute -top-4 -right-4 bg-secondary-container text-on-secondary-container p-4 rounded-xl shadow-lg">
+<p class="font-bold text-center">150+ <br/>Partners</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h3 class="font-display-lg text-headline-md text-primary">Voice of Our Customers</h3>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-secondary">
+<div class="flex gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-on-surface-variant font-body-md mb-6">"The aroma of Mana Raithu basmati is incomparable. It has become a staple in my household. The quality is consistent every single time."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="font-headline-sm text-sm">Priya Sharma</p>
+<p class="text-xs text-outline">Gourmet Home Cook</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-secondary">
+<div class="flex gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-on-surface-variant font-body-md mb-6">"As a restaurant owner, sourcing the right grain is critical. NBKKC Agro Foods provides the premium texture my chefs demand for our biryanis."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">restaurant</span>
+</div>
+<div>
+<p class="font-headline-sm text-sm">Vikram Malhotra</p>
+<p class="text-xs text-outline">Executive Chef</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-secondary">
+<div class="flex gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-on-surface-variant font-body-md mb-6">"Direct sourcing from farmers makes me feel good about my purchase. Knowing the provenance and purity of my food is essential."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">eco</span>
+</div>
+<div>
+<p class="font-headline-sm text-sm">Anjali Gupta</p>
+<p class="text-xs text-outline">Wellness Coach</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center gap-unit pb-24 pt-16 bg-primary border-t border-secondary text-on-primary">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-4 gap-12 mb-12">
+<div class="space-y-4">
+<h2 class="font-display-lg text-headline-sm text-on-primary">Mana Raithu</h2>
+<p class="text-on-primary-container font-body-md">Empowering farmers, enriching lives with premium agricultural products.</p>
+</div>
+<div>
+<h4 class="font-headline-sm text-white mb-4">Quick Links</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Export Inquiries</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="contact-us.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-white mb-4">Follow Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline-sm text-white mb-4">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-white/10 border-b border-secondary/50 p-3 text-white placeholder:text-white/50 focus:outline-none focus:border-secondary transition-colors" placeholder="Email Address" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-secondary-fixed">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="container mx-auto border-t border-white/10 pt-8 text-center px-margin-mobile">
+<p class="text-on-primary-container font-body-md">© 2024 NBKKC Agro Foods. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-t border-secondary/30 flex justify-around items-center px-2 py-3 shadow-[0px_-10px_30px_rgba(27,67,50,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-primary dark:text-secondary-fixed-dim bg-secondary-container/20 rounded-xl px-3 py-1">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<a href="catalog.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grass</span>
+<span class="font-label-sm text-label-sm">Products</span>
+</a>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label-sm text-label-sm">Cart</span>
+</div>
+<a href="dashboard.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-sm text-label-sm">More</span>
+</div>
+</nav>
+</body></html>

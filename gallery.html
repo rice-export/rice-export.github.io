@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery - Mana Raithu Farm Stories</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#1a1c1c",
+                        "outline": "#717973",
+                        "surface-container-high": "#e8e8e8",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "primary-container": "#1b4332",
+                        "on-tertiary-fixed-variant": "#5c403a",
+                        "on-secondary-container": "#745c00",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-primary-fixed": "#002114",
+                        "secondary": "#735c00",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-low": "#f3f3f4",
+                        "tertiary": "#37201b",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary-container": "#4f352f",
+                        "secondary-container": "#fed65b",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-fixed": "#2b1611",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "secondary-fixed": "#ffe088",
+                        "primary": "#012d1d",
+                        "surface-dim": "#dadada",
+                        "surface": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#c29e96",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-tint": "#3f6653",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#e5beb5"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "margin-desktop": "40px",
+                        gutter: "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "section-gap": "80px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Work Sans"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-sm": ["20px", { lineHeight: "1.4", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "1", fontWeight: "700" }],
+                        "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "display-lg-mobile": ["36px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(249, 249, 249, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #735c00;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 fixed top-0 z-50 bg-surface/70 backdrop-blur-xl border-b border-secondary/30 shadow-[0px_10px_30px_rgba(27,67,50,0.1)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-display-lg text-headline-sm font-bold text-primary">Mana Raithu</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="catalog.html">Products</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="#">More</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[400px] flex items-center overflow-hidden bg-primary">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop relative z-10 text-white space-y-4">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg">Our Visual Story</h1>
+<p class="text-body-lg max-w-2xl text-white/90">From field to table - witness the journey of crafting premium agricultural excellence.</p>
+</div>
+</section>
+<!-- Bento Gallery -->
+<section class="py-section-gap">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[700px] mb-12">
+<!-- Large Image 1 (8 cols) -->
+<div class="md:col-span-8 md:row-span-2 relative group overflow-hidden rounded-3xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Farmer working in rice paddy field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuHqIJrFKvlZ4V3YDXLV3PakPl3nqeKdIyXqmWJvXzADvP3CwPJSK8VvLYVTyHiCG3kbqHZjBYvhSWGLECtlyb0BtxjR8AyVP0x0H5uHfROTSDYzYM2P7iYfpfpDvhpX1i3_2fNRnKdOJZUNhWu_EQqTHhWLm"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-8 flex flex-col justify-end">
+<span class="text-secondary-fixed font-label-sm text-label-sm uppercase mb-2">Heritage</span>
+<h3 class="text-white font-display-lg text-headline-md">Growing Excellence</h3>
+</div>
+</div>
+<!-- Top Right (4 cols) -->
+<div class="md:col-span-4 relative group overflow-hidden rounded-3xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Factory processing equipment with rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9sRsb2xwzlrRKcY3sUZplWYcWCPZcqILQKG8tMNCJKmxBQ7VaGSHKfQ0RO7cpjGBKJyLLLiBZkL33HzNJdYhS4sOhqmFT"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-6 flex flex-col justify-end">
+<h4 class="text-white font-headline-sm">Processing</h4>
+</div>
+</div>
+<!-- Middle Right (4 cols) -->
+<div class="md:col-span-4 relative group overflow-hidden rounded-3xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Premium rice grains close-up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8VGaILQvU9SJMp-vG4aI6vTdT6GVTMPgP3BoXBnB2Xy4V_fFFkV9L0v-kRRRCb5fWVPAWMNNnxmqIJU6YQVL9GkW4fhXGCNVI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-6 flex flex-col justify-end">
+<h4 class="text-white font-headline-sm">Quality Check</h4>
+</div>
+</div>
+<!-- Bottom Left (4 cols) -->
+<div class="md:col-span-4 relative group overflow-hidden rounded-3xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Rice fields landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9W4aLEPSrJVGKDjZKfvIvJW3e96IIuDVRl51nqQ4Wh1B1FZKm3N9KGLR6lMhHyq5bVE2sKqxT4fHMZw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-6 flex flex-col justify-end">
+<h4 class="text-white font-headline-sm">Harvesting</h4>
+</div>
+</div>
+<!-- Bottom Right (4 cols) -->
+<div class="md:col-span-4 relative group overflow-hidden rounded-3xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Packaged rice ready for delivery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5LaBAVHNd5CyExwdFiYxLJqCNMjIV1u8pNVGtNZd0KlZy7nL1EV2J_eI0K0gPEKZtBJGFI7Aswm3hVxGkqV0sLqg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-6 flex flex-col justify-end">
+<h4 class="text-white font-headline-sm">Packaging</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Farm Stories - Video Reel Section -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-headline-md text-primary mb-4">Farm Stories</h2>
+<p class="text-body-lg text-on-surface-variant">Watch how our farmers grow, process, and deliver premium quality rice.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="group relative overflow-hidden rounded-2xl bg-black aspect-video cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Video thumbnail 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANB7e0XHJwW7j4g5gJ5Uk3HpqKVPZqJE3V1zSqJ8QQQ1E1Yn3C2Hq6ZrQBiE_-"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
+<p class="font-headline-sm">Farmer Interview</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl bg-black aspect-video cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Video thumbnail 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-8HCWLNR9CfQRaL-SH4B4duJHrVH2y14HeAALkcadE4lpEkm5fWVGKJ91ookSMXFCE4jHojZq-GxeDpWqdzlu-YqWskgmsH3Fz7KRt0dZkkDXw3C5OXHQ5s_u8rhbcaY4S7DBpaij0FLd_Aq8WS93ww2moDoIwtYgfUQtXLEw0jtahGIMXZ2OBbDt253yHTtG0jtHemwAm7GaPdg5divXpoFBzFwfB_6_YdKqHrxBI_zrdgI-lHckx3tA8wCsv_nbYK1obKDwe4T"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
+<p class="font-headline-sm">Processing Tour</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl bg-black aspect-video cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Video thumbnail 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAoLVWreADw-QJ0GA5NYRR-nQmLvXBW4KQmCV6k7u3iRdjMGks-u387Iaic0uCsG2M38QKIC9NsB8LKzXvfxCjbjwj8Le0uSt-8yEtBLRGkGyubhBuGNq3JkCz-zNB0bgmPp1bxf8dt6uTdgYKV1266D8vykv2rg9ckjc59qxvErnRYpPbErSAuGHs060bA0LTgNMSF6FA2JhBQERSiBuo01PJywXgZXCDEKTZkhF_VL_869ZGNgwXbvhLbygYgMutreFosPz40ttF"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
+<p class="font-headline-sm">Quality Standards</p>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full font-headline-sm hover:opacity-90 transition-opacity">View All Videos <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="py-section-gap">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-card rounded-3xl p-8 md:p-16 text-center space-y-6">
+<h2 class="font-display-lg text-headline-md text-primary">Stay Updated</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Subscribe to our newsletter and get exclusive updates on new products, farmer stories, and special offers.</p>
+<div class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-1 px-6 py-3 bg-white border border-secondary/20 rounded-full font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors" placeholder="Your email address" type="email"/>
+<button class="px-8 py-3 bg-primary text-white rounded-full font-headline-sm hover:opacity-90 transition-opacity">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center gap-unit pb-24 pt-16 bg-primary border-t border-secondary text-on-primary">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-4 gap-12 mb-12">
+<div class="space-y-4">
+<h2 class="font-display-lg text-headline-sm text-on-primary">Mana Raithu</h2>
+<p class="text-on-primary-container font-body-md">Empowering farmers, enriching lives with premium agricultural products.</p>
+</div>
+<div>
+<h4 class="font-headline-sm text-white mb-4">Quick Links</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Export Inquiries</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="contact-us.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-white mb-4">Follow Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline-sm text-white mb-4">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-white/10 border-b border-secondary/50 p-3 text-white placeholder:text-white/50 focus:outline-none focus:border-secondary transition-colors" placeholder="Email Address" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-secondary-fixed">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="container mx-auto border-t border-white/10 pt-8 text-center px-margin-mobile">
+<p class="text-on-primary-container font-body-md">© 2024 NBKKC Agro Foods. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-t border-secondary/30 flex justify-around items-center px-2 py-3 shadow-[0px_-10px_30px_rgba(27,67,50,0.05)] rounded-t-xl">
+<a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a href="catalog.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grass</span>
+<span class="font-label-sm text-label-sm">Products</span>
+</a>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label-sm text-label-sm">Cart</span>
+</div>
+<a href="dashboard.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-sm text-label-sm">More</span>
+</div>
+</nav>
+</body>
+</html>

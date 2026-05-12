@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - Mana Raithu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#1a1c1c",
+                        "outline": "#717973",
+                        "surface-container-high": "#e8e8e8",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "primary-container": "#1b4332",
+                        "on-tertiary-fixed-variant": "#5c403a",
+                        "on-secondary-container": "#745c00",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-primary-fixed": "#002114",
+                        "secondary": "#735c00",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-low": "#f3f3f4",
+                        "tertiary": "#37201b",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary-container": "#4f352f",
+                        "secondary-container": "#fed65b",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-fixed": "#2b1611",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "secondary-fixed": "#ffe088",
+                        "primary": "#012d1d",
+                        "surface-dim": "#dadada",
+                        "surface": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#c29e96",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-tint": "#3f6653",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#e5beb5"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "margin-desktop": "40px",
+                        gutter: "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "section-gap": "80px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Work Sans"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-sm": ["20px", { lineHeight: "1.4", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "1", fontWeight: "700" }],
+                        "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "display-lg-mobile": ["36px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(249, 249, 249, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #735c00;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 fixed top-0 z-50 bg-surface/70 backdrop-blur-xl border-b border-secondary/30 shadow-[0px_10px_30px_rgba(27,67,50,0.1)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-display-lg text-headline-sm font-bold text-primary">Mana Raithu</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="catalog.html">Products</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="#">More</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span>
+</div>
+</header>
+<main class="pt-24 pb-20">
+<!-- Page Title -->
+<section class="py-8 border-b border-outline-variant/20 mb-12">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<h1 class="font-display-lg text-headline-md text-primary">Checkout</h1>
+</div>
+</section>
+<!-- Checkout Grid -->
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-3 gap-8">
+<!-- Left Column (8 cols) -->
+<div class="md:col-span-2 space-y-8">
+<!-- Shopping Cart -->
+<div class="space-y-4">
+<h2 class="font-headline-md text-primary">Shopping Cart</h2>
+<div class="space-y-4">
+<!-- Cart Item 1 -->
+<div class="p-4 border border-outline-variant/20 rounded-xl flex gap-4 items-start">
+<img class="w-20 h-20 rounded-lg object-cover" alt="Premium Aged Basmati Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-8HCWLNR9CfQRaL-SH4B4duJHrVH2y14HeAALkcadE4lpEkm5fWVGKJ91ookSMXFCE4jHojZq-GxeDpWqdzlu-YqWskgmsH3Fz7KRt0dZkkDXw3C5OXHQ5s_u8rhbcaY4S7DBpaij0FLd_Aq8WS93ww2moDoIwtYgfUQtXLEw0jtahGIMXZ2OBbDt253yHTtG0jtHemwAm7GaPdg5divXpoFBzFwfB_6_YdKqHrxBI_zrdgI-lHckx3tA8wCsv_nbYK1obKDwe4T"/>
+<div class="flex-1">
+<h3 class="font-headline-sm text-primary">Premium Aged Basmati Rice</h3>
+<p class="text-on-surface-variant text-sm">5kg - ₹1,250</p>
+<p class="text-on-surface-variant text-sm">Qty: 1</p>
+</div>
+<button class="text-secondary hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<!-- Cart Item 2 -->
+<div class="p-4 border border-outline-variant/20 rounded-xl flex gap-4 items-start">
+<img class="w-20 h-20 rounded-lg object-cover" alt="Cold Pressed Groundnut Oil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5OGFV0ld0H6SslFwxiW-N5mqsotQqDl1nKo4haXu-9uffqqsCnAirh82sNuMy4f5fm5JGhrvoYCODp_pv12KY00wbHarf3oLHFruGLtcWeYMF8isFewnxV6TznrRK3lsbdTSPe5V7lRMjAW6kf9K7OIIZiPRnsXWePkLR0KlPR21nGE609sifC4DG9JUSmqhqdYqdFkyf3Wmj7Z4-TG53La8HwN4Vetv-O7yr0HaFmvF-FXjO8naMkeakNutz89GjY8qScsY6tHAv"/>
+<div class="flex-1">
+<h3 class="font-headline-sm text-primary">Cold Pressed Groundnut Oil</h3>
+<p class="text-on-surface-variant text-sm">1L - ₹240</p>
+<p class="text-on-surface-variant text-sm">Qty: 2</p>
+</div>
+<button class="text-secondary hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Delivery Address -->
+<div class="space-y-4">
+<h2 class="font-headline-md text-primary">Delivery Address</h2>
+<div class="space-y-3">
+<input class="w-full px-4 py-2 border border-outline-variant/20 rounded-lg font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors" placeholder="Full Name" type="text"/>
+<input class="w-full px-4 py-2 border border-outline-variant/20 rounded-lg font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors" placeholder="Street Address" type="text"/>
+<div class="grid grid-cols-2 gap-3">
+<input class="px-4 py-2 border border-outline-variant/20 rounded-lg font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors" placeholder="City" type="text"/>
+<input class="px-4 py-2 border border-outline-variant/20 rounded-lg font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors" placeholder="ZIP Code" type="text"/>
+</div>
+</div>
+</div>
+<!-- Payment Method -->
+<div class="space-y-4">
+<h2 class="font-headline-md text-primary">Payment Method</h2>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-3 border-2 border-primary bg-primary/5 rounded-lg cursor-pointer">
+<input class="w-4 h-4 accent-primary" checked="" type="radio"/>
+<span class="font-body-md">Credit/Debit Card</span>
+</label>
+<label class="flex items-center gap-3 p-3 border border-outline-variant/20 rounded-lg cursor-pointer">
+<input class="w-4 h-4 accent-primary" type="radio"/>
+<span class="font-body-md">UPI</span>
+</label>
+<label class="flex items-center gap-3 p-3 border border-outline-variant/20 rounded-lg cursor-pointer">
+<input class="w-4 h-4 accent-primary" type="radio"/>
+<span class="font-body-md">Cash on Delivery</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Right Column (4 cols) -->
+<div class="md:col-span-1 space-y-6">
+<!-- Coupon Code -->
+<div class="space-y-2">
+<label class="text-on-surface-variant font-body-md">Coupon Code</label>
+<div class="flex gap-2">
+<input class="flex-1 px-4 py-2 border border-outline-variant/20 rounded-lg font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors" placeholder="Enter code" type="text"/>
+<button class="px-4 py-2 border border-secondary text-secondary rounded-lg hover:bg-secondary/10 transition-colors font-label-sm">Apply</button>
+</div>
+</div>
+<!-- Order Summary -->
+<div class="p-6 bg-surface-container-low rounded-2xl border border-outline-variant/20 space-y-4">
+<h3 class="font-headline-sm text-primary">Order Summary</h3>
+<div class="space-y-2 text-on-surface-variant text-sm border-b border-outline-variant/20 pb-4">
+<div class="flex justify-between">
+<p>Subtotal</p>
+<p class="font-body-md">₹2,210</p>
+</div>
+<div class="flex justify-between">
+<p>GST (5%)</p>
+<p class="font-body-md">₹110.50</p>
+</div>
+<div class="flex justify-between">
+<p>Shipping</p>
+<p class="font-body-md text-primary">FREE</p>
+</div>
+</div>
+<div class="flex justify-between font-headline-sm text-primary pt-2">
+<p>Grand Total</p>
+<p>₹2,320.50</p>
+</div>
+<button class="w-full px-6 py-3 bg-primary text-white rounded-lg font-headline-sm hover:opacity-90 transition-opacity"><a href="order-success.html">Confirm Order</a></button>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant text-center">
+<span class="material-symbols-outlined text-xs">lock</span>
+<p>Secure 256-bit Payment</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center gap-unit pb-24 pt-16 bg-primary border-t border-secondary text-on-primary">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-4 gap-12 mb-12">
+<div class="space-y-4">
+<h2 class="font-display-lg text-headline-sm text-on-primary">Mana Raithu</h2>
+<p class="text-on-primary-container font-body-md">Empowering farmers, enriching lives with premium agricultural products.</p>
+</div>
+<div>
+<h4 class="font-headline-sm text-white mb-4">Quick Links</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Export Inquiries</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="contact-us.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-white mb-4">Follow Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline-sm text-white mb-4">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-white/10 border-b border-secondary/50 p-3 text-white placeholder:text-white/50 focus:outline-none focus:border-secondary transition-colors" placeholder="Email Address" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-secondary-fixed">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="container mx-auto border-t border-white/10 pt-8 text-center px-margin-mobile">
+<p class="text-on-primary-container font-body-md">© 2024 NBKKC Agro Foods. All Rights Reserved.</p>
+</div>
+</footer>
+</body>
+</html>

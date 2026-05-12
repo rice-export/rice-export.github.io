@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login/Signup - Mana Raithu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#1a1c1c",
+                        "outline": "#717973",
+                        "surface-container-high": "#e8e8e8",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "primary-container": "#1b4332",
+                        "on-tertiary-fixed-variant": "#5c403a",
+                        "on-secondary-container": "#745c00",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-primary-fixed": "#002114",
+                        "secondary": "#735c00",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-low": "#f3f3f4",
+                        "tertiary": "#37201b",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary-container": "#4f352f",
+                        "secondary-container": "#fed65b",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-fixed": "#2b1611",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "secondary-fixed": "#ffe088",
+                        "primary": "#012d1d",
+                        "surface-dim": "#dadada",
+                        "surface": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#c29e96",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-tint": "#3f6653",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#e5beb5"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "margin-desktop": "40px",
+                        gutter: "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "section-gap": "80px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Work Sans"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-sm": ["20px", { lineHeight: "1.4", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "1", fontWeight: "700" }],
+                        "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "display-lg-mobile": ["36px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(249, 249, 249, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #735c00;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Main Authentication Container -->
+<div class="min-h-screen flex items-center justify-center py-12 px-margin-mobile">
+<div class="w-full max-w-md space-y-8">
+<!-- Brand Header -->
+<div class="text-center space-y-2">
+<h1 class="font-display-lg text-headline-md text-primary">Mana Raithu</h1>
+<p class="text-on-surface-variant font-body-md">Pure. Authentic. Premium.</p>
+</div>
+<!-- Glass Card Container -->
+<div class="glass-card rounded-2xl p-8 space-y-6">
+<!-- Tabs -->
+<div class="flex gap-4 border-b border-outline-variant/20">
+<button class="pb-3 font-headline-sm text-primary border-b-2 border-primary">Login</button>
+<button class="pb-3 font-headline-sm text-on-surface-variant hover:text-primary transition-colors">Sign Up</button>
+</div>
+<!-- Email/Phone Input -->
+<div class="space-y-3">
+<label class="text-on-surface-variant font-body-md">Email or Phone</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">mail</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white/50 border border-outline-variant/20 rounded-lg font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:bg-white transition-colors" placeholder="Enter email or mobile" type="text"/>
+</div>
+</div>
+<!-- OTP Input -->
+<div class="space-y-3">
+<label class="text-on-surface-variant font-body-md">OTP Code</label>
+<div class="flex gap-2 tracking-widest justify-between">
+<input class="w-12 h-12 text-center border border-outline-variant/20 rounded-lg font-body-md focus:outline-none focus:border-primary focus:bg-secondary/10 transition-colors" maxlength="1" type="text"/>
+<input class="w-12 h-12 text-center border border-outline-variant/20 rounded-lg font-body-md focus:outline-none focus:border-primary focus:bg-secondary/10 transition-colors" maxlength="1" type="text"/>
+<input class="w-12 h-12 text-center border border-outline-variant/20 rounded-lg font-body-md focus:outline-none focus:border-primary focus:bg-secondary/10 transition-colors" maxlength="1" type="text"/>
+<input class="w-12 h-12 text-center border border-outline-variant/20 rounded-lg font-body-md focus:outline-none focus:border-primary focus:bg-secondary/10 transition-colors" maxlength="1" type="text"/>
+<input class="w-12 h-12 text-center border border-outline-variant/20 rounded-lg font-body-md focus:outline-none focus:border-primary focus:bg-secondary/10 transition-colors" maxlength="1" type="text"/>
+<input class="w-12 h-12 text-center border border-outline-variant/20 rounded-lg font-body-md focus:outline-none focus:border-primary focus:bg-secondary/10 transition-colors" maxlength="1" type="text"/>
+</div>
+</div>
+<!-- Forgot Password Link -->
+<div class="text-right">
+<a class="text-secondary text-sm font-label-sm hover:underline" href="#">Forgot Password?</a>
+</div>
+<!-- Get OTP Button -->
+<button class="w-full px-6 py-3 bg-secondary text-white rounded-full font-headline-sm hover:opacity-90 transition-opacity">GET OTP</button>
+<!-- Continue to Harvest Button -->
+<button class="w-full px-6 py-3 bg-primary text-white rounded-full font-headline-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2"><a href="index.html">CONTINUE TO HARVEST</a> <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+<!-- Social Auth -->
+<div class="relative space-y-4">
+<div class="relative">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/20"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-2 bg-white text-on-surface-variant">or continue with</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 px-4 py-2 border border-outline-variant/20 rounded-lg hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">login</span>
+<span class="font-label-sm">Google</span>
+</button>
+<button class="flex-1 px-4 py-2 border border-outline-variant/20 rounded-lg hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">phone_android</span>
+<span class="font-label-sm">Mobile</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Quote -->
+<p class="text-center text-on-surface-variant font-body-md text-sm italic">
+"From our fields to your table, we bring authenticity and quality in every harvest."
+</p>
+</div>
+</body>
+</html>

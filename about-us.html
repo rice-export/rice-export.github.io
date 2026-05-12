@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us - Mana Raithu Heritage & Mission</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#1a1c1c",
+                        "outline": "#717973",
+                        "surface-container-high": "#e8e8e8",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "primary-container": "#1b4332",
+                        "on-tertiary-fixed-variant": "#5c403a",
+                        "on-secondary-container": "#745c00",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-primary-fixed": "#002114",
+                        "secondary": "#735c00",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-low": "#f3f3f4",
+                        "tertiary": "#37201b",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary-container": "#4f352f",
+                        "secondary-container": "#fed65b",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-fixed": "#2b1611",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "secondary-fixed": "#ffe088",
+                        "primary": "#012d1d",
+                        "surface-dim": "#dadada",
+                        "surface": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#c29e96",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-tint": "#3f6653",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-fixed": "#241a00",
+                        "tertiary-fixed-dim": "#e5beb5"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "margin-desktop": "40px",
+                        gutter: "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "section-gap": "80px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Work Sans"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-sm": ["20px", { lineHeight: "1.4", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "1", fontWeight: "700" }],
+                        "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "display-lg-mobile": ["36px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(249, 249, 249, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #735c00;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 fixed top-0 z-50 bg-surface/70 backdrop-blur-xl border-b border-secondary/30 shadow-[0px_10px_30px_rgba(27,67,50,0.1)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-display-lg text-headline-sm font-bold text-primary">Mana Raithu</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="catalog.html">Products</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="#">More</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[400px] flex items-center overflow-hidden bg-primary">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop relative z-10 text-white space-y-4">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg">Our Story</h1>
+<p class="text-body-lg max-w-2xl text-white/90">Bridging generations of agricultural wisdom with modern precision to bring pure quality to your table.</p>
+</div>
+</section>
+<!-- Company Story Section -->
+<section class="py-section-gap">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<h2 class="font-display-lg text-headline-md text-primary">The Soul of Mana Raithu</h2>
+<p class="text-body-lg text-on-surface-variant">NBKKC Agro Foods emerged from a simple vision: to honor the legacy of Indian farmers while elevating agricultural commerce. What started as a small cooperative of 50 farmers has grown into a trusted partner for thousands of households and businesses.</p>
+<p class="text-body-lg text-on-surface-variant">We believe that premium quality isn't just about the product—it's about the relationship between farmer and consumer, built on transparency, trust, and shared values.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-primary font-body-md">
+<span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+<span>Founded in 2010 with a core network of ethical farmers</span>
+</li>
+<li class="flex items-start gap-3 text-primary font-body-md">
+<span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+<span>Scaled to 500+ partner farmers across 12 village hubs</span>
+</li>
+<li class="flex items-start gap-3 text-primary font-body-md">
+<span class="material-symbols-outlined text-secondary pt-1">check_circle</span>
+<span>Exported to 15+ countries with international certifications</span>
+</li>
+</ul>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<img class="rounded-2xl h-80 object-cover" alt="Farmers community gathering" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuHqIJrFKvlZ4V3YDXLV3PakPl3nqeKdIyXqmWJvXzADvP3CwPJSK8VvLYVTyHiCG3kbqHZjBYvhSWGLECtlyb0BtxjR8AyVP0x0H5uHfROTSDYzYM2P7iYfpfpDvhpX1i3_2fNRnKdOJZUNhWu_EQqTHhWLm"/>
+<img class="rounded-2xl h-80 object-cover" alt="Processing facility interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9sRsb2xwzlrRKcY3sUZplWYcWCPZcqILQKG8tMNCJKmxBQ7VaGSHKfQ0RO7cpjGBKJyLLLiBZkL33HzNJdYhS4sOhqmFT"/>
+<img class="rounded-2xl h-80 object-cover" alt="Quality inspection process" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8VGaILQvU9SJMp-vG4aI6vTdT6GVTMPgP3BoXBnB2Xy4V_fFFkV9L0v-kRRRCb5fWVPAWMNNnxmqIJU6YQVL9GkW4fhXGCNVI"/>
+<img class="rounded-2xl h-80 object-cover" alt="Packaged products display" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5LaBAVHNd5CyExwdFiYxLJqCNMjIV1u8pNVGtNZd0KlZy7nL1EV2J_eI0K0gPEKZtBJGFI7Aswm3hVxGkqV0sLqg"/>
+</div>
+</div>
+</section>
+<!-- Mission, Vision & Quality Cards -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid md:grid-cols-3 gap-8 mb-16">
+<div class="p-8 rounded-2xl bg-primary-container text-white">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-2xl">target</span>
+</div>
+<h3 class="font-headline-sm mb-3">Our Mission</h3>
+<p class="text-white/90 font-body-md">Empower farmers through fair trade practices while delivering the finest agricultural products to discerning consumers worldwide.</p>
+</div>
+<div class="p-8 rounded-2xl bg-white border-2 border-secondary">
+<div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary text-2xl">visibility</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-3">Our Vision</h3>
+<p class="text-on-surface-variant font-body-md">To be the most trusted bridge between rural agricultural excellence and urban premium living standards.</p>
+</div>
+<div class="p-8 rounded-2xl bg-white border-2 border-primary">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+</div>
+<h3 class="font-headline-sm text-primary mb-3">Quality Promise</h3>
+<p class="text-on-surface-variant font-body-md">12-step quality control, international certifications, and 100% transparency from seed to table.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Farmer Connection Section -->
+<section class="py-section-gap">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-12">
+<h2 class="font-display-lg text-headline-md text-primary mb-4">Our Farming Community</h2>
+<p class="text-body-lg text-on-surface-variant">Supporting over 500 farmers across 12 village hubs with fair pricing, technology transfer, and sustainable practices.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8 mb-16">
+<div class="text-center p-8 rounded-2xl border border-outline-variant/20 bg-surface-container-low">
+<div class="text-secondary text-5xl font-bold mb-2">500+</div>
+<p class="text-on-surface-variant font-body-md">Partner Farmers</p>
+</div>
+<div class="text-center p-8 rounded-2xl border border-outline-variant/20 bg-surface-container-low">
+<div class="text-primary text-5xl font-bold mb-2">12</div>
+<p class="text-on-surface-variant font-body-md">Village Hubs</p>
+</div>
+<div class="text-center p-8 rounded-2xl border border-outline-variant/20 bg-surface-container-low">
+<div class="text-primary text-5xl font-bold mb-2">50K+</div>
+<p class="text-on-surface-variant font-body-md">Families Supported</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Precision in Every Grain - 4 Image Grid -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-display-lg text-headline-md text-primary text-center mb-12">Precision in Every Grain</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<img class="rounded-2xl h-80 object-cover" alt="Seed selection process" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuHqIJrFKvlZ4V3YDXLV3PakPl3nqeKdIyXqmWJvXzADvP3CwPJSK8VvLYVTyHiCG3kbqHZjBYvhSWGLECtlyb0BtxjR8AyVP0x0H5uHfROTSDYzYM2P7iYfpfpDvhpX1i3_2fNRnKdOJZUNhWu_EQqTHhWLm"/>
+<img class="rounded-2xl h-80 object-cover" alt="Field monitoring technology" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9sRsb2xwzlrRKcY3sUZplWYcWCPZcqILQKG8tMNCJKmxBQ7VaGSHKfQ0RO7cpjGBKJyLLLiBZkL33HzNJdYhS4sOhqmFT"/>
+<img class="rounded-2xl h-80 object-cover" alt="Modern processing equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8VGaILQvU9SJMp-vG4aI6vTdT6GVTMPgP3BoXBnB2Xy4V_fFFkV9L0v-kRRRCb5fWVPAWMNNnxmqIJU6YQVL9GkW4fhXGCNVI"/>
+<img class="rounded-2xl h-80 object-cover" alt="Final quality assurance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5LaBAVHNd5CyExwdFiYxLJqCNMjIV1u8pNVGtNZd0KlZy7nL1EV2J_eI0K0gPEKZtBJGFI7Aswm3hVxGkqV0sLqg"/>
+</div>
+</div>
+</section>
+<!-- Certifications Row -->
+<section class="py-16">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<h3 class="font-headline-sm text-primary text-center mb-8">International Certifications</h3>
+<div class="flex flex-wrap justify-center gap-8">
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl">verified</span>
+</div>
+<p class="text-center text-sm font-body-md">FSSAI Certified</p>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">public</span>
+</div>
+<p class="text-center text-sm font-body-md">ISO 9001:2015</p>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl">leaf</span>
+</div>
+<p class="text-center text-sm font-body-md">Organic Certified</p>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">language</span>
+</div>
+<p class="text-center text-sm font-body-md">Export Approved</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center gap-unit pb-24 pt-16 bg-primary border-t border-secondary text-on-primary">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-4 gap-12 mb-12">
+<div class="space-y-4">
+<h2 class="font-display-lg text-headline-sm text-on-primary">Mana Raithu</h2>
+<p class="text-on-primary-container font-body-md">Empowering farmers, enriching lives with premium agricultural products.</p>
+</div>
+<div>
+<h4 class="font-headline-sm text-white mb-4">Quick Links</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="#">Export Inquiries</a>
+<a class="text-on-primary-container hover:text-secondary-fixed transition-colors" href="contact-us.html">Contact Us</a>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-white mb-4">Follow Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline-sm text-white mb-4">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-white/10 border-b border-secondary/50 p-3 text-white placeholder:text-white/50 focus:outline-none focus:border-secondary transition-colors" placeholder="Email Address" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-secondary-fixed">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="container mx-auto border-t border-white/10 pt-8 text-center px-margin-mobile">
+<p class="text-on-primary-container font-body-md">© 2024 NBKKC Agro Foods. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-t border-secondary/30 flex justify-around items-center px-2 py-3 shadow-[0px_-10px_30px_rgba(27,67,50,0.05)] rounded-t-xl">
+<a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a href="catalog.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grass</span>
+<span class="font-label-sm text-label-sm">Products</span>
+</a>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label-sm text-label-sm">Cart</span>
+</div>
+<a href="dashboard.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-sm text-label-sm">More</span>
+</div>
+</nav>
+</body>
+</html>

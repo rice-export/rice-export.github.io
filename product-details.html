@@ -172,19 +172,19 @@
 <!-- Weight Selection -->
 <div class="space-y-3">
 <p class="font-headline-sm text-primary">Select Weight</p>
-<div class="flex gap-3">
-<button class="px-6 py-2 border border-outline-variant/20 rounded-lg hover:border-secondary transition-colors font-body-md">5kg</button>
-<button class="px-6 py-2 border-2 border-primary bg-primary text-white rounded-lg font-body-md">10kg</button>
-<button class="px-6 py-2 border border-outline-variant/20 rounded-lg hover:border-secondary transition-colors font-body-md">25kg</button>
+<div class="flex gap-3" id="weight-options">
+<button class="weight-btn px-6 py-2 border border-outline-variant/20 rounded-lg hover:border-secondary transition-colors font-body-md" data-weight="5kg">5kg</button>
+<button class="weight-btn px-6 py-2 border-2 border-primary bg-primary text-white rounded-lg font-body-md selected" data-weight="10kg">10kg</button>
+<button class="weight-btn px-6 py-2 border border-outline-variant/20 rounded-lg hover:border-secondary transition-colors font-body-md" data-weight="25kg">25kg</button>
 </div>
 </div>
 <!-- Quantity Controls -->
 <div class="space-y-3">
 <p class="font-headline-sm text-primary">Quantity</p>
 <div class="flex items-center gap-4 w-fit">
-<button class="w-10 h-10 border border-outline-variant/20 rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors">-</button>
-<input class="w-16 text-center font-body-md border border-outline-variant/20 rounded-lg py-2" type="text" value="1"/>
-<button class="w-10 h-10 border border-outline-variant/20 rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors">+</button>
+<button id="qty-minus" class="w-10 h-10 border border-outline-variant/20 rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors">-</button>
+<input id="qty-input" class="w-16 text-center font-body-md border border-outline-variant/20 rounded-lg py-2" type="text" value="1" readonly/>
+<button id="qty-plus" class="w-10 h-10 border border-outline-variant/20 rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors">+</button>
 </div>
 </div>
 <!-- Action Buttons -->
@@ -400,5 +400,26 @@
 </div>
 </nav>
 <script src="nav-drawer.js"></script>
+<script>
+  // Weight selection
+  document.querySelectorAll('.weight-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.weight-btn').forEach(function(b) {
+        b.className = 'weight-btn px-6 py-2 border border-outline-variant/20 rounded-lg hover:border-secondary transition-colors font-body-md';
+      });
+      this.className = 'weight-btn px-6 py-2 border-2 border-primary bg-primary text-white rounded-lg font-body-md selected';
+    });
+  });
+
+  // Quantity controls
+  var qtyInput = document.getElementById('qty-input');
+  document.getElementById('qty-plus').addEventListener('click', function() {
+    qtyInput.value = parseInt(qtyInput.value) + 1;
+  });
+  document.getElementById('qty-minus').addEventListener('click', function() {
+    var val = parseInt(qtyInput.value);
+    if (val > 1) qtyInput.value = val - 1;
+  });
+</script>
 </body>
 </html>

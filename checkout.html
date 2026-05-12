@@ -122,7 +122,10 @@
 <a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="#">More</a>
 </nav>
 <div class="flex items-center gap-4">
+<a href="checkout.html" class="relative">
 <span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span>
+<span id="cart-count" class="absolute -top-2 -right-2 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+</a>
 </div>
 </header>
 <main class="pt-24 pb-20">
@@ -301,7 +304,13 @@
     document.getElementById('summary-subtotal').textContent = '₹' + subtotal.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     document.getElementById('summary-gst').textContent = '₹' + gst.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     document.getElementById('summary-total').textContent = '₹' + total.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  }
+    // Update cart count badge
+    var totalQty = cart.reduce(function(sum, i) { return sum + i.qty; }, 0);
+    var badge = document.getElementById('cart-count');
+    if (badge) {
+      if (totalQty > 0) { badge.textContent = totalQty; badge.classList.remove('hidden'); }
+      else { badge.classList.add('hidden'); }
+    }  }
   renderCart();
 </script>
 </body>

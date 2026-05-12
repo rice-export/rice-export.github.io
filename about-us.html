@@ -122,7 +122,10 @@
 <a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="#">More</a>
 </nav>
 <div class="flex items-center gap-4">
-<a href="checkout.html"><span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span></a>
+<a href="checkout.html" class="relative">
+<span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span>
+<span id="cart-count" class="absolute -top-2 -right-2 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+</a>
 </div>
 </header>
 <main class="pt-16">
@@ -327,5 +330,13 @@
 </div>
 </nav>
 <script src="nav-drawer.js"></script>
+<script>
+  (function() {
+    var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    var total = cart.reduce(function(sum, i) { return sum + i.qty; }, 0);
+    var badge = document.getElementById('cart-count');
+    if (badge && total > 0) { badge.textContent = total; badge.classList.remove('hidden'); }
+  })();
+</script>
 </body>
 </html>

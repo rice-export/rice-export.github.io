@@ -125,7 +125,10 @@
 <a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="#">More</a>
 </nav>
 <div class="flex items-center gap-4">
-<a href="checkout.html"><span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span></a>
+<a href="checkout.html" class="relative">
+<span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span>
+<span id="cart-count" class="absolute -top-2 -right-2 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+</a>
 </div>
 </header>
 <main class="pt-16">
@@ -421,12 +424,22 @@
       var existing = cart.find(function(i) { return i.name === name && i.weight === weight; });
       if (existing) { existing.qty += 1; } else { cart.push({ name: name, price: price, img: img, weight: weight, qty: 1 }); }
       localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
       var orig = btn.textContent;
       btn.textContent = 'Added ✓';
       btn.disabled = true;
       setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 1500);
     });
   });
+
+  function updateCartCount() {
+    var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    var total = cart.reduce(function(sum, i) { return sum + i.qty; }, 0);
+    var badge = document.getElementById('cart-count');
+    if (total > 0) { badge.textContent = total; badge.classList.remove('hidden'); }
+    else { badge.classList.add('hidden'); }
+  }
+  updateCartCount();
 </script>
 </body>
 </html>

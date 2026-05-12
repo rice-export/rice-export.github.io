@@ -442,7 +442,7 @@
   document.getElementById('add-to-cart-btn').addEventListener('click', function() {
     saveToCart();
     var btn = this;
-    btn.textContent = 'Added \u2713';
+    btn.textContent = 'Added ✓';
     btn.disabled = true;
     setTimeout(function() { btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1500);
   });

@@ -266,6 +266,11 @@
     var cart = JSON.parse(localStorage.getItem('cart') || '[]');
     if (cart.length === 0) {
       container.innerHTML = '<p class="text-on-surface-variant text-sm py-6 text-center">Your cart is empty. <a href="catalog.html" class="text-primary underline">Browse products</a></p>';
+      var badge = document.getElementById('cart-count');
+      if (badge) badge.style.display = 'none';
+      document.getElementById('summary-subtotal').textContent = '₹0.00';
+      document.getElementById('summary-gst').textContent = '₹0.00';
+      document.getElementById('summary-total').textContent = '₹0.00';
       return;
     }
     container.innerHTML = cart.map(function(item, idx) {

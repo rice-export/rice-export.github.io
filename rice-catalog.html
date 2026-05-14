@@ -166,7 +166,7 @@
     <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
       <!-- Product Card 1: Royal Basmati Rice -->
-      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="long">
+      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="long" data-per-kg="240">
         <div class="relative h-64 overflow-hidden">
           <a href="product-details.html" class="product-img-link block w-full h-full">
             <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Royal Basmati Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQbeG-qObV1Dr36VHJeMnIUUs2qnmQBKmHcPB8QrDwsoMr8iYmasFuv7vzThJm1q-foqHcpoObK9_a-UNdYu7kMceaWw1PXr3A3atJwO73R9n-w5UE4tMwOF6UAjKYR_aVoapHFgkUmN0kHvPQ0zoHjpaLxwgT3lZtnhztvpNWI5mV6SyPSpS_n1shd_HU4M3aJ-9CWkzgghmn925hOrkCJ9zZTH7TZPJw0gU-fGTGnLLIGG2dqwrnsiKeAwC10SOg8QH-vMuogA8"/>
@@ -201,7 +201,7 @@
       </div>
 
       <!-- Product Card 2: Aged Sona Masuri -->
-      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="medium aged">
+      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="medium aged" data-per-kg="85">
         <div class="relative h-64 overflow-hidden">
           <a href="product-details.html" class="product-img-link block w-full h-full">
             <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Aged Sona Masuri" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2AkwBB-tD_6W76SZBIVvg_AhEbwMbClFXiPJJtQc8zj1Pr3EeG59lFtijgFnct7pLcpmx6pyOSmJ9tXt-hdHH8ji-4ZrwXg_siVPse14XpLfOibSh5ZVWLKDlHTdIt2jZY0Or1aJYALWhONqn_uq44anz44P5XlQ1FNuFCVxfhpMkFPQ4IoumndcEIIXSX9UpzSHJZczkdECbsd4D2lvsYOIvv40I0Vm7syJ5f92XTXixbeP2Susqyxd4EQzDpl_ZP95C0WOjjPil"/>
@@ -236,7 +236,7 @@
       </div>
 
       <!-- Product Card 3: Premium Broken Rice -->
-      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="medium">
+      <div class="glass-card group rounded-xl overflow-hidden flex flex-col shadow-[0px_10px_30px_rgba(27,67,50,0.1)] transition-transform duration-300 hover:-translate-y-2" data-category="medium" data-per-kg="45">
         <div class="relative h-64 overflow-hidden">
           <a href="product-details.html" class="product-img-link block w-full h-full">
             <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Premium Broken Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLcAmdefYuU6gbj6O94uO1yrfgTf4MgVnEz4LTJ0EGMT4rRnbVwHrobofOWOe7GQa_ERNekkH5O1KUOa-lNV-lQAMnSiZhZFwYvHMgUgxzSR2JCPzxko9IYVnP1QallAdrtrgzEtJjlpCE5lXu1iiHWSPncq36DgL561kZ1EO1tI2H4Df1Et-IJqcv6YpTsimsdyJh8X8c0KA7jXFGWe9KGl-NwdNQSreGYFpRLyY5TG7QV4khXaGtiD11UaMm8VYnMs5A-nD21D62"/>
@@ -356,7 +356,7 @@
     btn.addEventListener('click', function() {
       var card = this.closest('.glass-card');
       var name = card.querySelector('h3').textContent.trim();
-      var perKgPrice = parseFloat(card.querySelector('.product-price').textContent.replace(/[^\d.]/g, ''));
+      var perKgPrice = parseFloat(card.dataset.perKg);
       var img = card.querySelector('img').src;
       var selectedBtn = card.querySelector('.weight-btn.selected');
       var weight = selectedBtn ? selectedBtn.getAttribute('data-weight') : '1kg';

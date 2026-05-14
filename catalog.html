@@ -417,9 +417,13 @@
     btn.addEventListener('click', function() {
       var card = this.closest('.rounded-2xl');
       var name = card.querySelector('h3').textContent.trim();
-      var price = card.querySelector('p.font-headline-sm.text-primary').textContent.trim();
+      var basePrice = parseFloat(card.querySelector('p.font-headline-sm.text-primary').textContent.replace(/[^\d.]/g, ''));
+      var perUnitText = card.querySelector('span.text-secondary.font-label-sm') ? card.querySelector('span.text-secondary.font-label-sm').textContent.trim() : 'Per 1kg';
+      var unitKg = parseFloat(perUnitText.replace(/[^\d.]/g, '')) || 1;
       var img = card.querySelector('img').src;
       var weight = card.querySelector('select').value;
+      var selectedKg = parseFloat(weight.replace(/[^\d.]/g, '')) || 1;
+      var price = '₹' + ((selectedKg / unitKg) * basePrice).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
       var cart = JSON.parse(localStorage.getItem('cart') || '[]');
       var existing = cart.find(function(i) { return i.name === name && i.weight === weight; });
       if (existing) { existing.qty += 1; } else { cart.push({ name: name, price: price, img: img, weight: weight, qty: 1 }); }

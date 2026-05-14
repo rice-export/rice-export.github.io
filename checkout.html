@@ -159,20 +159,30 @@
 <!-- Payment Method -->
 <div class="space-y-4">
 <h2 class="font-headline-md text-primary">Payment Method</h2>
-<div class="space-y-2">
-<label class="flex items-center gap-3 p-3 border-2 border-primary bg-primary/5 rounded-lg cursor-pointer">
-<input class="w-4 h-4 accent-primary" checked="" type="radio"/>
+<div class="space-y-2" id="payment-options">
+<label class="flex items-center gap-3 p-3 border-2 border-primary bg-primary/5 rounded-lg cursor-pointer payment-label">
+<input class="w-4 h-4 accent-primary" checked name="payment" type="radio" value="card"/>
 <span class="font-body-md">Credit/Debit Card</span>
 </label>
-<label class="flex items-center gap-3 p-3 border border-outline-variant/20 rounded-lg cursor-pointer">
-<input class="w-4 h-4 accent-primary" type="radio"/>
+<label class="flex items-center gap-3 p-3 border border-outline-variant/20 rounded-lg cursor-pointer payment-label">
+<input class="w-4 h-4 accent-primary" name="payment" type="radio" value="upi"/>
 <span class="font-body-md">UPI</span>
 </label>
-<label class="flex items-center gap-3 p-3 border border-outline-variant/20 rounded-lg cursor-pointer">
-<input class="w-4 h-4 accent-primary" type="radio"/>
+<label class="flex items-center gap-3 p-3 border border-outline-variant/20 rounded-lg cursor-pointer payment-label">
+<input class="w-4 h-4 accent-primary" name="payment" type="radio" value="cod"/>
 <span class="font-body-md">Cash on Delivery</span>
 </label>
 </div>
+<script>
+  document.querySelectorAll('input[name="payment"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('.payment-label').forEach(function(lbl) {
+        lbl.className = 'flex items-center gap-3 p-3 border border-outline-variant/20 rounded-lg cursor-pointer payment-label';
+      });
+      this.closest('.payment-label').className = 'flex items-center gap-3 p-3 border-2 border-primary bg-primary/5 rounded-lg cursor-pointer payment-label';
+    });
+  });
+</script>
 </div>
 </div>
 <!-- Right Column (4 cols) -->

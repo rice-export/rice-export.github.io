@@ -142,18 +142,18 @@
 <!-- Filters -->
 <section class="py-8 border-b border-outline-variant/20 sticky top-16 z-40 bg-surface">
 <div class="container mx-auto px-margin-mobile md:px-margin-desktop flex flex-wrap gap-3 items-center">
-<button class="px-6 py-2 bg-primary text-white rounded-full font-label-sm active-pill">All Products</button>
+<button class="filter-tab px-6 py-2 bg-primary text-white rounded-full font-label-sm" data-filter="all">All Products</button>
 <a href="rice-catalog.html" class="px-6 py-2 border border-outline-variant/20 rounded-full font-label-sm hover:border-secondary transition-colors hover:bg-secondary/10">Rice Bags</a>
-<button class="px-6 py-2 border border-outline-variant/20 rounded-full font-label-sm hover:border-secondary transition-colors">Toor Dal</button>
-<button class="px-6 py-2 border border-outline-variant/20 rounded-full font-label-sm hover:border-secondary transition-colors">Pulses</button>
-<button class="px-6 py-2 border border-outline-variant/20 rounded-full font-label-sm hover:border-secondary transition-colors">Organic Grains</button>
+<button class="filter-tab px-6 py-2 border border-outline-variant/20 rounded-full font-label-sm hover:border-secondary transition-colors" data-filter="rice">Toor Dal</button>
+<button class="filter-tab px-6 py-2 border border-outline-variant/20 rounded-full font-label-sm hover:border-secondary transition-colors" data-filter="pulses">Pulses</button>
+<button class="filter-tab px-6 py-2 border border-outline-variant/20 rounded-full font-label-sm hover:border-secondary transition-colors" data-filter="grains">Organic Grains</button>
 </div>
 </section>
 <!-- Search Bar -->
 <section class="py-8 border-b border-outline-variant/20">
 <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="relative">
-<input class="w-full px-6 py-3 border-2 border-secondary/30 rounded-full font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors" placeholder="Search products..." type="text"/>
+<input id="search-input" class="w-full px-6 py-3 border-2 border-secondary/30 rounded-full font-body-md placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors" placeholder="Search products..." type="text"/>
 <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant cursor-pointer">search</span>
 </div>
 </div>
@@ -163,7 +163,7 @@
 <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid md:grid-cols-3 gap-8">
 <!-- Product 1 -->
-<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="1250" data-unit-kg="5">
+<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="1250" data-unit-kg="5" data-category="rice">
 <a href="product-details.html" class="block">
 <div class="relative h-64 bg-surface-container-low overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Sona Masuri Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-8HCWLNR9CfQRaL-SH4B4duJHrVH2y14HeAALkcadE4lpEkm5fWVGKJ91ookSMXFCE4jHojZq-GxeDpWqdzlu-YqWskgmsH3Fz7KRt0dZkkDXw3C5OXHQ5s_u8rhbcaY4S7DBpaij0FLd_Aq8WS93ww2moDoIwtYgfUQtXLEw0jtahGIMXZ2OBbDt253yHTtG0jtHemwAm7GaPdg5divXpoFBzFwfB_6_YdKqHrxBI_zrdgI-lHckx3tA8wCsv_nbYK1obKDwe4T"/>
@@ -190,7 +190,7 @@
 </div>
 </div>
 <!-- Product 2 -->
-<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="180" data-unit-kg="1">
+<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="180" data-unit-kg="1" data-category="rice">
 <a href="product-details.html" class="block">
 <div class="relative h-64 bg-surface-container-low overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Organic Toor Dal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5OGFV0ld0H6SslFwxiW-N5mqsotQqDl1nKo4haXu-9uffqqsCnAirh82sNuMy4f5fm5JGhrvoYCODp_pv12KY00wbHarf3oLHFruGLtcWeYMF8isFewnxV6TznrRK3lsbdTSPe5V7lRMjAW6kf9K7OIIZiPRnsXWePkLR0KlPR21nGE609sifC4DG9JUSmqhqdYqdFkyf3Wmj7Z4-TG53La8HwN4Vetv-O7yr0HaFmvF-FXjO8naMkeakNutz89GjY8qScsY6tHAv"/>
@@ -217,7 +217,7 @@
 </div>
 </div>
 <!-- Product 3 -->
-<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="145" data-unit-kg="1">
+<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="145" data-unit-kg="1" data-category="pulses">
 <a href="product-details.html" class="block">
 <div class="relative h-64 bg-surface-container-low overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Whole Moong Beans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAoLVWreADw-QJ0GA5NYRR-nQmLvXBW4KQmCV6k7u3iRdjMGks-u387Iaic0uCsG2M38QKIC9NsB8LKzXvfxCjbjwj8Le0uSt-8yEtBLRGkGyubhBuGNq3JkCz-zNB0bgmPp1bxf8dt6uTdgYKV1266D8vykv2rg9ckjc59qxvErnRYpPbErSAuGHs060bA0LTgNMSF6FA2JhBQERSiBuo01PJywXgZXCDEKTZkhF_VL_869ZGNgwXbvhLbygYgMutreFosPz40ttF"/>
@@ -244,7 +244,7 @@
 </div>
 </div>
 <!-- Product 4 -->
-<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="2100" data-unit-kg="5">
+<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="2100" data-unit-kg="5" data-category="rice">
 <a href="product-details.html" class="block">
 <div class="relative h-64 bg-surface-container-low overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Royal Basmati Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANB7e0XHJwW7j4g5gJ5Uk3HpqKVPZqJE3V1zSqJ8QQQ1E1Yn3C2Hq6ZrQBiE_"/>
@@ -271,7 +271,7 @@
 </div>
 </div>
 <!-- Product 5 -->
-<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="120" data-unit-kg="1">
+<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="120" data-unit-kg="1" data-category="pulses">
 <a href="product-details.html" class="block">
 <div class="relative h-64 bg-surface-container-low overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Kala Chana" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuHqIJrFKvlZ4V3YDXLV3PakPl3nqeKdIyXqmWJvXzADvP3CwPJSK8VvLYVTyHiCG3kbqHZjBYvhSWGLECtlyb0BtxjR8AyVP0x0H5uHfROTSDYzYM2P7iYfpfpDvhpX1i3_2fNRnKdOJZUNhWu_EQqTHhWLm"/>
@@ -298,7 +298,7 @@
 </div>
 </div>
 <!-- Product 6 -->
-<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="550" data-unit-kg="0">
+<div class="rounded-2xl border border-outline-variant/20 overflow-hidden hover:shadow-lg transition-shadow group" data-base-price="550" data-unit-kg="0" data-category="grains">
 <a href="product-details.html" class="block">
 <div class="relative h-64 bg-surface-container-low overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Essentials Combo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9sRsb2xwzlrRKcY3sUZplWYcWCPZcqILQKG8tMNCJKmxBQ7VaGSHKfQ0RO7cpjGBKJyLLLiBZkL33HzNJdYhS4sOhqmFT"/>
@@ -433,6 +433,33 @@
       btn.textContent = 'Added ✓';
       btn.disabled = true;
       setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 1500);
+    });
+  });
+
+  var activeFilter = 'all';
+
+  function applyFilters() {
+    var q = (document.getElementById('search-input').value || '').toLowerCase().trim();
+    document.querySelectorAll('.rounded-2xl[data-category]').forEach(function(card) {
+      var name = card.querySelector('h3').textContent.toLowerCase();
+      var desc = card.querySelector('p.text-on-surface-variant').textContent.toLowerCase();
+      var cat = card.dataset.category || '';
+      var matchSearch = !q || name.includes(q) || desc.includes(q);
+      var matchFilter = activeFilter === 'all' || cat === activeFilter;
+      card.style.display = (matchSearch && matchFilter) ? '' : 'none';
+    });
+  }
+
+  document.getElementById('search-input').addEventListener('input', applyFilters);
+
+  document.querySelectorAll('.filter-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      activeFilter = this.dataset.filter;
+      document.querySelectorAll('.filter-tab').forEach(function(b) {
+        b.className = 'filter-tab px-6 py-2 border border-outline-variant/20 rounded-full font-label-sm hover:border-secondary transition-colors';
+      });
+      this.className = 'filter-tab px-6 py-2 bg-primary text-white rounded-full font-label-sm';
+      applyFilters();
     });
   });
 

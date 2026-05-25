@@ -4,6 +4,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>UPI Payment - Mana Raithu</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Playfair+Display:wght@700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
@@ -97,7 +98,7 @@
         <p class="font-body-md text-body-md text-on-surface-variant">Use any UPI app on your phone</p>
       </div>
       <div class="relative p-4 bg-white rounded-xl border-2 border-primary/10 mb-6 group cursor-pointer">
-        <img alt="UPI QR Code" class="w-48 h-48 md:w-56 md:h-56 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPA45QoSxfYnm7_JXee2wWYo22NtWOtH5NhemcO2B7Nk389nE0oUWGYLhhPtU9gY8r0HHEZr3tebXPAbiUtaSa0DQE-nY80AfyAUK2ttsqLnOL2TqoI-dLHS-FqLNfOUdawk2Nr-95l3mFCewpKzhQQVoljuvNSE2KxItOZ3JfS3nGT_v04_yaLVDLS-koCKXtjyFZUmVNJX8eoM9GLfzqhcJpali_AUtCwJGGswLksYN-67BbAtPy8tsU2W0DhIOmeuredgXgM1TV"/>
+        <div id="upi-qr-canvas" class="w-48 h-48 md:w-56 md:h-56 flex items-center justify-center"></div>
         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/40 backdrop-blur-sm rounded-xl">
           <span class="material-symbols-outlined text-primary text-4xl">zoom_in</span>
         </div>
@@ -163,6 +164,16 @@
   var orderTotal = sessionStorage.getItem('orderTotal') || '0.00';
   document.getElementById('upi-amount').textContent = '₹' + orderTotal;
   document.getElementById('upi-total').textContent = '₹' + orderTotal;
+
+  // Generate UPI QR code
+  new QRCode(document.getElementById('upi-qr-canvas'), {
+    text: 'upi://pay?pa=7993518470@nyes&pn=Mana+Raithu+Agro&am=' + orderTotal + '&cu=INR',
+    width: 192,
+    height: 192,
+    colorDark: '#012d1d',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
 
   // Countdown Timer
   function startTimer(duration, display) {

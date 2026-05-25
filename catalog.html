@@ -775,7 +775,7 @@
       var img = card.querySelector('img').src;
       var weight = card.querySelector('select').value;
       var selectedKg = parseFloat(weight.replace(/[^\d.]/g, '')) || 1;
-      var rawPrice = (unitKg > 0) ? (selectedKg / unitKg) * basePrice : basePrice;
+      var rawPrice = selectedKg; // demo: ₹1 per kg
       var price = '₹' + rawPrice.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
       var cart = JSON.parse(localStorage.getItem('cart') || '[]');
       var existing = cart.find(function(i) { return i.name === name && i.weight === weight; });
@@ -796,7 +796,7 @@
       var basePrice = parseFloat(card.dataset.basePrice);
       var unitKg = parseFloat(card.dataset.unitKg);
       var selectedKg = parseFloat(sel.value.replace(/[^\d.]/g, '')) || 1;
-      var newPrice = (unitKg > 0) ? (selectedKg / unitKg) * basePrice : basePrice;
+      var newPrice = selectedKg; // demo: ₹1 per kg
       card.querySelector('p.font-headline-sm.text-primary').textContent = '₹' + Math.round(newPrice).toLocaleString('en-IN');
       card.querySelector('.flex.items-center.justify-between span.text-secondary').textContent = 'Per ' + sel.value;
     }

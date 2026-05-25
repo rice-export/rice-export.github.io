@@ -789,16 +789,19 @@
     });
   });
 
-  // Update displayed price when weight dropdown changes
+  // Update displayed price and label when weight dropdown changes
   document.querySelectorAll('.rounded-2xl[data-base-price] select').forEach(function(sel) {
-    sel.addEventListener('change', function() {
-      var card = this.closest('.rounded-2xl');
+    function updatePrice() {
+      var card = sel.closest('.rounded-2xl');
       var basePrice = parseFloat(card.dataset.basePrice);
       var unitKg = parseFloat(card.dataset.unitKg);
-      var selectedKg = parseFloat(this.value.replace(/[^\d.]/g, '')) || 1;
+      var selectedKg = parseFloat(sel.value.replace(/[^\d.]/g, '')) || 1;
       var newPrice = (unitKg > 0) ? (selectedKg / unitKg) * basePrice : basePrice;
       card.querySelector('p.font-headline-sm.text-primary').textContent = '₹' + Math.round(newPrice).toLocaleString('en-IN');
-    });
+      card.querySelector('.flex.items-center.justify-between span.text-secondary').textContent = 'Per ' + sel.value;
+    }
+    sel.addEventListener('change', updatePrice);
+    updatePrice(); // initialise to 1kg on page load
   });
 
   var activeFilter = 'all';

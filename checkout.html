@@ -216,7 +216,7 @@
 <p>Grand Total</p>
 <p id="summary-total">₹0</p>
 </div>
-<a href="order-success.html" class="w-full px-6 py-3 bg-primary text-white rounded-lg font-headline-sm hover:opacity-90 transition-opacity block text-center">Confirm Order</a>
+<button id="confirm-order-btn" class="w-full px-6 py-3 bg-primary text-white rounded-lg font-headline-sm hover:opacity-90 transition-opacity block text-center">Confirm Order</button>
 <div class="flex items-center gap-2 text-xs text-on-surface-variant text-center">
 <span class="material-symbols-outlined text-xs">lock</span>
 <p>Secure 256-bit Payment</p>
@@ -328,6 +328,27 @@
     }
   }
   renderCart();
+
+  // Route Confirm Order based on selected payment method
+  document.getElementById('confirm-order-btn').addEventListener('click', function () {
+    var selected = document.querySelector('input[name="payment"]:checked');
+    var method = selected ? selected.value : 'cod';
+    // Store grand total so payment pages can display it
+    var totalEl = document.getElementById('summary-total');
+    if (totalEl) {
+      var raw = totalEl.textContent.replace(/[^\d.]/g, '');
+      sessionStorage.setItem('orderTotal', raw);
+    }
+    if (method === 'card') {
+      window.location.href = 'card-payment.html';
+    } else if (method === 'upi') {
+      window.location.href = 'upi-payment.html';
+    } else {
+      // Cash on Delivery — go straight to order success
+      localStorage.removeItem('cart');
+      window.location.href = 'order-success.html';
+    }
+  });
 </script>
 </body>
 </html>

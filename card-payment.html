@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Card Payment - Mana Raithu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Playfair+Display:wght@700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid #ffe088;
+  }
+  .virtual-card {
+    background: linear-gradient(135deg, #012d1d 0%, #1b4332 50%, #012d1d 100%);
+    box-shadow: 0 20px 60px rgba(1, 45, 29, 0.4);
+  }
+  .card-chip {
+    background: linear-gradient(135deg, #ffe088 0%, #e9c349 100%);
+  }
+  body { min-height: max(884px, 100dvh); }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container-low": "#f3f3f4", "surface-bright": "#f9f9f9",
+          "surface-container": "#eeeeee", "on-primary": "#ffffff",
+          "surface-variant": "#e2e2e2", "secondary-fixed": "#ffe088",
+          "inverse-primary": "#a5d0b9", "surface-tint": "#3f6653",
+          "primary-container": "#1b4332", "on-error": "#ffffff",
+          "secondary-fixed-dim": "#e9c349", "on-primary-fixed-variant": "#274e3d",
+          "on-secondary-fixed-variant": "#574500", "surface-container-lowest": "#ffffff",
+          "on-tertiary": "#ffffff", "on-secondary-container": "#745c00",
+          "tertiary-fixed-dim": "#e5beb5", "on-error-container": "#93000a",
+          "surface-container-high": "#e8e8e8", "on-tertiary-fixed-variant": "#5c403a",
+          "primary-fixed": "#c1ecd4", "on-secondary-fixed": "#241a00",
+          "on-primary-fixed": "#002114", "outline": "#717973",
+          "on-secondary": "#ffffff", "background": "#f9f9f9",
+          "tertiary-container": "#4f352f", "secondary": "#735c00",
+          "primary-fixed-dim": "#a5d0b9", "on-tertiary-container": "#c29e96",
+          "on-tertiary-fixed": "#2b1611", "inverse-surface": "#2f3131",
+          "error": "#ba1a1a", "inverse-on-surface": "#f0f1f1",
+          "tertiary-fixed": "#ffdad2", "surface-dim": "#dadada",
+          "primary": "#012d1d", "on-primary-container": "#86af99",
+          "surface": "#f9f9f9", "error-container": "#ffdad6",
+          "tertiary": "#37201b", "outline-variant": "#c1c8c2",
+          "on-surface": "#1a1c1c", "surface-container-highest": "#e2e2e2",
+          "secondary-container": "#fed65b", "on-surface-variant": "#414844",
+          "on-background": "#1a1c1c"
+        },
+        spacing: {
+          "container-max": "1200px", "unit": "8px", "section-gap": "80px",
+          "margin-desktop": "40px", "gutter": "24px", "margin-mobile": "16px"
+        },
+        fontFamily: {
+          "body-md": ["Work Sans"], "headline-sm": ["Montserrat"], "label-sm": ["Montserrat"]
+        },
+        fontSize: {
+          "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "0.1em", "fontWeight": "600"}],
+          "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "700"}]
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<header class="flex justify-between items-center w-full px-margin-mobile h-16 fixed top-0 z-50 bg-surface/70 backdrop-blur-xl border-b border-secondary/30 shadow-[0px_10px_30px_rgba(27,67,50,0.1)]">
+  <div class="flex items-center gap-4">
+    <button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container transition-colors" onclick="history.back()">
+      <span class="material-symbols-outlined text-primary">arrow_back</span>
+    </button>
+    <h1 class="font-headline-sm text-headline-sm text-primary uppercase tracking-widest">Card Payment</h1>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">lock</span>
+    <span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">256-bit SSL Secured</span>
+  </div>
+</header>
+<main class="flex-grow pt-24 pb-12 px-margin-mobile md:px-margin-desktop flex flex-col items-center">
+  <div class="w-full max-w-lg space-y-gutter">
+    <!-- Virtual Card -->
+    <div class="virtual-card rounded-2xl p-6 text-white relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-48 h-48 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/4"></div>
+      <div class="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/4"></div>
+      <div class="relative">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <p class="text-white/60 text-xs uppercase tracking-widest mb-1">Mana Raithu</p>
+            <p class="text-secondary-fixed font-semibold text-sm">NBKKC Agro Foods</p>
+          </div>
+          <div class="card-chip w-10 h-8 rounded-md opacity-90"></div>
+        </div>
+        <p class="font-mono text-lg tracking-[0.25em] mb-4" id="card-display-number">•••• •••• •••• ••••</p>
+        <div class="flex justify-between items-end">
+          <div>
+            <p class="text-white/60 text-xs uppercase tracking-widest mb-1">Cardholder</p>
+            <p class="font-semibold text-sm uppercase tracking-wide" id="card-display-name">YOUR NAME</p>
+          </div>
+          <div class="text-right">
+            <p class="text-white/60 text-xs uppercase tracking-widest mb-1">Expires</p>
+            <p class="font-semibold text-sm" id="card-display-expiry">MM/YY</p>
+          </div>
+          <div class="flex flex-col items-end gap-1">
+            <span class="material-symbols-outlined text-white/80 text-3xl">credit_card</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Payment Form -->
+    <section class="glass-card rounded-xl p-6 space-y-5">
+      <h2 class="font-headline-sm text-headline-sm text-primary-container">Card Details</h2>
+      <!-- Cardholder Name -->
+      <div>
+        <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2 uppercase" for="cardholder-name">Cardholder Name</label>
+        <input class="w-full bg-transparent border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 px-0 py-3 font-body-md transition-colors placeholder:text-outline-variant" id="cardholder-name" placeholder="As on card" type="text"/>
+      </div>
+      <!-- Card Number -->
+      <div>
+        <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2 uppercase" for="card-number">Card Number</label>
+        <div class="flex items-center gap-2 border-b-2 border-outline-variant focus-within:border-primary-container pb-3 transition-colors">
+          <span class="material-symbols-outlined text-outline text-[20px]">credit_card</span>
+          <input class="flex-grow bg-transparent focus:ring-0 font-mono font-body-md placeholder:text-outline-variant" id="card-number" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" type="text"/>
+        </div>
+      </div>
+      <!-- Expiry + CVV -->
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2 uppercase" for="expiry">Expiry Date</label>
+          <input class="w-full bg-transparent border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 px-0 py-3 font-body-md transition-colors placeholder:text-outline-variant" id="expiry" inputmode="numeric" maxlength="5" placeholder="MM/YY" type="text"/>
+        </div>
+        <div>
+          <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2 uppercase" for="cvv">CVV</label>
+          <div class="flex items-center gap-2 border-b-2 border-outline-variant focus-within:border-primary-container pb-3 transition-colors">
+            <input class="flex-grow bg-transparent focus:ring-0 font-mono font-body-md placeholder:text-outline-variant" id="cvv" inputmode="numeric" maxlength="4" placeholder="•••" type="password"/>
+            <span class="material-symbols-outlined text-outline text-[20px]">help_outline</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Order Summary -->
+    <section class="glass-card rounded-xl p-6">
+      <h2 class="font-headline-sm text-headline-sm text-primary-container mb-4">Order Summary</h2>
+      <div class="flex justify-between items-center mb-2">
+        <span class="font-body-md text-body-md text-on-surface-variant">Amount</span>
+        <span class="font-headline-sm text-headline-sm text-primary" id="card-total">₹0.00</span>
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <span class="font-body-md text-body-md text-on-surface-variant">Security Fee</span>
+        <span class="font-label-sm text-label-sm text-outline">₹0.00</span>
+      </div>
+      <div class="border-t border-secondary/20 pt-4 flex justify-between items-center">
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Total</span>
+        <span class="font-headline-sm text-headline-sm text-primary" id="card-grand-total">₹0.00</span>
+      </div>
+    </section>
+    <!-- Pay Button -->
+    <button id="pay-card-btn" class="w-full bg-primary-container text-on-primary py-4 rounded-xl font-headline-sm text-headline-sm shadow-xl active:scale-95 transition-transform flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">lock</span>
+      Pay Securely
+    </button>
+    <p class="text-center font-label-sm text-[10px] text-outline">Your payment info is encrypted with 256-bit SSL.</p>
+  </div>
+</main>
+<footer class="w-full flex flex-col items-center gap-unit pb-8 mt-auto px-margin-mobile">
+  <div class="flex flex-wrap justify-center gap-gutter text-on-surface-variant font-label-sm text-label-sm mb-4">
+    <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+    <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+    <a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+  </div>
+  <div class="flex items-center gap-2 opacity-60">
+    <span class="material-symbols-outlined text-sm">lock</span>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 NBKKC Agro Foods. PCI-DSS Certified.</p>
+  </div>
+</footer>
+<script>
+  // Load total from sessionStorage
+  var orderTotal = sessionStorage.getItem('orderTotal') || '0.00';
+  document.getElementById('card-total').textContent = '₹' + orderTotal;
+  document.getElementById('card-grand-total').textContent = '₹' + orderTotal;
+
+  // Virtual card live updates
+  var nameInput = document.getElementById('cardholder-name');
+  var numberInput = document.getElementById('card-number');
+  var expiryInput = document.getElementById('expiry');
+
+  nameInput.addEventListener('input', function () {
+    var v = this.value.trim().toUpperCase() || 'YOUR NAME';
+    document.getElementById('card-display-name').textContent = v;
+  });
+
+  numberInput.addEventListener('input', function () {
+    // Format with spaces every 4 digits
+    var raw = this.value.replace(/\D/g, '');
+    var formatted = raw.match(/.{1,4}/g);
+    this.value = formatted ? formatted.join(' ') : raw;
+    var display = this.value || '•••• •••• •••• ••••';
+    // Pad remaining dots
+    var parts = display.replace(/\d{4}/g, function (m) { return m; });
+    document.getElementById('card-display-number').textContent = display || '•••• •••• •••• ••••';
+  });
+
+  expiryInput.addEventListener('input', function () {
+    var raw = this.value.replace(/\D/g, '');
+    if (raw.length >= 2) raw = raw.slice(0, 2) + '/' + raw.slice(2, 4);
+    this.value = raw;
+    document.getElementById('card-display-expiry').textContent = this.value || 'MM/YY';
+  });
+
+  // Pay button → confirm order
+  document.getElementById('pay-card-btn').addEventListener('click', function () {
+    var name = nameInput.value.trim();
+    var num = numberInput.value.replace(/\s/g, '');
+    var expiry = expiryInput.value.trim();
+    var cvv = document.getElementById('cvv').value.trim();
+
+    if (!name || num.length < 16 || expiry.length < 5 || cvv.length < 3) {
+      // Shake the button visually
+      this.classList.add('opacity-60');
+      var self = this;
+      setTimeout(function () { self.classList.remove('opacity-60'); }, 500);
+      return;
+    }
+
+    var btn = this;
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...';
+    btn.disabled = true;
+
+    setTimeout(function () {
+      localStorage.removeItem('cart');
+      window.location.href = 'order-success.html';
+    }, 2000);
+  });
+</script>
+</body></html>

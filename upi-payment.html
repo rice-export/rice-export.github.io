@@ -113,15 +113,15 @@
     <section class="space-y-4">
       <p class="font-label-sm text-label-sm text-on-surface-variant text-center uppercase tracking-tighter">Pay using UPI App</p>
       <div class="grid grid-cols-3 gap-4">
-        <button class="flex flex-col items-center gap-2 p-4 glass-card rounded-xl hover:bg-surface-container-high transition-all active:scale-95">
+        <button class="upi-app-btn flex flex-col items-center gap-2 p-4 glass-card rounded-xl hover:bg-surface-container-high transition-all active:scale-95" data-app="GPay">
           <span class="material-symbols-outlined text-primary text-3xl">account_balance_wallet</span>
           <span class="font-label-sm text-label-sm text-on-surface-variant">GPay</span>
         </button>
-        <button class="flex flex-col items-center gap-2 p-4 glass-card rounded-xl hover:bg-surface-container-high transition-all active:scale-95">
+        <button class="upi-app-btn flex flex-col items-center gap-2 p-4 glass-card rounded-xl hover:bg-surface-container-high transition-all active:scale-95" data-app="PhonePe">
           <span class="material-symbols-outlined text-primary text-3xl">smartphone</span>
           <span class="font-label-sm text-label-sm text-on-surface-variant">PhonePe</span>
         </button>
-        <button class="flex flex-col items-center gap-2 p-4 glass-card rounded-xl hover:bg-surface-container-high transition-all active:scale-95">
+        <button class="upi-app-btn flex flex-col items-center gap-2 p-4 glass-card rounded-xl hover:bg-surface-container-high transition-all active:scale-95" data-app="Paytm">
           <span class="material-symbols-outlined text-primary text-3xl">payments</span>
           <span class="font-label-sm text-label-sm text-on-surface-variant">Paytm</span>
         </button>
@@ -249,7 +249,34 @@
     document.getElementById('payment-success-overlay').classList.remove('hidden');
   }
 
-  setTimeout(confirmPayment, 6000);
+  // Clicking a UPI app button = user opened the app and paid → confirm after 3s
+  document.querySelectorAll('.upi-app-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var appName = this.dataset.app;
+      var indicator = document.getElementById('waiting-indicator');
+      indicator.innerHTML = '<span class="material-symbols-outlined text-secondary animate-spin">progress_activity</span>'
+        + '<span class="font-label-sm text-label-sm text-on-surface-variant">Confirming ' + appName + ' payment...</span>';
+      document.querySelectorAll('.upi-app-btn').forEach(function(b) { b.disabled = true; b.style.opacity = '0.5'; });
+      setTimeout(confirmPayment, 3000);
+    });
+  });
+
+  // Verify UPI ID = send payment request → confirm after 3s
+  document.querySelector('button.bg-primary').addEventListener('click', function() {
+    var vpa = document.getElementById('vpa').value.trim();
+    if (!vpa || !vpa.includes('@')) {
+      document.getElementById('vpa').style.borderColor = '#ba1a1a';
+      document.getElementById('vpa').placeholder = 'Enter a valid UPI ID';
+      return;
+    }
+    var indicator = document.getElementById('waiting-indicator');
+    indicator.innerHTML = '<span class="material-symbols-outlined text-secondary animate-spin">progress_activity</span>'
+      + '<span class="font-label-sm text-label-sm text-on-surface-variant">Confirming payment from ' + vpa + '...</span>';
+    document.querySelector('button.bg-primary').disabled = true;
+    document.getElementById('vpa').disabled = true;
+    document.querySelectorAll('.upi-app-btn').forEach(function(b) { b.disabled = true; b.style.opacity = '0.5'; });
+    setTimeout(confirmPayment, 3000);
+  });
 
   document.getElementById('success-continue-btn').addEventListener('click', function () {
     window.location.href = 'order-success.html';

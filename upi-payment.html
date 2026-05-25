@@ -136,15 +136,16 @@
       </div>
       <p class="mt-3 font-label-sm text-[10px] text-outline text-center">Your VPA will be securely verified via encrypted channels.</p>
     </section>
-    <!-- Pay Now Bar -->
+    <!-- Waiting for Payment Bar -->
     <div class="pt-4 border-t border-secondary/20 flex items-center justify-between">
       <div>
         <p class="font-label-sm text-label-sm text-on-surface-variant">Amount Payable</p>
         <p class="font-headline-sm text-headline-sm text-primary" id="upi-total">₹0.00</p>
       </div>
-      <button id="pay-now-btn" class="bg-primary-container text-on-primary px-8 py-4 rounded-xl font-headline-sm text-headline-sm shadow-xl active:scale-95 transition-transform flex items-center gap-2">
-        Pay Now <span class="material-symbols-outlined">arrow_forward</span>
-      </button>
+      <div id="waiting-indicator" class="flex items-center gap-2 px-6 py-3 bg-surface-container rounded-xl">
+        <span class="material-symbols-outlined text-secondary animate-spin">progress_activity</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">Waiting for payment...</span>
+      </div>
     </div>
   </div>
 </main>
@@ -231,27 +232,24 @@
     startTimer(300, document.querySelector('#countdown'));
   };
 
-  // Pay Now → show UTR success overlay then redirect
-  document.getElementById('pay-now-btn').addEventListener('click', function () {
-    var btn = this;
-    btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...';
-    btn.disabled = true;
-    setTimeout(function () {
-      var utr = '4' + Math.floor(10000000000 + Math.random() * 89999999999);
-      var now = new Date();
-      var dateStr = now.toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'})
-                  + ', ' + now.toLocaleTimeString('en-IN', {hour:'2-digit',minute:'2-digit'});
-      document.getElementById('success-amount').textContent = document.getElementById('upi-total').textContent;
-      document.getElementById('success-utr').textContent = utr;
-      document.getElementById('success-datetime').textContent = dateStr;
-      var orderId = 'MR-' + Date.now().toString().slice(-8);
-      sessionStorage.setItem('orderId', orderId);
-      sessionStorage.setItem('paymentMethod', 'UPI Payment');
-      sessionStorage.setItem('utrNumber', utr);
-      localStorage.removeItem('cart');
-      document.getElementById('payment-success-overlay').classList.remove('hidden');
-    }, 2000);
-  });
+  // Auto-confirm payment after 6 seconds (simulates QR scan completion)
+  function confirmPayment() {
+    var utr = '4' + Math.floor(10000000000 + Math.random() * 89999999999);
+    var now = new Date();
+    var dateStr = now.toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'})
+                + ', ' + now.toLocaleTimeString('en-IN', {hour:'2-digit',minute:'2-digit'});
+    document.getElementById('success-amount').textContent = document.getElementById('upi-total').textContent;
+    document.getElementById('success-utr').textContent = utr;
+    document.getElementById('success-datetime').textContent = dateStr;
+    var orderId = 'MR-' + Date.now().toString().slice(-8);
+    sessionStorage.setItem('orderId', orderId);
+    sessionStorage.setItem('paymentMethod', 'UPI Payment');
+    sessionStorage.setItem('utrNumber', utr);
+    localStorage.removeItem('cart');
+    document.getElementById('payment-success-overlay').classList.remove('hidden');
+  }
+
+  setTimeout(confirmPayment, 6000);
 
   document.getElementById('success-continue-btn').addEventListener('click', function () {
     window.location.href = 'order-success.html';

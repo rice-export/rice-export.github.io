@@ -235,6 +235,9 @@
     btn.disabled = true;
 
     setTimeout(function () {
+      var orderId = 'MR-' + Date.now().toString().slice(-8);
+      sessionStorage.setItem('orderId', orderId);
+      sessionStorage.setItem('paymentMethod', 'Card Payment');
       localStorage.removeItem('cart');
       window.location.href = 'order-success.html';
     }, 2000);

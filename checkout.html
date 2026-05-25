@@ -345,6 +345,9 @@
       window.location.href = 'upi-payment.html';
     } else {
       // Cash on Delivery — go straight to order success
+      var orderId = 'MR-' + Date.now().toString().slice(-8);
+      sessionStorage.setItem('orderId', orderId);
+      sessionStorage.setItem('paymentMethod', 'Cash on Delivery');
       localStorage.removeItem('cart');
       window.location.href = 'order-success.html';
     }

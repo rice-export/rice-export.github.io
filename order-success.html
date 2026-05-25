@@ -124,12 +124,12 @@
 <!-- Order ID Card -->
 <div class="glass-card rounded-2xl p-8 space-y-2 border-2 border-primary">
 <p class="text-on-surface-variant font-label-sm text-label-sm uppercase">Order Number</p>
-<p class="font-display-lg text-headline-md text-primary">#MR-77294021</p>
+<p class="font-display-lg text-headline-md text-primary" id="order-id-display">#MR-77294021</p>
 </div>
 <!-- Delivery Date Card -->
 <div class="glass-card rounded-2xl p-8 space-y-2 border-2 border-secondary">
 <p class="text-on-surface-variant font-label-sm text-label-sm uppercase">Expected Delivery</p>
-<p class="font-display-lg text-headline-md text-secondary">Oct 24, 2024</p>
+<p class="font-display-lg text-headline-md text-secondary" id="delivery-date-display">Oct 24, 2024</p>
 </div>
 <!-- Action Buttons -->
 <div class="space-y-3">
@@ -158,5 +158,26 @@
 </div>
 </div>
 </div>
+<script>
+  var orderId = sessionStorage.getItem('orderId');
+  var method = sessionStorage.getItem('paymentMethod');
+  var total = sessionStorage.getItem('orderTotal');
+  if (orderId) {
+    document.getElementById('order-id-display').textContent = '#' + orderId;
+  }
+  var delivery = new Date();
+  delivery.setDate(delivery.getDate() + 7);
+  var options = { day: 'numeric', month: 'short', year: 'numeric' };
+  document.getElementById('delivery-date-display').textContent = delivery.toLocaleDateString('en-IN', options);
+  if (total && parseFloat(total) > 0) {
+    var note = document.querySelector('.glass-card p.text-on-surface-variant');
+    if (note && method) {
+      note.textContent = 'Payment of ₹' + parseFloat(total).toLocaleString('en-IN', {minimumFractionDigits: 2}) + ' via ' + method + ' was successful. A confirmation has been noted for your order.';
+    }
+  }
+  sessionStorage.removeItem('orderId');
+  sessionStorage.removeItem('paymentMethod');
+  sessionStorage.removeItem('orderTotal');
+</script>
 </body>
 </html>

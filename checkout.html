@@ -274,6 +274,7 @@
   function renderCart() {
     var container = document.getElementById('cart-items-container');
     var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    var confirmBtn = document.getElementById('confirm-order-btn');
     if (cart.length === 0) {
       container.innerHTML = '<p class="text-on-surface-variant text-sm py-6 text-center">Your cart is empty. <a href="catalog.html" class="text-primary underline">Browse products</a></p>';
       var badge = document.getElementById('cart-count');
@@ -281,7 +282,19 @@
       document.getElementById('summary-subtotal').textContent = '₹0.00';
       document.getElementById('summary-gst').textContent = '₹0.00';
       document.getElementById('summary-total').textContent = '₹0.00';
+      // Disable confirm order button when cart is empty
+      if (confirmBtn) {
+        confirmBtn.disabled = true;
+        confirmBtn.style.opacity = '0.5';
+        confirmBtn.style.cursor = 'not-allowed';
+      }
       return;
+    }
+    // Enable button when cart has items
+    if (confirmBtn) {
+      confirmBtn.disabled = false;
+      confirmBtn.style.opacity = '1';
+      confirmBtn.style.cursor = 'pointer';
     }
     container.innerHTML = cart.map(function(item, idx) {
       return '<div class="cart-item p-4 border border-outline-variant/20 rounded-xl flex gap-4 items-start">' +
@@ -331,6 +344,12 @@
 
   // Route Confirm Order based on selected payment method
   document.getElementById('confirm-order-btn').addEventListener('click', function () {
+    // Check if cart is empty
+    var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    if (cart.length === 0) {
+      alert('Your cart is empty. Please add products before placing an order.');
+      return;
+    }
     var selected = document.querySelector('input[name="payment"]:checked');
     var method = selected ? selected.value : 'cod';
     // Store grand total so payment pages can display it

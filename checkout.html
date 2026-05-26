@@ -106,6 +106,22 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        @keyframes shimmer {
+            0% {
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+                background-position: -1000px 0;
+            }
+            100% {
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+                background-position: 1000px 0;
+            }
+        }
+        .shimmer-text {
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
@@ -276,7 +292,7 @@
     var cart = JSON.parse(localStorage.getItem('cart') || '[]');
     var confirmBtn = document.getElementById('confirm-order-btn');
     if (cart.length === 0) {
-      container.innerHTML = '<p class="text-on-surface-variant text-sm py-6 text-center">Your cart is empty. <a href="catalog.html" class="text-primary underline">Browse products</a></p>';
+      container.innerHTML = '<p class="text-on-surface-variant text-sm py-6 text-center"><span class="font-bold shimmer-text">Your cart is empty.</span> <a href="catalog.html" class="text-primary underline">Browse products</a></p>';
       var badge = document.getElementById('cart-count');
       if (badge) badge.style.display = 'none';
       document.getElementById('summary-subtotal').textContent = '₹0.00';
@@ -288,6 +304,7 @@
         confirmBtn.style.opacity = '0.5';
         confirmBtn.style.cursor = 'not-allowed';
       }
+      return;
       return;
     }
     // Enable button when cart has items

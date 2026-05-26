@@ -52,7 +52,7 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "✅ Files added" -ForegroundColor Green
 
 # Check if there are changes to commit
-$hasDiff = git diff-index --quiet --cached HEAD; $hasDiff
+git diff-index --quiet --cached HEAD
 if ($LASTEXITCODE -eq 0) {
     Write-Host "ℹ️  No changes to commit - working directory is clean" -ForegroundColor Yellow
 } else {

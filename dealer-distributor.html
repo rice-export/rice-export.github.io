@@ -106,6 +106,37 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        /* Navigation link animations */
+        .nav-link {
+            position: relative;
+            display: inline-block;
+            padding: 8px 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #012d1d, #735c00);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #012d1d;
+            transform: translateY(-3px) scale(1.05);
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #012d1d;
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
@@ -116,10 +147,10 @@
 <h1 class="font-display-lg text-headline-sm font-bold text-primary">Mana Raithu</h1>
 </div>
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="index.html">Home</a>
-<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="catalog.html">Products</a>
-<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="dashboard.html">Dashboard</a>
-<a class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 font-label-sm text-label-sm" href="#">More</a>
+<a class="nav-link text-on-surface-variant font-label-sm text-label-sm" href="index.html">Home</a>
+<a class="nav-link text-on-surface-variant font-label-sm text-label-sm" href="catalog.html">Products</a>
+<a class="nav-link text-on-surface-variant font-label-sm text-label-sm" href="dashboard.html">Dashboard</a>
+<a class="nav-link text-on-surface-variant font-label-sm text-label-sm" href="#">More</a>
 </nav>
 <div class="flex items-center gap-4">
 <a href="checkout.html"><span class="material-symbols-outlined text-primary cursor-pointer">shopping_cart</span></a>

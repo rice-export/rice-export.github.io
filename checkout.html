@@ -122,36 +122,32 @@
             background-size: 1000px 100%;
             animation: shimmer 2s infinite;
         }
-        /* Navigation link animations */
-        .nav-link {
-            position: relative;
+        /* Navigation pill buttons */
+        .nav-pill {
             display: inline-block;
-            padding: 8px 12px;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            border: 2px solid transparent;
+            font-weight: 600;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #012d1d, #735c00);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 2px;
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(1, 45, 29, 0.15);
         }
-        .nav-link:hover::after {
-            width: 100%;
+        .nav-pill.active {
+            background-color: #012d1d;
+            color: #ffffff;
+            border-color: #012d1d;
         }
-        .nav-link:hover {
-            color: #012d1d;
-            transform: translateY(-3px) scale(1.05);
+        .nav-pill:not(.active) {
+            border-color: #c1c8c2;
+            color: #414844;
         }
-        .nav-link.active::after {
-            width: 100%;
-        }
-        .nav-link.active {
-            color: #012d1d;
+        .nav-pill:not(.active):hover {
+            border-color: #735c00;
+            background-color: rgba(115, 92, 0, 0.05);
         }
     </style>
 </head>
@@ -162,11 +158,11 @@
 <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
 <h1 class="font-display-lg text-headline-sm font-bold text-primary">Mana Raithu</h1>
 </div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="nav-link text-on-surface-variant font-label-sm text-label-sm" href="index.html">Home</a>
-<a class="nav-link text-on-surface-variant font-label-sm text-label-sm" href="catalog.html">Products</a>
-<a class="nav-link text-on-surface-variant font-label-sm text-label-sm" href="dashboard.html">Dashboard</a>
-<a class="nav-link text-on-surface-variant font-label-sm text-label-sm" href="#">More</a>
+<nav class="hidden md:flex items-center gap-4">
+<a class="nav-pill" href="index.html">Home</a>
+<a class="nav-pill" href="catalog.html">Products</a>
+<a class="nav-pill" href="dashboard.html">Dashboard</a>
+<a class="nav-pill" href="#">More</a>
 </nav>
 <div class="flex items-center gap-4">
 <a href="checkout.html" class="relative">
